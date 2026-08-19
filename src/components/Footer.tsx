@@ -1,5 +1,5 @@
 import React from 'react';
-import { Smartphone, ArrowUp } from 'lucide-react';
+import { Smartphone, ArrowUp, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 const GithubIcon = ({ size = 20 }: { size?: number }) => (
@@ -25,41 +25,42 @@ export const Footer: React.FC = () => {
   return (
     <footer
       style={{
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-        background: '#05070b',
-        padding: '40px 0 30px 0',
+        borderTop: '1px solid rgba(139, 92, 246, 0.2)',
+        background: '#030712',
+        padding: '44px 0 32px 0',
         position: 'relative',
       }}
     >
-      <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+      <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
           {/* Brand */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div
               style={{
-                width: '32px',
-                height: '32px',
-                borderRadius: '8px',
-                background: 'linear-gradient(135deg, #0284c7 0%, #6366f1 100%)',
+                width: '36px',
+                height: '36px',
+                borderRadius: '10px',
+                background: 'linear-gradient(135deg, #7c3aed 0%, #38bdf8 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                boxShadow: '0 0 15px rgba(139, 92, 246, 0.4)',
               }}
             >
-              <Smartphone size={16} color="#ffffff" />
+              <Smartphone size={18} color="#ffffff" />
             </div>
-            <span style={{ color: '#ffffff', fontWeight: 700, fontSize: '1rem' }}>
-              Abhishek Panchmiya
+            <span style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              Abhishek Panchmiya <Sparkles size={14} color="#38bdf8" />
             </span>
           </div>
 
           {/* Socials & Back to Top */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
             <a
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#9ca3af', textDecoration: 'none', transition: 'color 0.2s' }}
+              style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s' }}
             >
               <GithubIcon size={20} />
             </a>
@@ -67,7 +68,7 @@ export const Footer: React.FC = () => {
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#9ca3af', textDecoration: 'none', transition: 'color 0.2s' }}
+              style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s' }}
             >
               <LinkedinIcon size={20} />
             </a>
@@ -75,26 +76,27 @@ export const Footer: React.FC = () => {
             <button
               onClick={scrollToTop}
               style={{
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                color: '#38bdf8',
-                borderRadius: '10px',
-                padding: '8px 12px',
+                background: 'rgba(139, 92, 246, 0.15)',
+                border: '1px solid rgba(139, 92, 246, 0.35)',
+                color: '#c084fc',
+                borderRadius: '12px',
+                padding: '8px 14px',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                fontSize: '0.82rem',
+                fontSize: '0.84rem',
                 fontWeight: 600,
+                boxShadow: '0 0 12px rgba(139, 92, 246, 0.2)',
               }}
             >
-              Back to top <ArrowUp size={14} />
+              Orbit to Top <ArrowUp size={14} />
             </button>
           </div>
         </div>
 
-        <div style={{ textAlign: 'center', color: '#64748b', fontSize: '0.82rem', paddingTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.04)' }}>
-          © {new Date().getFullYear()} Abhishek Panchmiya. Built with React, Vite &amp; TypeScript.
+        <div style={{ textAlign: 'center', color: 'var(--text-dim)', fontSize: '0.82rem', paddingTop: '18px', borderTop: '1px solid rgba(255, 255, 255, 0.04)' }}>
+          © {new Date().getFullYear()} Abhishek Panchmiya · Senior Flutter &amp; Android Developer · Cosmic Space Theme Edition
         </div>
       </div>
     </footer>

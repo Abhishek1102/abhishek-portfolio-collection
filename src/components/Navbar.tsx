@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Smartphone, Menu, X, ArrowRight } from 'lucide-react';
+import { Smartphone, Menu, X, ArrowRight, Sparkles } from 'lucide-react';
 
 interface NavbarProps {
   activeSection: string;
@@ -20,7 +20,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
 
   const navItems = [
     { id: 'about', label: 'About' },
-    { id: 'projects', label: 'Projects' },
+    { id: 'projects', label: 'Play Store Apps' },
     { id: 'experience', label: 'Experience' },
     { id: 'skills', label: 'Skills' },
     { id: 'contact', label: 'Contact' },
@@ -43,46 +43,60 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
         left: 0,
         right: 0,
         zIndex: 900,
-        transition: 'all 0.3s ease',
-        background: scrolled ? 'rgba(7, 9, 14, 0.85)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
+        transition: 'all 0.35s ease',
+        background: scrolled ? 'rgba(3, 7, 18, 0.88)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(139, 92, 246, 0.2)' : '1px solid transparent',
         padding: '16px 0',
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        {/* Brand Logo */}
+        {/* Cosmic Brand Logo */}
         <a
           href="#hero"
           onClick={(e) => { e.preventDefault(); scrollTo('hero'); }}
-          style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}
+          style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}
         >
           <div
             style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '12px',
-              background: 'linear-gradient(135deg, #0284c7 0%, #6366f1 100%)',
+              width: '42px',
+              height: '42px',
+              borderRadius: '14px',
+              background: 'linear-gradient(135deg, #7c3aed 0%, #38bdf8 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 0 15px rgba(56, 189, 248, 0.4)',
+              boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)',
+              position: 'relative',
             }}
           >
-            <Smartphone size={20} color="#ffffff" />
+            <Smartphone size={22} color="#ffffff" />
+            <span
+              style={{
+                position: 'absolute',
+                top: '-2px',
+                right: '-2px',
+                width: '10px',
+                height: '10px',
+                borderRadius: '50%',
+                background: '#10b981',
+                border: '2px solid #030712',
+              }}
+            />
           </div>
           <div>
-            <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '1.1rem', letterSpacing: '-0.02em' }}>
-              Abhishek<span style={{ color: '#38bdf8' }}>.dev</span>
+            <div style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.15rem', letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              Abhishek<span style={{ color: '#a855f7' }}>.dev</span>
+              <Sparkles size={14} color="#38bdf8" />
             </div>
-            <div style={{ color: '#9ca3af', fontSize: '0.72rem', fontWeight: 500 }}>
-              Flutter &amp; Android Engineer
+            <div style={{ color: '#9ca3af', fontSize: '0.73rem', fontWeight: 500 }}>
+              Flutter &amp; Native Android Developer
             </div>
           </div>
         </a>
 
-        {/* Desktop Nav Items */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }} className="desktop-nav">
+        {/* Desktop Nav Links */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }} className="desktop-nav">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -90,11 +104,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
               style={{
                 background: 'none',
                 border: 'none',
-                color: activeSection === item.id ? '#38bdf8' : '#9ca3af',
+                color: activeSection === item.id ? '#c084fc' : '#9ca3af',
                 fontSize: '0.92rem',
-                fontWeight: activeSection === item.id ? 600 : 500,
+                fontWeight: activeSection === item.id ? 700 : 500,
                 cursor: 'pointer',
-                transition: 'color 0.2s ease',
+                transition: 'all 0.25s ease',
                 position: 'relative',
                 padding: '6px 0',
               }}
@@ -109,7 +123,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
                     right: 0,
                     height: '2px',
                     borderRadius: '2px',
-                    background: 'linear-gradient(90deg, #38bdf8, #6366f1)',
+                    background: 'linear-gradient(90deg, #a855f7, #38bdf8)',
+                    boxShadow: '0 0 10px #a855f7',
                   }}
                 />
               )}
@@ -117,14 +132,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
           ))}
         </div>
 
-        {/* Action Button & Privacy Badge */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        {/* Action CTA Button */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
           <button
             onClick={() => scrollTo('contact')}
             className="btn-primary"
-            style={{ padding: '8px 18px', fontSize: '0.88rem' }}
+            style={{ padding: '9px 20px', fontSize: '0.88rem' }}
           >
-            Contact Me <ArrowRight size={16} />
+            Transmit Message <ArrowRight size={16} />
           </button>
 
           {/* Mobile Hamburger Toggle */}
@@ -132,10 +147,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             style={{
               background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid var(--border-color)',
+              border: '1px solid rgba(139, 92, 246, 0.3)',
               color: '#ffffff',
               padding: '8px',
-              borderRadius: '8px',
+              borderRadius: '10px',
               cursor: 'pointer',
               display: 'none',
             }}
@@ -146,16 +161,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div
           style={{
-            background: 'rgba(15, 21, 35, 0.98)',
-            borderBottom: '1px solid var(--border-color)',
-            padding: '16px 24px',
+            background: 'rgba(11, 15, 25, 0.98)',
+            borderBottom: '1px solid rgba(139, 92, 246, 0.3)',
+            padding: '18px 24px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '12px',
+            gap: '14px',
           }}
         >
           {navItems.map((item) => (
@@ -165,8 +180,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
               style={{
                 background: 'none',
                 border: 'none',
-                color: activeSection === item.id ? '#38bdf8' : '#e5e7eb',
-                fontSize: '1rem',
+                color: activeSection === item.id ? '#c084fc' : '#e5e7eb',
+                fontSize: '1.02rem',
                 fontWeight: 600,
                 textAlign: 'left',
                 padding: '8px 0',

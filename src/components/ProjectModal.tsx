@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, CheckCircle2 } from 'lucide-react';
+import { X, CheckCircle2, ExternalLink, Sparkles } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
 
 interface ProjectModalProps {
@@ -17,14 +17,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         onClick={(e) => e.stopPropagation()}
         style={{
           width: '100%',
-          maxWidth: '720px',
+          maxWidth: '740px',
           maxHeight: '90vh',
           overflowY: 'auto',
-          padding: '32px',
+          padding: '36px',
           position: 'relative',
-          background: '#0d1322',
-          border: '1px solid rgba(255, 255, 255, 0.12)',
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.9)',
+          background: 'rgba(11, 15, 25, 0.95)',
+          border: '1px solid rgba(139, 92, 246, 0.4)',
+          boxShadow: '0 25px 60px -12px rgba(0, 0, 0, 0.95), 0 0 30px rgba(139, 92, 246, 0.2)',
         }}
       >
         {/* Close Button */}
@@ -38,8 +38,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             border: '1px solid rgba(255, 255, 255, 0.1)',
             color: '#ffffff',
             borderRadius: '50%',
-            width: '36px',
-            height: '36px',
+            width: '38px',
+            height: '38px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -50,16 +50,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </button>
 
         {/* Header Badge & Title */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
           <span
             style={{
               fontSize: '0.75rem',
               fontWeight: 700,
-              background: 'rgba(56, 189, 248, 0.12)',
-              color: '#38bdf8',
-              padding: '4px 10px',
+              background: 'rgba(139, 92, 246, 0.15)',
+              color: '#c084fc',
+              padding: '4px 12px',
               borderRadius: '20px',
-              border: '1px solid rgba(56, 189, 248, 0.25)',
+              border: '1px solid rgba(139, 92, 246, 0.3)',
             }}
           >
             {project.category}
@@ -69,22 +69,25 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               style={{
                 fontSize: '0.75rem',
                 fontWeight: 700,
-                background: 'rgba(16, 185, 129, 0.12)',
+                background: 'rgba(16, 185, 129, 0.15)',
                 color: '#10b981',
-                padding: '4px 10px',
+                padding: '4px 12px',
                 borderRadius: '20px',
-                border: '1px solid rgba(16, 185, 129, 0.25)',
+                border: '1px solid rgba(16, 185, 129, 0.3)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
               }}
             >
-              ★ Sole Developer (From Scratch)
+              <Sparkles size={12} /> Sole Developer (From Scratch)
             </span>
           )}
         </div>
 
-        <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#ffffff', marginBottom: '4px' }}>
+        <h2 style={{ fontSize: '1.9rem', fontWeight: 800, color: '#ffffff', marginBottom: '4px' }}>
           {project.title}
         </h2>
-        <div style={{ color: '#38bdf8', fontSize: '0.95rem', fontWeight: 600, marginBottom: '16px' }}>
+        <div style={{ color: '#38bdf8', fontSize: '0.95rem', fontWeight: 600, marginBottom: '20px' }}>
           {project.subtitle}
         </div>
 
@@ -93,21 +96,21 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '12px',
+            gap: '14px',
             background: 'rgba(255, 255, 255, 0.03)',
-            padding: '16px',
-            borderRadius: '12px',
+            padding: '18px',
+            borderRadius: '14px',
             marginBottom: '24px',
-            border: '1px solid rgba(255, 255, 255, 0.05)',
+            border: '1px solid rgba(255, 255, 255, 0.06)',
           }}
         >
           <div>
-            <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>Your Role:</div>
-            <div style={{ fontSize: '0.9rem', color: '#ffffff', fontWeight: 700 }}>{project.role}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Your Role:</div>
+            <div style={{ fontSize: '0.92rem', color: '#ffffff', fontWeight: 700, marginTop: '2px' }}>{project.role}</div>
           </div>
           <div>
-            <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>Status &amp; Reach:</div>
-            <div style={{ fontSize: '0.9rem', color: '#10b981', fontWeight: 700 }}>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Status &amp; Reach:</div>
+            <div style={{ fontSize: '0.92rem', color: '#10b981', fontWeight: 700, marginTop: '2px' }}>
               {project.status} {project.downloads && `(${project.downloads})`}
             </div>
           </div>
@@ -118,7 +121,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <h4 style={{ color: '#ffffff', fontSize: '1.05rem', fontWeight: 700, marginBottom: '8px' }}>
             Project Overview
           </h4>
-          <p style={{ color: '#9ca3af', lineHeight: 1.65, fontSize: '0.95rem' }}>
+          <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '0.95rem' }}>
             {project.longDescription}
           </p>
         </div>
@@ -131,15 +134,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {project.highlights.map((h, idx) => (
               <div key={idx} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                <CheckCircle2 size={18} color="#38bdf8" style={{ marginTop: '2px', flexShrink: 0 }} />
-                <span style={{ color: '#e5e7eb', fontSize: '0.9rem', lineHeight: 1.5 }}>{h}</span>
+                <CheckCircle2 size={18} color="#a855f7" style={{ marginTop: '2px', flexShrink: 0 }} />
+                <span style={{ color: '#e5e7eb', fontSize: '0.92rem', lineHeight: 1.5 }}>{h}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Tech Stack Pills */}
-        <div style={{ marginBottom: '24px' }}>
+        <div style={{ marginBottom: '28px' }}>
           <h4 style={{ color: '#ffffff', fontSize: '1.05rem', fontWeight: 700, marginBottom: '10px' }}>
             Technologies &amp; Tools Used
           </h4>
@@ -152,8 +155,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-          <button onClick={onClose} className="btn-secondary" style={{ padding: '8px 20px' }}>
+        {/* Modal Action Buttons */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
+          {project.playStoreUrl ? (
+            <a
+              href={project.playStoreUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-playstore"
+            >
+              <ExternalLink size={16} /> Open on Google Play Store
+            </a>
+          ) : (
+            <div />
+          )}
+
+          <button onClick={onClose} className="btn-secondary" style={{ padding: '10px 22px' }}>
             Close Details
           </button>
         </div>

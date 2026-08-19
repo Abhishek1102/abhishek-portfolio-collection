@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { 
-  Smartphone, Eye, Heart, ShoppingBag, Calendar, 
-  Play, Pause, ArrowRight, Sparkles, Volume2
+  Heart, ShoppingBag, Calendar, 
+  Play, Pause, ArrowRight, Sparkles, Volume2, ExternalLink,
+  Music, Bell, Cpu, Star
 } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
 
@@ -9,62 +10,63 @@ interface HeroProps {
   onSelectProject: (projectId: string) => void;
 }
 
-export const Hero: React.FC<HeroProps> = () => {
+export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
   const [activeAppIndex, setActiveAppIndex] = useState(0);
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [swipeCount, setSwipeCount] = useState(1);
   const [cartCount, setCartCount] = useState(0);
   const [bookingDone, setBookingDone] = useState(false);
+  const [selectedMantra, setSelectedMantra] = useState('Gayatri Mantra');
+  const [bellRinging, setBellRinging] = useState(false);
+  const [selectedBrand, setSelectedBrand] = useState('Samsung');
 
   const currentApp = PROJECTS[activeAppIndex];
+
+  const brandsUSSD: Record<string, string> = {
+    Samsung: '*#0*# (Hardware Diagnostic)',
+    Xiaomi: '*#*#6484#*#* (Engineering Test)',
+    Realme: '*#899# (Manual Test Mode)',
+    OnePlus: '*#808# (Factory Test)',
+  };
 
   return (
     <section
       id="hero"
       style={{
-        paddingTop: '130px',
-        paddingBottom: '80px',
+        paddingTop: '140px',
+        paddingBottom: '90px',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Glow background gradients */}
+      {/* Black Hole Singularity Background Visual */}
       <div
         style={{
           position: 'absolute',
-          top: '10%',
-          left: '-10%',
-          width: '500px',
-          height: '500px',
-          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0, 0, 0, 0) 70%)',
+          top: '15%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '700px',
+          height: '700px',
+          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(56, 189, 248, 0.05) 50%, transparent 75%)',
           borderRadius: '50%',
+          filter: 'blur(50px)',
           pointerEvents: 'none',
-        }}
-      />
-      <div
-        style={{
-          position: 'absolute',
-          top: '30%',
-          right: '-10%',
-          width: '600px',
-          height: '600px',
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(0, 0, 0, 0) 70%)',
-          borderRadius: '50%',
-          pointerEvents: 'none',
+          zIndex: 0,
         }}
       />
 
-      <div className="container">
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1.1fr 0.9fr',
+            gridTemplateColumns: '1.05fr 0.95fr',
             gap: '48px',
             alignItems: 'center',
           }}
           className="hero-grid"
         >
-          {/* Left Column - Intro Text */}
+          {/* Left Column - Cosmic Intro Text & Singularity Core */}
           <div>
             {/* Availability Badge */}
             <div
@@ -72,92 +74,105 @@ export const Hero: React.FC<HeroProps> = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '6px 14px',
+                padding: '6px 16px',
                 borderRadius: '30px',
-                background: 'rgba(16, 185, 129, 0.1)',
-                border: '1px solid rgba(16, 185, 129, 0.25)',
-                color: '#10b981',
+                background: 'rgba(139, 92, 246, 0.12)',
+                border: '1px solid rgba(139, 92, 246, 0.3)',
+                color: '#c084fc',
                 fontSize: '0.85rem',
                 fontWeight: 600,
-                marginBottom: '20px',
+                marginBottom: '24px',
+                boxShadow: '0 0 15px rgba(139, 92, 246, 0.2)',
               }}
             >
-              <span
-                style={{
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  background: '#10b981',
-                  boxShadow: '0 0 10px #10b981',
-                }}
-              />
-              Senior Flutter &amp; Android App Developer
+              <Sparkles size={16} className="text-purple-400 animate-pulse" />
+              <span>Senior Flutter &amp; Native Android (Kotlin) Developer</span>
             </div>
 
-            {/* Headline */}
+            {/* Main Title */}
             <h1
               style={{
-                fontSize: 'clamp(2.4rem, 5vw, 3.6rem)',
+                fontSize: 'clamp(2.5rem, 5vw, 3.8rem)',
                 fontWeight: 800,
                 lineHeight: 1.15,
-                letterSpacing: '-0.03em',
                 marginBottom: '20px',
-                color: '#ffffff',
+                letterSpacing: '-0.02em',
               }}
             >
-              Crafting Scalable, <br />
-              <span className="gradient-text">Interactive Mobile Apps</span>
+              Crafting <span className="gradient-text">Cosmic-Grade</span> Mobile Experiences
             </h1>
 
-            {/* Subtitle */}
+            {/* Subheading Tagline */}
             <p
               style={{
-                fontSize: '1.08rem',
-                color: '#9ca3af',
-                lineHeight: 1.65,
+                fontSize: '1.15rem',
+                color: 'var(--text-muted)',
                 marginBottom: '28px',
-                maxWidth: '540px',
+                maxWidth: '560px',
+                lineHeight: 1.7,
               }}
             >
-              Hi, I'm <strong style={{ color: '#ffffff' }}>{PERSONAL_INFO.name}</strong> based in Rajkot, India.
-              With 2+ years of production experience, I build robust, accessible, and high-performance cross-platform apps using <span style={{ color: '#38bdf8', fontWeight: 600 }}>Flutter &amp; Dart</span> alongside native <span style={{ color: '#c084fc', fontWeight: 600 }}>Android (Kotlin)</span> modules.
+              {PERSONAL_INFO.bio}
             </p>
 
-            {/* Key Skill Badges */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '36px' }}>
-              <span className="tech-badge">⚡ Flutter &amp; Dart</span>
-              <span className="tech-badge">🤖 Android (Kotlin)</span>
-              <span className="tech-badge">🏗️ Clean Architecture</span>
-              <span className="tech-badge">📦 Provider State</span>
-              <span className="tech-badge">🚀 Play Store Console</span>
-            </div>
-
-            {/* CTA Buttons */}
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '48px' }}>
+            {/* Primary Action Buttons */}
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '16px',
+                marginBottom: '36px',
+              }}
+            >
               <a href="#projects" className="btn-primary">
-                Explore My Apps <ArrowRight size={18} />
+                <span>Explore Play Store Apps</span>
+                <ArrowRight size={18} />
               </a>
-              <a href="#contact" className="btn-secondary">
-                Get In Touch
+
+              <a
+                href={PERSONAL_INFO.github}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-secondary"
+              >
+                <ExternalLink size={18} />
+                <span>GitHub Profile</span>
               </a>
             </div>
 
-            {/* Stats Row */}
+            {/* Stats Counter Bar */}
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '16px',
-                paddingTop: '24px',
-                borderTop: '1px solid var(--border-color)',
+                gridTemplateColumns: 'repeat(4, 1fr)',
+                gap: '12px',
+                padding: '20px',
+                background: 'rgba(11, 15, 25, 0.75)',
+                backdropFilter: 'blur(16px)',
+                border: '1px solid rgba(139, 92, 246, 0.25)',
+                borderRadius: '16px',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
               }}
             >
-              {PERSONAL_INFO.stats.slice(0, 3).map((stat, idx) => (
-                <div key={idx}>
-                  <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#38bdf8', letterSpacing: '-0.02em' }}>
+              {PERSONAL_INFO.stats.map((stat, idx) => (
+                <div key={idx} style={{ textAlign: 'center' }}>
+                  <div
+                    style={{
+                      fontSize: '1.4rem',
+                      fontWeight: 800,
+                      color: idx === 1 ? '#10b981' : idx === 2 ? '#38bdf8' : '#c084fc',
+                    }}
+                  >
                     {stat.value}
                   </div>
-                  <div style={{ fontSize: '0.82rem', color: '#9ca3af', fontWeight: 500 }}>
+                  <div
+                    style={{
+                      fontSize: '0.75rem',
+                      color: 'var(--text-dim)',
+                      fontWeight: 500,
+                      marginTop: '2px',
+                    }}
+                  >
                     {stat.label}
                   </div>
                 </div>
@@ -165,384 +180,536 @@ export const Hero: React.FC<HeroProps> = () => {
             </div>
           </div>
 
-          {/* Right Column - Interactive Smartphone Simulator */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            {/* Interactive Notice */}
+          {/* Right Column - Space Holo-Display Mobile Simulator */}
+          <div style={{ position: 'relative' }}>
+            {/* Accretion Disk Orbit Glow Behind Simulator */}
             <div
               style={{
-                marginBottom: '12px',
-                fontSize: '0.82rem',
-                color: '#38bdf8',
-                fontWeight: 600,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                background: 'rgba(56, 189, 248, 0.08)',
-                padding: '4px 12px',
-                borderRadius: '20px',
-                border: '1px solid rgba(56, 189, 248, 0.2)',
+                position: 'absolute',
+                inset: '-20px',
+                background: 'radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(56, 189, 248, 0.1) 40%, transparent 70%)',
+                borderRadius: '30px',
+                filter: 'blur(20px)',
+                pointerEvents: 'none',
               }}
-            >
-              <Sparkles size={14} /> Interactive Live App Simulator — Tap screens below!
-            </div>
+            />
 
-            {/* Outer Phone Shell */}
+            {/* Holo Screen Card */}
             <div
-              className="phone-float phone-glow"
+              className="glass-panel phone-glow phone-float"
               style={{
-                width: '320px',
-                height: '620px',
-                background: '#0d111a',
-                borderRadius: '44px',
-                border: '8px solid #1e293b',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
-                padding: '12px',
+                padding: '20px',
                 position: 'relative',
-                display: 'flex',
-                flexDirection: 'column',
+                border: '1px solid rgba(139, 92, 246, 0.35)',
+                borderRadius: '24px',
+                background: 'rgba(11, 15, 25, 0.85)',
               }}
             >
-              {/* Phone Speaker Notch */}
+              {/* App Switcher Tabs Header */}
               <div
                 style={{
-                  width: '120px',
-                  height: '18px',
-                  background: '#1e293b',
-                  borderRadius: '0 0 12px 12px',
-                  position: 'absolute',
-                  top: '0',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  zIndex: 20,
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
+                  gap: '8px',
+                  overflowX: 'auto',
+                  paddingBottom: '12px',
+                  marginBottom: '16px',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
                 }}
               >
-                <div style={{ width: '40px', height: '4px', background: '#334155', borderRadius: '2px' }} />
+                {PROJECTS.map((app, index) => (
+                  <button
+                    key={app.id}
+                    onClick={() => setActiveAppIndex(index)}
+                    style={{
+                      padding: '6px 12px',
+                      borderRadius: '12px',
+                      border: 'none',
+                      background:
+                        activeAppIndex === index
+                          ? 'rgba(139, 92, 246, 0.25)'
+                          : 'rgba(255, 255, 255, 0.04)',
+                      color: activeAppIndex === index ? '#fff' : 'var(--text-muted)',
+                      fontSize: '0.78rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      whiteSpace: 'nowrap',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      transition: 'all 0.2s ease',
+                      boxShadow:
+                        activeAppIndex === index
+                          ? '0 0 12px rgba(139, 92, 246, 0.4)'
+                          : 'none',
+                    }}
+                  >
+                    <span
+                      style={{
+                        width: '6px',
+                        height: '6px',
+                        borderRadius: '50%',
+                        background: app.color,
+                      }}
+                    />
+                    {app.title.split(' ')[0]}
+                  </button>
+                ))}
               </div>
 
-              {/* Virtual Phone Screen Canvas */}
+              {/* Phone Frame Housing */}
               <div
                 style={{
-                  flex: 1,
-                  background: '#080c14',
-                  borderRadius: '32px',
+                  width: '100%',
+                  maxWidth: '320px',
+                  margin: '0 auto',
+                  height: '420px',
+                  background: '#070a14',
+                  borderRadius: '28px',
+                  border: '3px solid rgba(139, 92, 246, 0.4)',
+                  boxShadow: '0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(56, 189, 248, 0.1)',
+                  position: 'relative',
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
-                  border: '1px solid rgba(255, 255, 255, 0.05)',
-                  position: 'relative',
-                  marginTop: '6px',
                 }}
               >
-                {/* Phone Top Status Bar */}
+                {/* Phone Notch Bar */}
                 <div
                   style={{
-                    padding: '8px 16px 4px 16px',
+                    height: '24px',
+                    background: '#030712',
                     display: 'flex',
-                    justifyContent: 'space-between',
+                    justifyContent: 'center',
                     alignItems: 'center',
-                    fontSize: '0.7rem',
-                    color: '#9ca3af',
-                    fontWeight: 600,
+                    borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
                   }}
                 >
-                  <span>9:41</span>
-                  <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
-                    <span>5G</span>
-                    <Smartphone size={10} />
-                  </div>
+                  <div
+                    style={{
+                      width: '60px',
+                      height: '8px',
+                      background: '#111827',
+                      borderRadius: '10px',
+                    }}
+                  />
                 </div>
 
-                {/* Simulated App Header */}
+                {/* App Content Screen View */}
                 <div
                   style={{
-                    padding: '10px 14px',
-                    background: 'rgba(15, 23, 42, 0.9)',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                    flex: 1,
+                    padding: '16px',
                     display: 'flex',
-                    alignItems: 'center',
+                    flexDirection: 'column',
                     justifyContent: 'space-between',
+                    background: 'radial-gradient(circle at top, rgba(17, 24, 39, 0.9), #070a14)',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  {/* App Header Badge */}
+                  <div>
                     <div
                       style={{
-                        width: '28px',
-                        height: '28px',
-                        borderRadius: '8px',
-                        background: currentApp.color,
                         display: 'flex',
+                        justifyContent: 'space-between',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '0.8rem',
+                        marginBottom: '12px',
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontSize: '0.72rem',
+                          padding: '3px 8px',
+                          borderRadius: '8px',
+                          background: 'rgba(139, 92, 246, 0.15)',
+                          color: '#c084fc',
+                          fontWeight: 600,
+                        }}
+                      >
+                        {currentApp.category}
+                      </span>
+                      {currentApp.downloads && (
+                        <span
+                          style={{
+                            fontSize: '0.7rem',
+                            color: '#10b981',
+                            fontWeight: 600,
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '4px',
+                          }}
+                        >
+                          <Star size={12} /> {currentApp.downloads}
+                        </span>
+                      )}
+                    </div>
+
+                    <h3
+                      style={{
+                        fontSize: '1.15rem',
                         fontWeight: 700,
                         color: '#fff',
+                        marginBottom: '4px',
                       }}
                     >
-                      {currentApp.title[0]}
-                    </div>
-                    <div>
-                      <div style={{ color: '#fff', fontSize: '0.82rem', fontWeight: 700, lineHeight: 1.1 }}>
-                        {currentApp.title}
-                      </div>
-                      <div style={{ color: '#9ca3af', fontSize: '0.65rem' }}>{currentApp.category}</div>
-                    </div>
+                      {currentApp.title}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: '0.75rem',
+                        color: 'var(--text-muted)',
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {currentApp.subtitle}
+                    </p>
                   </div>
-                  <span
+
+                  {/* Interactive App Mockup Component */}
+                  <div
                     style={{
-                      fontSize: '0.65rem',
-                      background: 'rgba(255,255,255,0.1)',
-                      color: '#38bdf8',
-                      padding: '2px 6px',
-                      borderRadius: '4px',
+                      flex: 1,
+                      margin: '12px 0',
+                      background: 'rgba(15, 23, 42, 0.6)',
+                      borderRadius: '16px',
+                      border: '1px solid rgba(255, 255, 255, 0.08)',
+                      padding: '14px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      textAlign: 'center',
                     }}
                   >
-                    Flutter
-                  </span>
+                    {/* 1. Listening Eyes TTS Simulator */}
+                    {currentApp.mockupType === 'accessibility_tts' && (
+                      <div>
+                        <Volume2
+                          size={32}
+                          color={currentApp.color}
+                          style={{ marginBottom: '8px' }}
+                        />
+                        <div
+                          style={{
+                            fontSize: '0.8rem',
+                            color: 'var(--text-main)',
+                            fontWeight: 600,
+                            marginBottom: '8px',
+                          }}
+                        >
+                          {isPlayingAudio ? '🔊 Spoken Audio Feedback Active' : '🔇 Tap to Test Voice Navigation'}
+                        </div>
+                        <button
+                          onClick={() => setIsPlayingAudio(!isPlayingAudio)}
+                          style={{
+                            padding: '8px 16px',
+                            borderRadius: '20px',
+                            background: isPlayingAudio ? '#a855f7' : 'rgba(255, 255, 255, 0.1)',
+                            border: 'none',
+                            color: '#fff',
+                            fontSize: '0.75rem',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                          }}
+                        >
+                          {isPlayingAudio ? <Pause size={14} /> : <Play size={14} />}
+                          {isPlayingAudio ? 'Pause Speech' : 'Play TTS Feedback'}
+                        </button>
+                      </div>
+                    )}
+
+                    {/* 2. Hukup Dating Swipe Simulator */}
+                    {currentApp.mockupType === 'dating_swipe' && (
+                      <div>
+                        <Heart
+                          size={32}
+                          color={currentApp.color}
+                          style={{ marginBottom: '8px' }}
+                        />
+                        <div
+                          style={{
+                            fontSize: '0.8rem',
+                            color: 'var(--text-main)',
+                            fontWeight: 600,
+                            marginBottom: '8px',
+                          }}
+                        >
+                          Profile Card #{swipeCount} Matched!
+                        </div>
+                        <button
+                          onClick={() => setSwipeCount(swipeCount + 1)}
+                          style={{
+                            padding: '8px 16px',
+                            borderRadius: '20px',
+                            background: '#ec4899',
+                            border: 'none',
+                            color: '#fff',
+                            fontSize: '0.75rem',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                          }}
+                        >
+                          Swipe Next Card 👉
+                        </button>
+                      </div>
+                    )}
+
+                    {/* 3. Daily Mantra Jaap Player Simulator */}
+                    {currentApp.mockupType === 'mantra_player' && (
+                      <div>
+                        <Music
+                          size={30}
+                          color="#f59e0b"
+                          style={{ marginBottom: '6px' }}
+                        />
+                        <div
+                          style={{
+                            fontSize: '0.8rem',
+                            color: '#fff',
+                            fontWeight: 600,
+                            marginBottom: '4px',
+                          }}
+                        >
+                          🕉️ {selectedMantra}
+                        </div>
+                        <div
+                          style={{
+                            fontSize: '0.7rem',
+                            color: 'var(--text-dim)',
+                            marginBottom: '8px',
+                          }}
+                        >
+                          Auto-Loop Repeat Mode Active
+                        </div>
+                        <div style={{ display: 'flex', gap: '6px', justifyContent: 'center' }}>
+                          {['Ganesh', 'Gayatri', 'Om'].map((m) => (
+                            <button
+                              key={m}
+                              onClick={() => setSelectedMantra(`${m} Mantra`)}
+                              style={{
+                                padding: '4px 8px',
+                                borderRadius: '8px',
+                                background:
+                                  selectedMantra.includes(m)
+                                    ? '#f59e0b'
+                                    : 'rgba(255, 255, 255, 0.1)',
+                                border: 'none',
+                                color: '#fff',
+                                fontSize: '0.68rem',
+                                cursor: 'pointer',
+                              }}
+                            >
+                              {m}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* 4. Miodeal E-Commerce Simulator */}
+                    {currentApp.mockupType === 'ecommerce_shop' && (
+                      <div>
+                        <ShoppingBag
+                          size={32}
+                          color={currentApp.color}
+                          style={{ marginBottom: '8px' }}
+                        />
+                        <div
+                          style={{
+                            fontSize: '0.8rem',
+                            color: 'var(--text-main)',
+                            fontWeight: 600,
+                            marginBottom: '8px',
+                          }}
+                        >
+                          Cart Items: {cartCount}
+                        </div>
+                        <button
+                          onClick={() => setCartCount(cartCount + 1)}
+                          style={{
+                            padding: '8px 16px',
+                            borderRadius: '20px',
+                            background: '#3b82f6',
+                            border: 'none',
+                            color: '#fff',
+                            fontSize: '0.75rem',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                          }}
+                        >
+                          + Add Item to Cart 🛒
+                        </button>
+                      </div>
+                    )}
+
+                    {/* 5. Aarti Pooja Bell Simulator */}
+                    {currentApp.mockupType === 'pooja_bell' && (
+                      <div>
+                        <Bell
+                          size={32}
+                          color="#eab308"
+                          style={{
+                            marginBottom: '8px',
+                            transform: bellRinging ? 'rotate(20deg)' : 'rotate(0deg)',
+                            transition: 'transform 0.15s ease-in-out',
+                          }}
+                        />
+                        <div
+                          style={{
+                            fontSize: '0.8rem',
+                            color: '#fff',
+                            fontWeight: 600,
+                            marginBottom: '8px',
+                          }}
+                        >
+                          {bellRinging ? '🔔 Ringing Aarti Bell...' : 'Tap Bell to Ring'}
+                        </div>
+                        <button
+                          onClick={() => {
+                            setBellRinging(true);
+                            setTimeout(() => setBellRinging(false), 1200);
+                          }}
+                          style={{
+                            padding: '8px 16px',
+                            borderRadius: '20px',
+                            background: '#eab308',
+                            border: 'none',
+                            color: '#000',
+                            fontSize: '0.75rem',
+                            fontWeight: 700,
+                            cursor: 'pointer',
+                          }}
+                        >
+                          Ring Virtual Bell 🔔
+                        </button>
+                      </div>
+                    )}
+
+                    {/* 6. Mobile Codes USSD Simulator */}
+                    {currentApp.mockupType === 'mobile_codes' && (
+                      <div>
+                        <Cpu
+                          size={28}
+                          color="#06b6d4"
+                          style={{ marginBottom: '6px' }}
+                        />
+                        <div
+                          style={{
+                            fontSize: '0.78rem',
+                            color: '#fff',
+                            fontWeight: 600,
+                            marginBottom: '4px',
+                          }}
+                        >
+                          {selectedBrand}: {brandsUSSD[selectedBrand]}
+                        </div>
+                        <div
+                          style={{
+                            display: 'flex',
+                            gap: '4px',
+                            justifyContent: 'center',
+                            flexWrap: 'wrap',
+                            marginTop: '6px',
+                          }}
+                        >
+                          {Object.keys(brandsUSSD).map((b) => (
+                            <button
+                              key={b}
+                              onClick={() => setSelectedBrand(b)}
+                              style={{
+                                padding: '4px 8px',
+                                borderRadius: '6px',
+                                background:
+                                  selectedBrand === b
+                                    ? '#06b6d4'
+                                    : 'rgba(255, 255, 255, 0.1)',
+                                border: 'none',
+                                color: '#fff',
+                                fontSize: '0.65rem',
+                                cursor: 'pointer',
+                              }}
+                            >
+                              {b}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* 7. Maia Care Booking Simulator */}
+                    {currentApp.mockupType === 'medical_booking' && (
+                      <div>
+                        <Calendar
+                          size={32}
+                          color={currentApp.color}
+                          style={{ marginBottom: '8px' }}
+                        />
+                        <div
+                          style={{
+                            fontSize: '0.8rem',
+                            color: 'var(--text-main)',
+                            fontWeight: 600,
+                            marginBottom: '8px',
+                          }}
+                        >
+                          {bookingDone ? '✅ Visit Scheduled!' : 'Select Doctor Slot'}
+                        </div>
+                        <button
+                          onClick={() => setBookingDone(!bookingDone)}
+                          style={{
+                            padding: '8px 16px',
+                            borderRadius: '20px',
+                            background: '#10b981',
+                            border: 'none',
+                            color: '#fff',
+                            fontSize: '0.75rem',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                          }}
+                        >
+                          {bookingDone ? 'Reset Schedule' : 'Confirm Visit Slot 📅'}
+                        </button>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Play Store Link Button Footer */}
+                  <div>
+                    {currentApp.playStoreUrl ? (
+                      <a
+                        href={currentApp.playStoreUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-playstore"
+                        style={{
+                          width: '100%',
+                          justifyContent: 'center',
+                          fontSize: '0.78rem',
+                          padding: '8px 12px',
+                        }}
+                      >
+                        <ExternalLink size={14} />
+                        <span>View on Google Play Store</span>
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => onSelectProject(currentApp.id)}
+                        className="btn-secondary"
+                        style={{
+                          width: '100%',
+                          justifyContent: 'center',
+                          fontSize: '0.78rem',
+                          padding: '8px 12px',
+                        }}
+                      >
+                        <span>View Case Study</span>
+                      </button>
+                    )}
+                  </div>
                 </div>
-
-                {/* Simulated App Body Content based on App Type */}
-                <div style={{ flex: 1, padding: '14px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  
-                  {/* APP TYPE 1: LISTENING EYES */}
-                  {currentApp.id === 'listening-eyes' && (
-                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div style={{ background: '#131b2e', padding: '12px', borderRadius: '12px', border: '1px solid rgba(139, 92, 246, 0.3)' }}>
-                        <div style={{ color: '#a78bfa', fontSize: '0.75rem', fontWeight: 700, marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                          <Volume2 size={14} /> Text-To-Speech Reader
-                        </div>
-                        <div style={{ color: '#e2e8f0', fontSize: '0.72rem', lineHeight: 1.4 }}>
-                          "Chapter 3: Physics for Visually Impaired. Spoken audio feedback active..."
-                        </div>
-                      </div>
-
-                      {/* Interactive TTS Audio Visualizer Button */}
-                      <button
-                        onClick={() => setIsPlayingAudio(!isPlayingAudio)}
-                        style={{
-                          background: isPlayingAudio ? '#8b5cf6' : 'rgba(139, 92, 246, 0.15)',
-                          border: '1px solid #8b5cf6',
-                          color: '#fff',
-                          padding: '10px',
-                          borderRadius: '12px',
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: '8px',
-                          fontSize: '0.8rem',
-                          fontWeight: 600,
-                          transition: 'all 0.2s ease',
-                        }}
-                      >
-                        {isPlayingAudio ? <Pause size={16} /> : <Play size={16} />}
-                        {isPlayingAudio ? 'Pause Speech Engine' : 'Tap to Play Speech Demo'}
-                      </button>
-
-                      {/* Visual Waveform indicator */}
-                      <div style={{ display: 'flex', gap: '4px', justifyContent: 'center', alignItems: 'center', height: '24px' }}>
-                        {[40, 70, 30, 90, 60, 80, 40, 90, 50, 70].map((h, i) => (
-                          <div
-                            key={i}
-                            style={{
-                              width: '4px',
-                              height: isPlayingAudio ? `${h}%` : '20%',
-                              background: '#8b5cf6',
-                              borderRadius: '2px',
-                              transition: 'all 0.2s ease',
-                            }}
-                          />
-                        ))}
-                      </div>
-
-                      <div style={{ marginTop: 'auto', background: 'rgba(255,255,255,0.03)', padding: '8px', borderRadius: '8px', fontSize: '0.68rem', color: '#94a3b8' }}>
-                        🎯 <strong>500+ Active Impaired Students</strong> using spoken study modules.
-                      </div>
-                    </div>
-                  )}
-
-                  {/* APP TYPE 2: HUKUP DATING APP */}
-                  {currentApp.id === 'hukup-dating' && (
-                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div
-                        style={{
-                          flex: 1,
-                          background: 'linear-gradient(180deg, #1e1b4b 0%, #0f172a 100%)',
-                          borderRadius: '16px',
-                          padding: '12px',
-                          border: '1px solid rgba(236, 72, 153, 0.3)',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          justifyContent: 'flex-end',
-                          position: 'relative',
-                        }}
-                      >
-                        <div style={{ position: 'absolute', top: '10px', right: '10px', background: '#ec4899', color: '#fff', padding: '2px 8px', borderRadius: '10px', fontSize: '0.65rem', fontWeight: 700 }}>
-                          Card #{swipeCount}
-                        </div>
-                        <div style={{ color: '#fff', fontWeight: 800, fontSize: '0.95rem' }}>
-                          Alex, 24 <span style={{ fontSize: '0.7rem', color: '#ec4899' }}>● Online</span>
-                        </div>
-                        <div style={{ color: '#cbd5e1', fontSize: '0.7rem', marginBottom: '8px' }}>
-                          Flutter Developer &amp; Tech Enthusiast
-                        </div>
-                        <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
-                          <span style={{ fontSize: '0.6rem', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '4px', color: '#fff' }}>Coding</span>
-                          <span style={{ fontSize: '0.6rem', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '4px', color: '#fff' }}>Music</span>
-                        </div>
-                      </div>
-
-                      {/* Swipe Interactive Button */}
-                      <button
-                        onClick={() => setSwipeCount(prev => prev + 1)}
-                        style={{
-                          background: '#ec4899',
-                          color: '#fff',
-                          border: 'none',
-                          padding: '10px',
-                          borderRadius: '12px',
-                          cursor: 'pointer',
-                          fontWeight: 700,
-                          fontSize: '0.8rem',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: '6px',
-                        }}
-                      >
-                        <Heart size={16} fill="#fff" /> Tap to Swipe Next Card ({swipeCount})
-                      </button>
-                    </div>
-                  )}
-
-                  {/* APP TYPE 3: MIODEAL BUYER */}
-                  {currentApp.id === 'miodeal-buyer' && (
-                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div style={{ background: '#1e1b18', padding: '10px', borderRadius: '12px', border: '1px solid rgba(245, 158, 11, 0.3)' }}>
-                        <div style={{ color: '#fbbf24', fontSize: '0.7rem', fontWeight: 700, marginBottom: '4px' }}>
-                          SPECIAL DEALS
-                        </div>
-                        <div style={{ color: '#fff', fontSize: '0.85rem', fontWeight: 700 }}>
-                          Wireless Noise-Canceling Headphones
-                        </div>
-                        <div style={{ color: '#f59e0b', fontSize: '0.9rem', fontWeight: 800, marginTop: '4px' }}>
-                          $149.00 <span style={{ fontSize: '0.7rem', color: '#94a3b8', textDecoration: 'line-through' }}>$199.00</span>
-                        </div>
-                      </div>
-
-                      <button
-                        onClick={() => setCartCount(prev => prev + 1)}
-                        style={{
-                          background: '#f59e0b',
-                          color: '#000',
-                          border: 'none',
-                          padding: '10px',
-                          borderRadius: '12px',
-                          cursor: 'pointer',
-                          fontWeight: 700,
-                          fontSize: '0.8rem',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: '6px',
-                        }}
-                      >
-                        <ShoppingBag size={16} /> Add to Cart (Items: {cartCount})
-                      </button>
-
-                      <div style={{ fontSize: '0.7rem', color: '#94a3b8', background: 'rgba(255,255,255,0.03)', padding: '8px', borderRadius: '8px' }}>
-                        💳 Built with Dio API Caching &amp; Hive Local Cart State
-                      </div>
-                    </div>
-                  )}
-
-                  {/* APP TYPE 4: MAIA CARE */}
-                  {currentApp.id === 'maia-care' && (
-                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div style={{ background: '#064e3b', padding: '10px', borderRadius: '12px', border: '1px solid rgba(16, 185, 129, 0.4)' }}>
-                        <div style={{ color: '#6ee7b7', fontSize: '0.7rem', fontWeight: 700 }}>
-                          DOCTOR SCHEDULER
-                        </div>
-                        <div style={{ color: '#fff', fontSize: '0.82rem', fontWeight: 700, marginTop: '2px' }}>
-                          Dr. Sharma (Cardiologist)
-                        </div>
-                        <div style={{ color: '#a7f3d0', fontSize: '0.7rem', marginTop: '2px' }}>
-                          Slot: Today at 4:30 PM
-                        </div>
-                      </div>
-
-                      <button
-                        onClick={() => setBookingDone(true)}
-                        style={{
-                          background: bookingDone ? '#10b981' : 'rgba(16, 185, 129, 0.2)',
-                          border: '1px solid #10b981',
-                          color: '#fff',
-                          padding: '10px',
-                          borderRadius: '12px',
-                          cursor: 'pointer',
-                          fontWeight: 700,
-                          fontSize: '0.8rem',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: '6px',
-                        }}
-                      >
-                        <Calendar size={16} /> {bookingDone ? '✓ Appointment Confirmed!' : 'Tap to Book Slot'}
-                      </button>
-
-                      <div style={{ fontSize: '0.7rem', color: '#94a3b8', background: 'rgba(255,255,255,0.03)', padding: '8px', borderRadius: '8px' }}>
-                        🏥 Built single-handedly with Clean Architecture &amp; Provider
-                      </div>
-                    </div>
-                  )}
-
-                </div>
-
-                {/* Simulated Phone App Switcher Tabs */}
-                <div
-                  style={{
-                    padding: '8px',
-                    background: '#0d1322',
-                    borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
-                    gap: '4px',
-                  }}
-                >
-                  {PROJECTS.map((app, idx) => (
-                    <button
-                      key={app.id}
-                      onClick={() => setActiveAppIndex(idx)}
-                      style={{
-                        background: activeAppIndex === idx ? 'rgba(56, 189, 248, 0.15)' : 'transparent',
-                        border: activeAppIndex === idx ? '1px solid rgba(56, 189, 248, 0.3)' : '1px solid transparent',
-                        borderRadius: '8px',
-                        padding: '6px 2px',
-                        color: activeAppIndex === idx ? '#38bdf8' : '#64748b',
-                        fontSize: '0.62rem',
-                        fontWeight: 600,
-                        cursor: 'pointer',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        gap: '2px',
-                        transition: 'all 0.2s ease',
-                      }}
-                    >
-                      {app.id === 'listening-eyes' && <Eye size={12} />}
-                      {app.id === 'hukup-dating' && <Heart size={12} />}
-                      {app.id === 'miodeal-buyer' && <ShoppingBag size={12} />}
-                      {app.id === 'maia-care' && <Calendar size={12} />}
-                      <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '55px' }}>
-                        {app.title.split(' ')[0]}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-
               </div>
             </div>
           </div>

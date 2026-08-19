@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { CosmicCanvas } from './components/CosmicCanvas';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -19,17 +20,23 @@ export function App() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: '#07090e', color: '#f3f4f6' }}>
-      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-      <main>
-        <Hero onSelectProject={handleSelectProject} />
-        <About />
-        <Projects />
-        <Experience />
-        <Skills />
-        <ContactForm />
-      </main>
-      <Footer />
+    <div style={{ minHeight: '100vh', background: '#030712', color: '#f3f4f6', position: 'relative' }}>
+      {/* Cosmic Starfield Particle Canvas */}
+      <CosmicCanvas />
+
+      {/* Main Content Overlay */}
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
+        <main>
+          <Hero onSelectProject={handleSelectProject} />
+          <About />
+          <Projects />
+          <Experience />
+          <Skills />
+          <ContactForm />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

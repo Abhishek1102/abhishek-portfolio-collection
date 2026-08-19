@@ -35,43 +35,46 @@ export const ContactForm: React.FC = () => {
 
     setLoading(true);
     
-    // Simulate direct secure dispatch & trigger confetti celebration
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
       confetti({
-        particleCount: 100,
-        spread: 70,
+        particleCount: 120,
+        spread: 80,
         origin: { y: 0.6 }
       });
     }, 800);
   };
 
   return (
-    <section id="contact" style={{ padding: '80px 0', position: 'relative' }}>
+    <section id="contact" style={{ padding: '90px 0', position: 'relative' }}>
       <div className="container">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '52px' }}>
           <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
-              color: '#38bdf8',
+              gap: '8px',
+              color: '#c084fc',
               fontSize: '0.85rem',
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.08em',
-              marginBottom: '8px',
+              marginBottom: '10px',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              background: 'rgba(139, 92, 246, 0.1)',
+              border: '1px solid rgba(139, 92, 246, 0.25)',
             }}
           >
-            <MessageSquare size={16} /> Get In Touch
+            <MessageSquare size={16} /> Subspace Transmission
           </div>
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em' }}>
-            Let's Build Something Great Together
+          <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 2.8rem)', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em' }}>
+            Let's Build Something Cosmic Together
           </h2>
-          <p style={{ color: '#9ca3af', fontSize: '1rem', marginTop: '8px' }}>
-            Have a project, job opportunity, or technical consultation in mind? Send a message directly.
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', marginTop: '10px' }}>
+            Have a project, job opportunity, or mobile architecture consultation in mind? Transmit a message directly.
           </p>
         </div>
 
@@ -85,12 +88,12 @@ export const ContactForm: React.FC = () => {
           className="contact-grid"
         >
           {/* Left Info Box */}
-          <div className="glass-panel" style={{ padding: '32px' }}>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>
+          <div className="glass-panel" style={{ padding: '36px', border: '1px solid rgba(139, 92, 246, 0.25)' }}>
+            <h3 style={{ fontSize: '1.45rem', fontWeight: 700, color: '#ffffff', marginBottom: '18px' }}>
               Connect &amp; Collaborate
             </h3>
-            <p style={{ color: '#9ca3af', lineHeight: 1.6, marginBottom: '28px', fontSize: '0.95rem' }}>
-              I am open to full-time Senior App Developer roles, Flutter/Android consulting, and project development. Fill out the form to send me a message directly.
+            <p style={{ color: 'var(--text-muted)', lineHeight: 1.65, marginBottom: '30px', fontSize: '0.95rem' }}>
+              I am open to full-time Senior Mobile Developer roles, Flutter/Android native consulting, and production app builds. Transmit your message below.
             </p>
 
             {/* Privacy Protection Banner */}
@@ -98,56 +101,57 @@ export const ContactForm: React.FC = () => {
               style={{
                 background: 'rgba(16, 185, 129, 0.08)',
                 border: '1px solid rgba(16, 185, 129, 0.25)',
-                padding: '16px',
-                borderRadius: '12px',
-                marginBottom: '28px',
+                padding: '18px',
+                borderRadius: '14px',
+                marginBottom: '30px',
                 display: 'flex',
-                gap: '12px',
+                gap: '14px',
                 alignItems: 'flex-start',
               }}
             >
-              <ShieldCheck size={24} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
+              <ShieldCheck size={26} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
               <div>
-                <div style={{ color: '#10b981', fontWeight: 700, fontSize: '0.9rem', marginBottom: '2px' }}>
-                  Privacy Protected
+                <div style={{ color: '#10b981', fontWeight: 700, fontSize: '0.92rem', marginBottom: '3px' }}>
+                  Privacy Protected Route
                 </div>
-                <div style={{ color: '#9ca3af', fontSize: '0.82rem', lineHeight: 1.4 }}>
-                  Personal contact numbers and email addresses are protected from spam web scrapers. Submitting this form routes directly to Abhishek's private inbox.
+                <div style={{ color: 'var(--text-muted)', fontSize: '0.84rem', lineHeight: 1.4 }}>
+                  Personal contact info is protected from web scrapers. Submitting this form routes directly to Abhishek's private inbox.
                 </div>
               </div>
             </div>
 
-            {/* General Info list */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            {/* Location & Links */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <div
                   style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '10px',
-                    background: 'rgba(56, 189, 248, 0.1)',
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '12px',
+                    background: 'rgba(139, 92, 246, 0.15)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#38bdf8',
+                    color: '#c084fc',
+                    border: '1px solid rgba(139, 92, 246, 0.3)',
                   }}
                 >
-                  <MapPin size={20} />
+                  <MapPin size={22} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>Based In</div>
-                  <div style={{ color: '#ffffff', fontWeight: 700 }}>Rajkot, Gujarat, India</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Based In</div>
+                  <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem' }}>Rajkot, Gujarat, India</div>
                 </div>
               </div>
 
-              {/* Social Links */}
-              <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', gap: '12px' }}>
+              {/* Social Buttons */}
+              <div style={{ paddingTop: '18px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <a
                   href={PERSONAL_INFO.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary"
-                  style={{ padding: '8px 16px', fontSize: '0.85rem' }}
+                  style={{ padding: '10px 18px', fontSize: '0.85rem' }}
                 >
                   <GithubIcon size={16} /> GitHub Profile
                 </a>
@@ -156,7 +160,7 @@ export const ContactForm: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary"
-                  style={{ padding: '8px 16px', fontSize: '0.85rem' }}
+                  style={{ padding: '10px 18px', fontSize: '0.85rem' }}
                 >
                   <LinkedinIcon size={16} /> LinkedIn Profile
                 </a>
@@ -165,13 +169,13 @@ export const ContactForm: React.FC = () => {
           </div>
 
           {/* Right Form Card */}
-          <div className="glass-panel" style={{ padding: '36px' }}>
+          <div className="glass-panel" style={{ padding: '36px', border: '1px solid rgba(139, 92, 246, 0.25)' }}>
             {submitted ? (
-              <div style={{ textAlign: 'center', padding: '40px 20px' }}>
+              <div style={{ textAlign: 'center', padding: '44px 20px' }}>
                 <div
                   style={{
-                    width: '64px',
-                    height: '64px',
+                    width: '68px',
+                    height: '68px',
                     borderRadius: '50%',
                     background: 'rgba(16, 185, 129, 0.15)',
                     color: '#10b981',
@@ -179,14 +183,15 @@ export const ContactForm: React.FC = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     margin: '0 auto 20px auto',
+                    border: '1px solid rgba(16, 185, 129, 0.3)',
                   }}
                 >
-                  <CheckCircle2 size={36} />
+                  <CheckCircle2 size={38} />
                 </div>
-                <h3 style={{ color: '#ffffff', fontSize: '1.5rem', fontWeight: 800, marginBottom: '8px' }}>
-                  Message Sent Successfully!
+                <h3 style={{ color: '#ffffff', fontSize: '1.6rem', fontWeight: 800, marginBottom: '10px' }}>
+                  Transmission Successful!
                 </h3>
-                <p style={{ color: '#9ca3af', fontSize: '0.95rem', lineHeight: 1.5, marginBottom: '24px' }}>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.96rem', lineHeight: 1.6, marginBottom: '28px' }}>
                   Thank you, <strong>{formData.name}</strong>. Your message has been routed to Abhishek. He will get back to you shortly at <strong>{formData.email}</strong>.
                 </p>
                 <button
@@ -196,14 +201,14 @@ export const ContactForm: React.FC = () => {
                   }}
                   className="btn-secondary"
                 >
-                  Send Another Message
+                  Transmit Another Message
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px' }}>
                   <div>
-                    <label style={{ display: 'block', color: '#cbd5e1', fontSize: '0.85rem', fontWeight: 600, marginBottom: '6px' }}>
+                    <label style={{ display: 'block', color: '#cbd5e1', fontSize: '0.85rem', fontWeight: 600, marginBottom: '8px' }}>
                       Your Name *
                     </label>
                     <input
@@ -214,19 +219,19 @@ export const ContactForm: React.FC = () => {
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       style={{
                         width: '100%',
-                        padding: '12px 14px',
-                        borderRadius: '10px',
+                        padding: '13px 16px',
+                        borderRadius: '12px',
                         background: 'rgba(255, 255, 255, 0.04)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        border: '1px solid rgba(139, 92, 246, 0.25)',
                         color: '#ffffff',
-                        fontSize: '0.92rem',
+                        fontSize: '0.94rem',
                         outline: 'none',
                       }}
                     />
                   </div>
 
                   <div>
-                    <label style={{ display: 'block', color: '#cbd5e1', fontSize: '0.85rem', fontWeight: 600, marginBottom: '6px' }}>
+                    <label style={{ display: 'block', color: '#cbd5e1', fontSize: '0.85rem', fontWeight: 600, marginBottom: '8px' }}>
                       Your Email *
                     </label>
                     <input
@@ -237,12 +242,12 @@ export const ContactForm: React.FC = () => {
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       style={{
                         width: '100%',
-                        padding: '12px 14px',
-                        borderRadius: '10px',
+                        padding: '13px 16px',
+                        borderRadius: '12px',
                         background: 'rgba(255, 255, 255, 0.04)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        border: '1px solid rgba(139, 92, 246, 0.25)',
                         color: '#ffffff',
-                        fontSize: '0.92rem',
+                        fontSize: '0.94rem',
                         outline: 'none',
                       }}
                     />
@@ -250,29 +255,29 @@ export const ContactForm: React.FC = () => {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', color: '#cbd5e1', fontSize: '0.85rem', fontWeight: 600, marginBottom: '6px' }}>
+                  <label style={{ display: 'block', color: '#cbd5e1', fontSize: '0.85rem', fontWeight: 600, marginBottom: '8px' }}>
                     Subject
                   </label>
                   <input
                     type="text"
-                    placeholder="Project Inquiry / Job Opportunity"
+                    placeholder="Project Inquiry / Senior App Developer Role"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     style={{
                       width: '100%',
-                      padding: '12px 14px',
-                      borderRadius: '10px',
+                      padding: '13px 16px',
+                      borderRadius: '12px',
                       background: 'rgba(255, 255, 255, 0.04)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      border: '1px solid rgba(139, 92, 246, 0.25)',
                       color: '#ffffff',
-                      fontSize: '0.92rem',
+                      fontSize: '0.94rem',
                       outline: 'none',
                     }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', color: '#cbd5e1', fontSize: '0.85rem', fontWeight: 600, marginBottom: '6px' }}>
+                  <label style={{ display: 'block', color: '#cbd5e1', fontSize: '0.85rem', fontWeight: 600, marginBottom: '8px' }}>
                     Message *
                   </label>
                   <textarea
@@ -283,12 +288,12 @@ export const ContactForm: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     style={{
                       width: '100%',
-                      padding: '12px 14px',
-                      borderRadius: '10px',
+                      padding: '13px 16px',
+                      borderRadius: '12px',
                       background: 'rgba(255, 255, 255, 0.04)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      border: '1px solid rgba(139, 92, 246, 0.25)',
                       color: '#ffffff',
-                      fontSize: '0.92rem',
+                      fontSize: '0.94rem',
                       outline: 'none',
                       resize: 'vertical',
                     }}
@@ -301,7 +306,7 @@ export const ContactForm: React.FC = () => {
                   className="btn-primary"
                   style={{ width: '100%', justifyContent: 'center', padding: '14px' }}
                 >
-                  {loading ? 'Sending Secure Message...' : 'Send Message Now'} <Send size={16} />
+                  {loading ? 'Transmitting Message...' : 'Transmit Message Now'} <Send size={16} />
                 </button>
               </form>
             )}

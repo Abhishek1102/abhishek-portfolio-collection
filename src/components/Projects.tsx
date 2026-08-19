@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { 
-  FolderGit2, Eye, Heart, ShoppingBag, Calendar, ArrowUpRight, CheckCircle2 
+  FolderGit2, Eye, Heart, ShoppingBag, Calendar, ArrowUpRight, CheckCircle2,
+  Music, Bell, Cpu, ExternalLink, Sparkles
 } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import type { Project } from '../data/portfolioData';
@@ -10,7 +11,16 @@ export const Projects: React.FC = () => {
   const [filterCategory, setFilterCategory] = useState<string>('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const categories = ['All', 'Accessibility', 'Social & Dating', 'E-Commerce', 'Healthcare & Business', 'Single-Handed'];
+  const categories = [
+    'All', 
+    'Devotional & Audio',
+    'Accessibility', 
+    'Social & Dating', 
+    'E-Commerce', 
+    'Tools & Native',
+    'Healthcare & Business', 
+    'Single-Handed'
+  ];
 
   const filteredProjects = PROJECTS.filter((p) => {
     if (filterCategory === 'All') return true;
@@ -18,31 +28,48 @@ export const Projects: React.FC = () => {
     return p.category === filterCategory;
   });
 
+  const getProjectIcon = (iconName: string) => {
+    switch (iconName) {
+      case 'Eye': return <Eye size={24} color="#fff" />;
+      case 'Heart': return <Heart size={24} color="#fff" />;
+      case 'ShoppingBag': return <ShoppingBag size={24} color="#fff" />;
+      case 'Music': return <Music size={24} color="#fff" />;
+      case 'Bell': return <Bell size={24} color="#fff" />;
+      case 'Smartphone': return <Cpu size={24} color="#fff" />;
+      case 'Calendar': return <Calendar size={24} color="#fff" />;
+      default: return <Sparkles size={24} color="#fff" />;
+    }
+  };
+
   return (
-    <section id="projects" style={{ padding: '80px 0', position: 'relative' }}>
+    <section id="projects" style={{ padding: '90px 0', position: 'relative' }}>
       <div className="container">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '44px' }}>
           <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
-              color: '#38bdf8',
+              gap: '8px',
+              color: '#c084fc',
               fontSize: '0.85rem',
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.08em',
-              marginBottom: '8px',
+              marginBottom: '10px',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              background: 'rgba(139, 92, 246, 0.1)',
+              border: '1px solid rgba(139, 92, 246, 0.25)',
             }}
           >
-            <FolderGit2 size={16} /> Featured App Portfolio
+            <FolderGit2 size={16} /> Play Store Apps &amp; Production Galaxy
           </div>
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em' }}>
-            Production Mobile Applications
+          <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 2.8rem)', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em' }}>
+            Featured Mobile Applications
           </h2>
-          <p style={{ color: '#9ca3af', fontSize: '1rem', marginTop: '8px' }}>
-            Applications built and maintained across Play Store releases, client deliveries, and team projects.
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', marginTop: '10px', maxWidth: '640px', marginInline: 'auto' }}>
+            6+ published Google Play Store applications and enterprise clients built single-handedly and in engineering teams.
           </p>
         </div>
 
@@ -53,7 +80,7 @@ export const Projects: React.FC = () => {
             justifyContent: 'center',
             flexWrap: 'wrap',
             gap: '10px',
-            marginBottom: '40px',
+            marginBottom: '48px',
           }}
         >
           {categories.map((cat) => (
@@ -61,15 +88,20 @@ export const Projects: React.FC = () => {
               key={cat}
               onClick={() => setFilterCategory(cat)}
               style={{
-                background: filterCategory === cat ? 'linear-gradient(135deg, #0284c7 0%, #6366f1 100%)' : 'rgba(255, 255, 255, 0.05)',
-                color: filterCategory === cat ? '#ffffff' : '#9ca3af',
-                border: filterCategory === cat ? 'none' : '1px solid var(--border-color)',
-                padding: '8px 18px',
-                borderRadius: '20px',
+                background: filterCategory === cat 
+                  ? 'linear-gradient(135deg, #7c3aed 0%, #2563eb 100%)' 
+                  : 'rgba(255, 255, 255, 0.04)',
+                color: filterCategory === cat ? '#ffffff' : 'var(--text-muted)',
+                border: filterCategory === cat 
+                  ? '1px solid rgba(255, 255, 255, 0.2)' 
+                  : '1px solid rgba(255, 255, 255, 0.08)',
+                padding: '9px 20px',
+                borderRadius: '24px',
                 fontSize: '0.88rem',
                 fontWeight: 600,
                 cursor: 'pointer',
-                transition: 'all 0.2s ease',
+                transition: 'all 0.25s ease',
+                boxShadow: filterCategory === cat ? '0 0 15px rgba(124, 58, 237, 0.4)' : 'none',
               }}
             >
               {cat === 'Single-Handed' ? '★ Sole Developer' : cat}
@@ -77,11 +109,11 @@ export const Projects: React.FC = () => {
           ))}
         </div>
 
-        {/* Projects Grid */}
+        {/* Projects Galaxy Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
             gap: '28px',
           }}
         >
@@ -89,81 +121,77 @@ export const Projects: React.FC = () => {
             <div
               key={project.id}
               className="glass-panel glass-panel-hover"
-              onClick={() => setSelectedProject(project)}
               style={{
-                padding: '28px',
+                padding: '30px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                cursor: 'pointer',
                 position: 'relative',
                 overflow: 'hidden',
+                border: '1px solid rgba(139, 92, 246, 0.25)',
               }}
             >
               {/* Header Badge */}
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '18px' }}>
                   <div
                     style={{
-                      width: '44px',
-                      height: '44px',
-                      borderRadius: '12px',
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '14px',
                       background: project.color,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: `0 0 20px ${project.color}66`,
+                      boxShadow: `0 0 25px ${project.color}88`,
                     }}
                   >
-                    {project.id === 'listening-eyes' && <Eye size={24} color="#fff" />}
-                    {project.id === 'hukup-dating' && <Heart size={24} color="#fff" />}
-                    {project.id === 'miodeal-buyer' && <ShoppingBag size={24} color="#fff" />}
-                    {project.id === 'maia-care' && <Calendar size={24} color="#fff" />}
+                    {getProjectIcon(project.iconName)}
                   </div>
 
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
                     <span
                       style={{
-                        fontSize: '0.72rem',
+                        fontSize: '0.73rem',
                         fontWeight: 700,
-                        background: 'rgba(56, 189, 248, 0.1)',
-                        color: '#38bdf8',
-                        padding: '3px 10px',
-                        borderRadius: '12px',
-                        border: '1px solid rgba(56, 189, 248, 0.2)',
+                        background: 'rgba(139, 92, 246, 0.15)',
+                        color: '#c084fc',
+                        padding: '4px 12px',
+                        borderRadius: '14px',
+                        border: '1px solid rgba(139, 92, 246, 0.3)',
                       }}
                     >
                       {project.category}
                     </span>
                     {project.singleHanded && (
-                      <span style={{ fontSize: '0.68rem', color: '#10b981', fontWeight: 600 }}>
-                        ★ Sole Developer
+                      <span style={{ fontSize: '0.7rem', color: '#10b981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <Sparkles size={12} /> Sole Developer
                       </span>
                     )}
                   </div>
                 </div>
 
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#ffffff', marginBottom: '6px' }}>
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#ffffff', marginBottom: '6px' }}>
                   {project.title}
                 </h3>
-                <div style={{ color: '#38bdf8', fontSize: '0.85rem', fontWeight: 600, marginBottom: '14px' }}>
+                <div style={{ color: '#38bdf8', fontSize: '0.88rem', fontWeight: 600, marginBottom: '14px' }}>
                   {project.subtitle}
                 </div>
-                <p style={{ color: '#9ca3af', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '20px' }}>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '22px' }}>
                   {project.description}
                 </p>
               </div>
 
-              {/* Tech Badges & View CTA */}
+              {/* Tech Badges & Actions */}
               <div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '20px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '22px' }}>
                   {project.technologies.slice(0, 4).map((tech, idx) => (
-                    <span key={idx} className="tech-badge" style={{ fontSize: '0.75rem', padding: '2px 8px' }}>
+                    <span key={idx} className="tech-badge" style={{ fontSize: '0.75rem', padding: '3px 10px' }}>
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 4 && (
-                    <span style={{ fontSize: '0.75rem', color: '#64748b', alignSelf: 'center' }}>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)', alignSelf: 'center' }}>
                       +{project.technologies.length - 4} more
                     </span>
                   )}
@@ -174,26 +202,54 @@ export const Projects: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    paddingTop: '14px',
-                    borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                    paddingTop: '16px',
+                    borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                   }}
                 >
-                  <span style={{ color: '#10b981', fontSize: '0.82rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <CheckCircle2 size={14} /> {project.downloads || project.status}
-                  </span>
+                  {project.playStoreUrl ? (
+                    <a
+                      href={project.playStoreUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      style={{
+                        color: '#10b981',
+                        fontSize: '0.82rem',
+                        fontWeight: 700,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        textDecoration: 'none',
+                        background: 'rgba(16, 185, 129, 0.1)',
+                        padding: '4px 10px',
+                        borderRadius: '8px',
+                        border: '1px solid rgba(16, 185, 129, 0.25)',
+                      }}
+                    >
+                      <ExternalLink size={14} /> Play Store Link
+                    </a>
+                  ) : (
+                    <span style={{ color: '#10b981', fontSize: '0.82rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <CheckCircle2 size={14} /> {project.status}
+                    </span>
+                  )}
 
-                  <span
+                  <button
+                    onClick={() => setSelectedProject(project)}
                     style={{
+                      background: 'none',
+                      border: 'none',
                       color: '#38bdf8',
-                      fontSize: '0.85rem',
+                      fontSize: '0.88rem',
                       fontWeight: 600,
                       display: 'flex',
                       alignItems: 'center',
                       gap: '4px',
+                      cursor: 'pointer',
                     }}
                   >
-                    View Details <ArrowUpRight size={16} />
-                  </span>
+                    Details <ArrowUpRight size={16} />
+                  </button>
                 </div>
               </div>
             </div>

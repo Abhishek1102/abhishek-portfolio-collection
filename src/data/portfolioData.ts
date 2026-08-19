@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   subtitle: string;
   role: string;
-  category: 'Accessibility' | 'Social & Dating' | 'E-Commerce' | 'Healthcare & Business';
+  category: 'Accessibility' | 'Social & Dating' | 'E-Commerce' | 'Devotional & Audio' | 'Tools & Native' | 'Healthcare & Business';
   description: string;
   longDescription: string;
   technologies: string[];
@@ -13,7 +13,8 @@ export interface Project {
   singleHanded: boolean;
   color: string;
   iconName: string;
-  mockupType: 'accessibility_tts' | 'dating_swipe' | 'ecommerce_shop' | 'medical_booking';
+  mockupType: 'accessibility_tts' | 'dating_swipe' | 'ecommerce_shop' | 'mantra_player' | 'pooja_bell' | 'mobile_codes' | 'medical_booking';
+  playStoreUrl?: string;
 }
 
 export interface Experience {
@@ -37,19 +38,20 @@ export interface SkillCategory {
 
 export const PERSONAL_INFO = {
   name: "Abhishek Panchmiya",
-  title: "Senior Flutter & Mobile Application Developer",
-  tagline: "Crafting High-Performance, Scalable & Accessible Mobile Applications with Flutter & Android (Kotlin)",
+  title: "Senior Flutter & Native Android Developer",
+  tagline: "Building Cosmic-Grade, Scalable & High-Performance Mobile Applications with Flutter & Android (Kotlin)",
   location: "Rajkot, Gujarat, India",
   experienceYears: "2+",
   github: "https://github.com/Abhishek1102",
   linkedin: "https://linkedin.com/in/abhishekpanchmiya",
-  bio: "Senior Mobile Application Developer with 2+ years of experience delivering production Flutter & Native Android apps. Proven expertise in building accessibility tools, e-commerce engines, social discovery apps, and enterprise schedulers from concept to Play Store release.",
+  email: "abhishekpanchmiya1102@gmail.com",
+  bio: "Senior Mobile Application Developer with 2+ years of production experience in Flutter & Native Android (Kotlin). Creator of 6+ published Play Store applications spanning accessibility tools, social discovery platforms, e-commerce engines, devotional audio suites, and native diagnostic utilities.",
   spokenLanguages: ["English (Fluent)", "Hindi (Fluent)", "Gujarati (Fluent)"],
   stats: [
     { label: "Years Experience", value: "2+", icon: "Briefcase" },
-    { label: "Play Store Downloads", value: "5,500+", icon: "Download" },
-    { label: "Production Apps Delivered", value: "4+", icon: "Smartphone" },
-    { label: "Junior Devs Mentored", value: "3+", icon: "Users" }
+    { label: "Play Store Apps", value: "6+", icon: "Smartphone" },
+    { label: "Total Downloads", value: "6,000+", icon: "Download" },
+    { label: "Sole-Handed Apps", value: "4+", icon: "Star" }
   ]
 };
 
@@ -72,9 +74,10 @@ export const PROJECTS: Project[] = [
     downloads: "500+ Users",
     status: "Published on Play Store",
     singleHanded: true,
-    color: "#8b5cf6",
+    color: "#a855f7",
     iconName: "Eye",
-    mockupType: "accessibility_tts"
+    mockupType: "accessibility_tts",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.app.listeningeyes&hl=en_IN"
   },
   {
     id: "hukup-dating",
@@ -96,7 +99,31 @@ export const PROJECTS: Project[] = [
     singleHanded: false,
     color: "#ec4899",
     iconName: "Heart",
-    mockupType: "dating_swipe"
+    mockupType: "dating_swipe",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.app.hukup.net&hl=en_IN"
+  },
+  {
+    id: "daily-mantra",
+    title: "Daily Mantra Jaap Player",
+    subtitle: "Meditation & Hindu Devotional Mantra Audio App",
+    role: "Senior Flutter & Android Developer (Sole Developer)",
+    category: "Devotional & Audio",
+    description: "Personal spiritual companion app for daily meditation & chanting. Features high-quality mantra audio, auto-loop repeat mode, and distraction-free playback.",
+    longDescription: "Daily Mantra Jaap Player is a dedicated devotional audio application providing sacred Hindu mantras (Ganesh, Gayatri, Mahamrityunjaya, Om Chanting) with continuous auto-looping, background audio playback, and clean peaceful UI aesthetics designed to promote focus and mental clarity.",
+    technologies: ["Flutter", "Dart", "Android Background Services", "Audio Players SDK", "Local Storage", "Play Console"],
+    highlights: [
+      "Sole developer — engineered complete mobile audio player application from scratch",
+      "Implemented continuous auto-loop mode & background audio playback service",
+      "Built clean, distraction-free player UI optimized for daily morning/evening prayers",
+      "Curated high-clarity audio tracks for major mantras (Ganesh, Gayatri, Mahamrityunjaya)"
+    ],
+    downloads: "Devotional Player",
+    status: "Published on Play Store",
+    singleHanded: true,
+    color: "#f59e0b",
+    iconName: "Music",
+    mockupType: "mantra_player",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.abhishek.daily_mantra_jaap_player&hl=en_IN"
   },
   {
     id: "miodeal-buyer",
@@ -116,9 +143,56 @@ export const PROJECTS: Project[] = [
     downloads: "100+ Downloads",
     status: "Published on Play Store",
     singleHanded: false,
-    color: "#f59e0b",
+    color: "#3b82f6",
     iconName: "ShoppingBag",
-    mockupType: "ecommerce_shop"
+    mockupType: "ecommerce_shop",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.miodeal.buyer&hl=en_IN"
+  },
+  {
+    id: "aarti-pooja-bell",
+    title: "Aarti Pooja Bell",
+    subtitle: "Virtual Temple Bell & Continuous Prayer Ring App",
+    role: "Senior Flutter & Android Developer (Sole Developer)",
+    category: "Devotional & Audio",
+    description: "Brings the divine temple bell sound to your daily worship. Features single-tap bell ringing, continuous Aarti audio synthesis, and swinging animation.",
+    longDescription: "Aarti Pooja Bell is a lightweight devotional utility app allowing users to experience virtual temple bell sound during home prayers. Built with single-tap controls, continuous bell ringing loops, and smooth swinging bell motion animations.",
+    technologies: ["Flutter", "Dart", "Custom Animation Controller", "Audio Synthesis", "Android SDK"],
+    highlights: [
+      "Built single-handedly with lightweight footprint and single-tap responsiveness",
+      "Engineered smooth physics-inspired bell swinging visual animation",
+      "Integrated continuous temple bell loop audio with instant tap-to-stop controls",
+      "Designed clean distraction-free devotional UI"
+    ],
+    downloads: "Virtual Temple Bell",
+    status: "Published on Play Store",
+    singleHanded: true,
+    color: "#eab308",
+    iconName: "Bell",
+    mockupType: "pooja_bell",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.app.aartipoojabell&hl=en_IN"
+  },
+  {
+    id: "mobile-codes",
+    title: "Mobile Codes and Tricks",
+    subtitle: "Android USSD Secret Codes & Device Hardware Diagnostics",
+    role: "Senior Flutter & Native Android Developer",
+    category: "Tools & Native",
+    description: "All-in-one utility guide providing USSD secret dialer codes for major smartphone brands (Samsung, Vivo, Oppo, Xiaomi, Realme) and system info diagnostics.",
+    longDescription: "Mobile Codes and Tricks empowers Android users to unlock hidden hardware dialer codes, view international country calling codes, inspect deep device hardware/software specs, and apply performance optimization tips with a clean dark mode UI.",
+    technologies: ["Flutter", "Dart", "Android (Kotlin)", "USSD Code Engine", "Hardware Info APIs", "Dark Mode UI"],
+    highlights: [
+      "Curated comprehensive USSD code database across major mobile brands",
+      "Integrated device hardware diagnostics inspection (CPU, Memory, Battery, Sensor specs)",
+      "Built international dialing country code directory",
+      "Implemented high-contrast dark theme UI for night-time reading"
+    ],
+    downloads: "Android Utility",
+    status: "Published on Play Store",
+    singleHanded: true,
+    color: "#06b6d4",
+    iconName: "Smartphone",
+    mockupType: "mobile_codes",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.app.mobilecodesandtricks&hl=en_IN"
   },
   {
     id: "maia-care",
@@ -148,23 +222,23 @@ export const WORK_EXPERIENCE: Experience[] = [
     id: "technocomet",
     role: "Senior App Developer",
     company: "TechnoComet Solutions",
-    period: "Jan 2024 – Aug 2026",
+    period: "Jan 2024 – Present",
     location: "Rajkot, Gujarat, India",
-    companyDescription: "Leading service-based software engineering firm delivering mobile applications across accessibility, e-commerce, social, and healthcare business domains.",
+    companyDescription: "Leading service-based software engineering firm delivering production mobile applications across accessibility, e-commerce, social, devotional, and healthcare business domains.",
     responsibilities: [
-      "Promoted to Senior App Developer for exceptional feature ownership, clean code standards, and client satisfaction.",
+      "Promoted to Senior App Developer for exceptional feature ownership, clean code standards, and rapid delivery of 6+ Play Store applications.",
       "Architected mobile applications using Clean Architecture, MVVM, Repository Pattern, and Provider state management.",
-      "Developed production apps from scratch independently and collaboratively inside 6–7 member cross-functional engineering teams.",
+      "Developed production apps from scratch independently (sole developer) and collaboratively inside cross-functional engineering teams.",
       "Mastered Google Play Store console operations, application updates, ownership transfers, and emergency JKS signing-key recoveries.",
-      "Integrated complex native Android/Kotlin modules alongside Flutter apps for camera/scanners, background services, and WebSockets.",
+      "Integrated native Android/Kotlin modules alongside Flutter apps for background services, audio players, USSD engines, and WebSockets.",
       "Communicated directly with international and local clients to gather technical requirements, scope sprints, and deliver features.",
       "Mentored 2–3 junior developers, conducting code reviews and assisting with complex API and architectural roadblocks."
     ],
     technologies: ["Flutter", "Dart", "Kotlin", "Android SDK", "Firebase", "Provider", "Clean Architecture", "Dio", "Hive/SQLite", "Google Maps", "Play Console"],
     achievements: [
       "Promoted to Senior Developer position",
+      "Published 6+ production apps on Google Play Store",
       "Successfully recovered lost JKS signing key for Play Store app release",
-      "Delivered 4+ full-scale production mobile applications",
       "Mentored 3 junior app developers"
     ]
   }
@@ -178,8 +252,8 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       { name: "Flutter", level: 95, tag: "Primary" },
       { name: "Dart", level: 95, tag: "Primary" },
-      { name: "Android SDK", level: 85, tag: "Native" },
-      { name: "Kotlin", level: 82, tag: "Native" }
+      { name: "Android SDK", level: 88, tag: "Native" },
+      { name: "Kotlin", level: 85, tag: "Native" }
     ]
   },
   {
@@ -187,32 +261,32 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     icon: "Layers",
     description: "Scalable software design patterns and state tools",
     skills: [
-      { name: "Clean Architecture", level: 90, tag: "Pattern" },
+      { name: "Clean Architecture", level: 92, tag: "Pattern" },
       { name: "MVVM", level: 92, tag: "Pattern" },
       { name: "Repository Pattern", level: 90, tag: "Pattern" },
       { name: "Provider", level: 95, tag: "State" }
     ]
   },
   {
-    title: "Networking & Cloud Backend",
+    title: "Networking, Audio & Cloud Backend",
     icon: "Cloud",
-    description: "APIs, real-time messaging, and Firebase suite",
+    description: "APIs, real-time messaging, audio engines, and Firebase suite",
     skills: [
       { name: "REST APIs (Dio / HTTP)", level: 95, tag: "Network" },
-      { name: "WebSockets", level: 85, tag: "Real-time" },
-      { name: "Firebase Auth & Firestore", level: 90, tag: "Firebase" },
-      { name: "Crashlytics & Push Notifications", level: 90, tag: "Firebase" }
+      { name: "WebSockets & Real-time", level: 85, tag: "Real-time" },
+      { name: "Background Audio & TTS Engine", level: 92, tag: "Media" },
+      { name: "Firebase Auth, Firestore & Crashlytics", level: 90, tag: "Firebase" }
     ]
   },
   {
-    title: "Storage, Hardware & Deployment",
+    title: "Storage, Hardware & Play Store DevOps",
     icon: "Cpu",
     description: "Local databases, device hardware APIs & Play Store release",
     skills: [
-      { name: "Google Play Console & JKS Keys", level: 95, tag: "DevOps" },
+      { name: "Google Play Console & JKS Key Recovery", level: 95, tag: "DevOps" },
       { name: "Hive / SQLite / SharedPreferences", level: 90, tag: "Database" },
-      { name: "Google Maps & Location", level: 88, tag: "Hardware" },
-      { name: "Text-To-Speech & Background Services", level: 90, tag: "Hardware" }
+      { name: "Hardware Specs & Diagnostic APIs", level: 88, tag: "Native" },
+      { name: "Google Maps & Location Services", level: 88, tag: "Hardware" }
     ]
   }
 ];

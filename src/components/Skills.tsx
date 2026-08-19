@@ -8,30 +8,34 @@ export const Skills: React.FC = () => {
   const currentCategory = SKILL_CATEGORIES[activeCategoryIndex];
 
   return (
-    <section id="skills" style={{ padding: '80px 0', position: 'relative' }}>
+    <section id="skills" style={{ padding: '90px 0', position: 'relative' }}>
       <div className="container">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '52px' }}>
           <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
-              color: '#38bdf8',
+              gap: '8px',
+              color: '#c084fc',
               fontSize: '0.85rem',
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.08em',
-              marginBottom: '8px',
+              marginBottom: '10px',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              background: 'rgba(139, 92, 246, 0.1)',
+              border: '1px solid rgba(139, 92, 246, 0.25)',
             }}
           >
-            <Zap size={16} /> Expertise &amp; Tools
+            <Zap size={16} /> Constellation Matrix &amp; Tech Stack
           </div>
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em' }}>
+          <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 2.8rem)', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em' }}>
             Technical Proficiency
           </h2>
-          <p style={{ color: '#9ca3af', fontSize: '1rem', marginTop: '8px' }}>
-            Hands-on technical mastery built over 2+ years of engineering production applications.
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', marginTop: '10px' }}>
+            Hands-on engineering expertise built across 6+ production mobile applications.
           </p>
         </div>
 
@@ -39,9 +43,9 @@ export const Skills: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '16px',
-            marginBottom: '40px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '18px',
+            marginBottom: '44px',
           }}
         >
           {SKILL_CATEGORIES.map((cat, idx) => (
@@ -50,21 +54,22 @@ export const Skills: React.FC = () => {
               className="glass-panel"
               onClick={() => setActiveCategoryIndex(idx)}
               style={{
-                padding: '20px',
+                padding: '22px',
                 cursor: 'pointer',
-                border: activeCategoryIndex === idx ? '1px solid #38bdf8' : '1px solid rgba(255,255,255,0.08)',
-                background: activeCategoryIndex === idx ? 'rgba(56, 189, 248, 0.1)' : 'rgba(15, 21, 35, 0.6)',
+                border: activeCategoryIndex === idx ? '1px solid rgba(139, 92, 246, 0.6)' : '1px solid rgba(255,255,255,0.08)',
+                background: activeCategoryIndex === idx ? 'rgba(139, 92, 246, 0.15)' : 'rgba(11, 15, 25, 0.6)',
+                boxShadow: activeCategoryIndex === idx ? '0 0 20px rgba(139, 92, 246, 0.3)' : 'none',
                 transition: 'all 0.3s ease',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
                 <div
                   style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '10px',
-                    background: activeCategoryIndex === idx ? '#38bdf8' : 'rgba(255,255,255,0.05)',
-                    color: activeCategoryIndex === idx ? '#000' : '#38bdf8',
+                    width: '38px',
+                    height: '38px',
+                    borderRadius: '12px',
+                    background: activeCategoryIndex === idx ? 'linear-gradient(135deg, #7c3aed, #38bdf8)' : 'rgba(255,255,255,0.05)',
+                    color: '#ffffff',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -76,11 +81,11 @@ export const Skills: React.FC = () => {
                   {idx === 2 && <Cloud size={20} />}
                   {idx === 3 && <Cpu size={20} />}
                 </div>
-                <h4 style={{ color: '#ffffff', fontSize: '1rem', fontWeight: 700 }}>
+                <h4 style={{ color: '#ffffff', fontSize: '1.02rem', fontWeight: 700 }}>
                   {cat.title}
                 </h4>
               </div>
-              <p style={{ color: '#9ca3af', fontSize: '0.8rem', lineHeight: 1.4 }}>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', lineHeight: 1.4 }}>
                 {cat.description}
               </p>
             </div>
@@ -88,27 +93,28 @@ export const Skills: React.FC = () => {
         </div>
 
         {/* Selected Category Skill Progress Bars */}
-        <div className="glass-panel" style={{ padding: '36px' }}>
-          <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#ffffff', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Code2 size={20} color="#38bdf8" /> {currentCategory.title} Matrix
+        <div className="glass-panel" style={{ padding: '38px', border: '1px solid rgba(139, 92, 246, 0.25)' }}>
+          <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#ffffff', marginBottom: '26px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <Code2 size={22} color="#c084fc" /> {currentCategory.title} Matrix
           </h3>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '24px' }}>
             {currentCategory.skills.map((skill, idx) => (
-              <div key={idx} style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <span style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem' }}>
+              <div key={idx} style={{ background: 'rgba(255,255,255,0.02)', padding: '18px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                  <span style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.98rem' }}>
                     {skill.name}
                   </span>
                   {skill.tag && (
                     <span
                       style={{
-                        fontSize: '0.72rem',
-                        background: 'rgba(56, 189, 248, 0.15)',
-                        color: '#38bdf8',
-                        padding: '2px 8px',
-                        borderRadius: '10px',
+                        fontSize: '0.73rem',
+                        background: 'rgba(139, 92, 246, 0.15)',
+                        color: '#c084fc',
+                        padding: '3px 10px',
+                        borderRadius: '12px',
                         fontWeight: 600,
+                        border: '1px solid rgba(139, 92, 246, 0.3)',
                       }}
                     >
                       {skill.tag}
@@ -122,10 +128,10 @@ export const Skills: React.FC = () => {
                     style={{
                       height: '100%',
                       width: `${skill.level}%`,
-                      background: 'linear-gradient(90deg, #38bdf8, #6366f1)',
+                      background: 'linear-gradient(90deg, #7c3aed 0%, #38bdf8 100%)',
                       borderRadius: '4px',
                       transition: 'width 1s ease-in-out',
-                      boxShadow: '0 0 10px rgba(56, 189, 248, 0.5)',
+                      boxShadow: '0 0 12px rgba(139, 92, 246, 0.6)',
                     }}
                   />
                 </div>
