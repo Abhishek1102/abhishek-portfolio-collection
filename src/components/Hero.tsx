@@ -35,8 +35,8 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
     <section
       id="hero"
       style={{
-        paddingTop: '130px',
-        paddingBottom: '90px',
+        paddingTop: '75px',
+        paddingBottom: '80px',
         position: 'relative',
         overflow: 'hidden',
       }}

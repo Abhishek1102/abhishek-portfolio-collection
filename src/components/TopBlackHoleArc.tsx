@@ -5,10 +5,10 @@ export const TopBlackHoleArc: React.FC = () => {
     <div
       style={{
         position: 'absolute',
-        top: '-180px',
+        top: 0,
         left: 0,
         right: 0,
-        height: '520px',
+        height: '380px',
         pointerEvents: 'none',
         zIndex: 0,
         overflow: 'hidden',
@@ -16,7 +16,7 @@ export const TopBlackHoleArc: React.FC = () => {
     >
       {/* Top Inverted Black Hole Warp Curve & Event Horizon */}
       <svg
-        viewBox="0 0 1440 400"
+        viewBox="0 0 1440 380"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         style={{
@@ -36,8 +36,8 @@ export const TopBlackHoleArc: React.FC = () => {
           </linearGradient>
 
           <linearGradient id="eventHorizonCoreGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
-            <stop offset="40%" stopColor="#a855f7" stopOpacity="0.7" />
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+            <stop offset="40%" stopColor="#a855f7" stopOpacity="0.75" />
             <stop offset="100%" stopColor="#030712" stopOpacity="0" />
           </linearGradient>
 
@@ -51,26 +51,26 @@ export const TopBlackHoleArc: React.FC = () => {
         <path
           d="M0 0 C 360 220, 1080 220, 1440 0 L 1440 0 L 0 0 Z"
           fill="url(#blackholeArcGrad)"
-          opacity="0.25"
+          opacity="0.3"
           filter="url(#glowBlur)"
         />
 
         {/* Accretion Disk Main Swirl Arc */}
         <path
-          d="M 120 -20 C 480 260, 960 260, 1320 -20 C 980 210, 460 210, 120 -20 Z"
+          d="M 120 -20 C 480 250, 960 250, 1320 -20 C 980 200, 460 200, 120 -20 Z"
           fill="url(#blackholeArcGrad)"
           filter="url(#glowBlur)"
         />
 
         {/* Inverted Event Horizon Core Bright Ring */}
         <path
-          d="M 280 -30 C 540 210, 900 210, 1160 -30 C 880 180, 560 180, 280 -30 Z"
+          d="M 280 -30 C 540 200, 900 200, 1160 -30 C 880 170, 560 170, 280 -30 Z"
           fill="url(#eventHorizonCoreGrad)"
         />
 
         {/* Singularity Void Inner Arc Line */}
         <path
-          d="M 380 -40 Q 720 180 1060 -40"
+          d="M 380 -40 Q 720 170 1060 -40"
           stroke="#ffffff"
           strokeWidth="6"
           strokeLinecap="round"
@@ -83,7 +83,7 @@ export const TopBlackHoleArc: React.FC = () => {
       <div
         style={{
           position: 'absolute',
-          top: '90px',
+          top: '95px',
           left: '10%',
           right: '10%',
           height: '2px',
