@@ -1,18 +1,707 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abhishek Panchmiya | Senior Flutter & Android Developer</title>
-    <meta name="description" content="Portfolio of Abhishek Panchmiya - Senior Flutter & Android (Kotlin) Mobile Application Developer with 2+ years of experience." />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhishek Panchmiya — Senior Flutter & Android Developer</title>
+  <meta name="description" content="Personal vCard Portfolio of Abhishek Panchmiya - Senior Flutter & Native Android (Kotlin) Mobile Application Developer." />
+
+  <!-- Google Fonts: Poppins & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── CSS Variables (vCard Premium Dark Theme) ───────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-body:          #121212;
+      --bg-card:          #1e1e1f;
+      --bg-card-2:        #2b2b2c;
+      --bg-input:         #212123;
+      --border-subtle:    #383838;
+      
+      --accent:           #ffdb70;
+      --accent-soft:      rgba(255, 219, 112, 0.12);
+      --accent-hover:     #e5c158;
+      --teal-accent:      #2dd4bf;
+      
+      --text-main:        #fafafa;
+      --text-secondary:   #d6d6d6;
+      --text-muted:       #9e9e9e;
+
+      --font-sans:        'Poppins', sans-serif;
+      --font-code:        'JetBrains Mono', monospace;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 30px;
+
+      --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.4);
+      --transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      overflow-x: hidden;
+      padding: 60px 0;
+    }
+
+    ::selection { background: var(--accent-soft); color: var(--accent); }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-body); }
+    ::-webkit-scrollbar-thumb { background: var(--bg-card-2); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 4%;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    /* ─── Sidebar Card (vCard Profile Left) ─────────────────────────── */
+    .sidebar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 36px 24px;
+      box-shadow: var(--shadow-card);
+      position: sticky; top: 30px;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+    }
+
+    .avatar-box {
+      width: 120px; height: 120px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--bg-card-2), #353537);
+      border: 1px solid var(--border-subtle);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .avatar-box::after {
+      content: ''; position: absolute; inset: -2px; border-radius: inherit;
+      background: linear-gradient(135deg, var(--accent), transparent);
+      z-index: -1; opacity: 0.4;
+    }
+
+    .profile-name {
+      font-size: 1.35rem; font-weight: 700; color: var(--text-main);
+      margin-bottom: 8px; letter-spacing: -0.01em;
+    }
+
+    .profile-badge {
+      background: var(--bg-card-2); color: var(--text-main);
+      font-size: 0.74rem; font-weight: 600; padding: 5px 14px;
+      border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);
+      margin-bottom: 24px;
+    }
+
+    .sidebar-divider {
+      width: 100%; height: 1px; background: var(--border-subtle); margin: 16px 0 24px;
+    }
+
+    .info-list { width: 100%; display: flex; flex-direction: column; gap: 16px; text-align: left; }
+    .info-item { display: flex; align-items: center; gap: 14px; }
+    .info-icon {
+      width: 38px; height: 38px; border-radius: var(--radius-sm);
+      background: var(--bg-card-2); border: 1px solid var(--border-subtle);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 1rem; flex-shrink: 0;
+    }
+    .info-label { font-size: 0.7rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; }
+    .info-value { font-size: 0.85rem; color: var(--text-main); font-weight: 500; word-break: break-word; }
+    .info-value a { color: var(--text-main); text-decoration: none; transition: color var(--transition); }
+    .info-value a:hover { color: var(--accent); }
+
+    /* ─── Main Content Box (Right Panel) ────────────────────────────── */
+    .content-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+
+    /* Floating Tab Navbar Header */
+    .tab-navbar {
+      position: absolute; top: 0; right: 0;
+      background: var(--bg-card-2); border: 1px solid var(--border-subtle);
+      border-radius: 0 var(--radius-xl) 0 var(--radius-lg);
+      display: flex; gap: 4px; padding: 6px 14px; z-index: 10;
+    }
+    .tab-item {
+      background: transparent; border: none;
+      color: var(--text-secondary); font-family: var(--font-sans);
+      font-size: 0.88rem; font-weight: 600; padding: 10px 18px;
+      cursor: pointer; transition: color var(--transition);
+      border-radius: var(--radius-md);
+    }
+    .tab-item.active, .tab-item:hover { color: var(--accent); }
+
+    /* Section Page Content */
+    .tab-page { display: none; }
+    .tab-page.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    .page-title {
+      font-size: 1.8rem; font-weight: 700; color: var(--text-main);
+      margin-bottom: 20px; position: relative; padding-bottom: 12px;
+    }
+    .page-title::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 40px; height: 5px; background: var(--accent); border-radius: 3px;
+    }
+
+    .section-subtitle {
+      font-size: 1.25rem; font-weight: 600; color: var(--text-main); margin: 36px 0 20px;
+    }
+
+    /* ─── What I'm Doing Grid (About Page) ────────────────────────── */
+    .spec-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px;
+    }
+    .spec-card {
+      background: var(--bg-card-2); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); padding: 24px;
+      display: flex; gap: 18px; align-items: flex-start;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .spec-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .spec-icon { font-size: 2rem; color: var(--accent); flex-shrink: 0; }
+    .spec-title { font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 6px; }
+    .spec-desc { font-size: 0.86rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Key Stats Bar */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 30px;
+    }
+    .stat-box {
+      background: var(--bg-card-2); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md); padding: 20px 14px; text-align: center;
+    }
+    .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--accent); line-height: 1.1; }
+    .stat-lbl { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; margin-top: 4px; }
+
+    /* ─── Timeline (Resume Page) ────────────────────────────────────── */
+    .timeline-list { position: relative; padding-left: 28px; margin-top: 20px; }
+    .timeline-list::before {
+      content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px;
+      width: 1.5px; background: var(--border-subtle);
+    }
+    .timeline-item { position: relative; margin-bottom: 30px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -28px; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: 3px solid var(--bg-card);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
+    .timeline-item-title { font-size: 1.05rem; font-weight: 600; color: var(--text-main); }
+    .timeline-period { font-family: var(--font-code); font-size: 0.8rem; color: var(--accent); margin: 4px 0 10px; }
+    .timeline-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+    .timeline-desc li { margin-bottom: 6px; padding-left: 14px; position: relative; list-style: none; }
+    .timeline-desc li::before { content: '•'; position: absolute; left: 0; color: var(--accent); }
+
+    /* ─── Portfolio Grid ────────────────────────────────────────────── */
+    .portfolio-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;
+    }
+    .project-card {
+      background: var(--bg-card-2); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); padding: 26px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .project-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .project-meta-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .proj-badge {
+      font-size: 0.72rem; font-weight: 700; padding: 4px 10px;
+      border-radius: var(--radius-sm); background: var(--accent-soft); color: var(--accent);
+      border: 1px solid rgba(255,219,112,0.2);
+    }
+    .proj-badge.team { background: rgba(45,212,191,0.12); color: var(--teal-accent); border-color: rgba(45,212,191,0.2); }
+    .project-title { font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+    .project-summary { font-size: 0.86rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 18px; }
+
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .tech-tag {
+      background: var(--bg-card); color: var(--text-secondary);
+      font-size: 0.74rem; font-weight: 500; padding: 3px 10px; border-radius: 4px;
+    }
+
+    .playstore-btn {
+      background: var(--accent); color: #121212;
+      font-size: 0.8rem; font-weight: 700; text-decoration: none;
+      padding: 8px 16px; border-radius: var(--radius-sm);
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: background var(--transition); width: fit-content;
+    }
+    .playstore-btn:hover { background: var(--accent-hover); }
+
+    /* ─── Skills Progress Bars ──────────────────────────────────────── */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
+    .skill-category-box {
+      background: var(--bg-card-2); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); padding: 22px;
+    }
+    .skill-cat-title { font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 14px; }
+    .skill-tags-wrapper { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-pill {
+      background: var(--bg-card); color: var(--text-main);
+      font-size: 0.82rem; font-weight: 500; padding: 6px 12px;
+      border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);
+    }
+
+    /* ─── Contact Form (Privacy-First) ──────────────────────────────── */
+    .contact-form { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+    .form-input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field label { font-size: 0.8rem; font-weight: 600; color: var(--text-main); }
+    .form-field input, .form-field textarea {
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md); padding: 12px 16px;
+      color: var(--text-main); font-family: var(--font-sans); font-size: 0.88rem;
+      outline: none; transition: border-color var(--transition); resize: none;
+    }
+    .form-field input:focus, .form-field textarea:focus { border-color: var(--accent); }
+
+    .submit-btn {
+      background: var(--accent); color: #121212; border: none;
+      padding: 12px 26px; border-radius: var(--radius-md);
+      font-weight: 700; font-size: 0.88rem; cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+      align-self: flex-start;
+    }
+    .submit-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+    /* ─── Mobile Responsiveness ──────────────────────────────────────── */
+    @media (max-width: 992px) {
+      .main-container { grid-template-columns: 1fr; }
+      .sidebar-card { position: static; }
+      .tab-navbar {
+        position: static; border-radius: var(--radius-lg);
+        justify-content: center; margin-bottom: 30px; flex-wrap: wrap;
+      }
+      .spec-grid, .portfolio-grid, .skills-grid, .form-input-row { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-container">
+
+  <!-- ─── Left Sidebar (vCard Dashboard Card) ────────────────────────── -->
+  <aside class="sidebar-card">
+    <div class="avatar-box">
+      📱
+    </div>
+
+    <h1 class="profile-name">Abhishek Panchmiya</h1>
+    <div class="profile-badge">Senior Flutter Developer</div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="info-list">
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Location</div>
+          <div class="info-value">Rajkot, Gujarat, India</div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">⚙️</div>
+        <div>
+          <div class="info-label">Primary Stack</div>
+          <div class="info-value">Flutter &amp; Native Android</div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">🔗</div>
+        <div>
+          <div class="info-label">GitHub</div>
+          <div class="info-value">
+            <a href="https://github.com/Abhishek1102" target="_blank" rel="noopener noreferrer">github.com/Abhishek1102</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ─── Right Main Panel (Tabbed Portfolio Views) ───────────────────── -->
+  <main class="content-box">
+    
+    <!-- Floating Tab Navigation Bar -->
+    <nav class="tab-navbar" role="tablist">
+      <button class="tab-item active" onclick="showTab('about')" role="tab">About</button>
+      <button class="tab-item" onclick="showTab('resume')" role="tab">Resume</button>
+      <button class="tab-item" onclick="showTab('portfolio')" role="tab">Portfolio</button>
+      <button class="tab-item" onclick="showTab('skills')" role="tab">Skills</button>
+      <button class="tab-item" onclick="showTab('contact')" role="tab">Contact</button>
+    </nav>
+
+    <!-- ─── TAB 1: About Me ─────────────────────────────────────────── -->
+    <section id="tab-about" class="tab-page active" role="tabpanel">
+      <h2 class="page-title">About Me</h2>
+      <p style="margin-bottom: 16px;">
+        I'm a <strong>Senior Mobile Application Developer</strong> with <strong>2+ years of production experience</strong> crafting high-performance, scalable mobile applications across Flutter, Dart, and Native Android (Kotlin).
+      </p>
+      <p>
+        I specialize in <strong>Clean Architecture, MVVM, Repository Pattern</strong>, and full lifecycle deployment — taking apps from the initial architecture setup directly to the Google Play Store.
+      </p>
+
+      <!-- Key Stats Row -->
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-num">2+</div>
+          <div class="stat-lbl">Years Exp.</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">6+</div>
+          <div class="stat-lbl">Apps Shipped</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">5.5k+</div>
+          <div class="stat-lbl">Downloads</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">3+</div>
+          <div class="stat-lbl">Devs Mentored</div>
+        </div>
+      </div>
+
+      <h3 class="section-subtitle">What I'm Doing</h3>
+      <div class="spec-grid">
+        <div class="spec-card">
+          <div class="spec-icon">⚡</div>
+          <div>
+            <h4 class="spec-title">Cross-Platform Flutter Apps</h4>
+            <p class="spec-desc">Building responsive, 60fps mobile interfaces with Provider, Dio, and WebSockets.</p>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-icon">🤖</div>
+          <div>
+            <h4 class="spec-title">Native Android Engineering</h4>
+            <p class="spec-desc">Developing native Android/Kotlin modules for background services, audio engines, and hardware APIs.</p>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-icon">🏛️</div>
+          <div>
+            <h4 class="spec-title">Scalable Architecture</h4>
+            <p class="spec-desc">Implementing Clean Architecture, MVVM, and Repository Pattern for maintainable codebases.</p>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-icon">🚀</div>
+          <div>
+            <h4 class="spec-title">Play Console &amp; Release DevOps</h4>
+            <p class="spec-desc">Handling Play Store app releases, signing-key (JKS) recoveries, updates, and app transfers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TAB 2: Resume / Experience ──────────────────────────────── -->
+    <section id="tab-resume" class="tab-page" role="tabpanel">
+      <h2 class="page-title">Resume</h2>
+
+      <h3 class="section-subtitle" style="margin-top:20px;">Experience</h3>
+      <div class="timeline-list">
+        <div class="timeline-item">
+          <h4 class="timeline-item-title">Technocomet Solutions — Senior App Developer</h4>
+          <div class="timeline-period">Jan 2024 — Present | Rajkot, Gujarat, India</div>
+          <ul class="timeline-desc">
+            <li>Promoted to Senior App Developer for feature ownership and rapid delivery of production applications.</li>
+            <li>Engineered and maintained applications using Flutter/Dart &amp; Native Android/Kotlin.</li>
+            <li>Architected foundations with Clean Architecture, MVVM, and Repository Pattern with Provider state management.</li>
+            <li>Implemented Firebase suite (Auth, Firestore, Storage, Crashlytics, FCM Notifications).</li>
+            <li>Integrated REST APIs (Dio/HTTP), WebSockets, Payment Gateways, Google Maps, Camera/Scanner, and Background Services.</li>
+            <li>Managed Google Play Console releases, updates, ownership transfers, and JKS signing-key recovery.</li>
+            <li>Mentored 2–3 developers and collaborated directly with international and local clients.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TAB 3: Portfolio / Projects ─────────────────────────────── -->
+    <section id="tab-portfolio" class="tab-page" role="tabpanel">
+      <h2 class="page-title">Portfolio</h2>
+
+      <div class="portfolio-grid">
+
+        <!-- Project 1: Listening Eyes -->
+        <article class="project-card">
+          <div>
+            <div class="project-meta-row">
+              <span class="proj-badge">Solo Developer</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">500+ Users</span>
+            </div>
+            <h3 class="project-title">Listening Eyes</h3>
+            <p class="project-summary">Accessibility educational app built solo to convert specialized study files into Text-to-Speech audio navigation for visually impaired students.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">TTS Engine</span>
+              <span class="tech-tag">Accessibility</span>
+              <span class="tech-tag">Firebase</span>
+            </div>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.listeningeyes.app&hl=en_IN" target="_blank" rel="noopener noreferrer" class="playstore-btn">
+            Play Store ↗
+          </a>
+        </article>
+
+        <!-- Project 2: Hukup -->
+        <article class="project-card">
+          <div>
+            <div class="project-meta-row">
+              <span class="proj-badge team">Team Project</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">5,000+ Downloads</span>
+            </div>
+            <h3 class="project-title">Hukup Dating App</h3>
+            <p class="project-summary">Social discovery application featuring interactive swipe card UI, real-time WebSockets messaging, and location matching.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Android (Kotlin)</span>
+              <span class="tech-tag">WebSockets</span>
+              <span class="tech-tag">REST APIs</span>
+            </div>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.technocomet.hukup&hl=en_IN" target="_blank" rel="noopener noreferrer" class="playstore-btn">
+            Play Store ↗
+          </a>
+        </article>
+
+        <!-- Project 3: Miodeal -->
+        <article class="project-card">
+          <div>
+            <div class="project-meta-row">
+              <span class="proj-badge team">Team Project</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">100+ Downloads</span>
+            </div>
+            <h3 class="project-title">Miodeal Buyer</h3>
+            <p class="project-summary">Multi-category e-commerce buyer application for food, electronics, and daily essentials with Dio network optimization and checkout.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Dio</span>
+              <span class="tech-tag">Payments</span>
+              <span class="tech-tag">Google Maps</span>
+            </div>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.miodeal.buyer&hl=en_IN" target="_blank" rel="noopener noreferrer" class="playstore-btn">
+            Play Store ↗
+          </a>
+        </article>
+
+        <!-- Project 4: Aarti Pooja Bell -->
+        <article class="project-card">
+          <div>
+            <div class="project-meta-row">
+              <span class="proj-badge">Solo Developer</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">Devotional Utility</span>
+            </div>
+            <h3 class="project-title">Aarti Pooja Bell</h3>
+            <p class="project-summary">Virtual temple bell audio utility featuring single-tap controls, continuous audio synthesis loops, and bell swinging motion animation.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Audio Synthesis</span>
+              <span class="tech-tag">Animation</span>
+            </div>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.app.aartipoojabell&hl=en_IN" target="_blank" rel="noopener noreferrer" class="playstore-btn">
+            Play Store ↗
+          </a>
+        </article>
+
+        <!-- Project 5: Mobile Codes and Tricks -->
+        <article class="project-card">
+          <div>
+            <div class="project-meta-row">
+              <span class="proj-badge">Solo Developer</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">Android Utility</span>
+            </div>
+            <h3 class="project-title">Mobile Codes and Tricks</h3>
+            <p class="project-summary">Android utility guide providing hidden USSD secret dialer codes for smartphone brands, hardware diagnostics inspection, and country codes.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Kotlin</span>
+              <span class="tech-tag">USSD Engine</span>
+              <span class="tech-tag">Hardware APIs</span>
+            </div>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.app.mobilecodesandtricks&hl=en_IN" target="_blank" rel="noopener noreferrer" class="playstore-btn">
+            Play Store ↗
+          </a>
+        </article>
+
+        <!-- Project 6: Maia Care -->
+        <article class="project-card">
+          <div>
+            <div class="project-meta-row">
+              <span class="proj-badge">Solo Developer</span>
+              <span style="font-size:0.75rem;color:var(--teal-accent);font-weight:600;">Client Delivered</span>
+            </div>
+            <h3 class="project-title">Maia Care</h3>
+            <p class="project-summary">Healthcare enterprise appointment scheduling application facilitating visit logs between medical representatives and doctors.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Clean Arch</span>
+              <span class="tech-tag">Provider</span>
+            </div>
+          </div>
+          <span class="proj-badge" style="width:fit-content;">Enterprise Build</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ─── TAB 4: Technical Skills ──────────────────────────────────── -->
+    <section id="tab-skills" class="tab-page" role="tabpanel">
+      <h2 class="page-title">Technical Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skill-category-box">
+          <div class="skill-cat-title">Mobile Languages &amp; SDKs</div>
+          <div class="skill-tags-wrapper">
+            <span class="skill-pill">Flutter</span>
+            <span class="skill-pill">Dart</span>
+            <span class="skill-pill">Native Android SDK</span>
+            <span class="skill-pill">Kotlin</span>
+            <span class="skill-pill">Java</span>
+          </div>
+        </div>
+
+        <div class="skill-category-box">
+          <div class="skill-cat-title">Architecture &amp; State</div>
+          <div class="skill-tags-wrapper">
+            <span class="skill-pill">Clean Architecture</span>
+            <span class="skill-pill">MVVM</span>
+            <span class="skill-pill">Repository Pattern</span>
+            <span class="skill-pill">Provider</span>
+            <span class="skill-pill">ChangeNotifier</span>
+          </div>
+        </div>
+
+        <div class="skill-category-box">
+          <div class="skill-cat-title">Networking &amp; Firebase</div>
+          <div class="skill-tags-wrapper">
+            <span class="skill-pill">REST APIs</span>
+            <span class="skill-pill">Dio / HTTP</span>
+            <span class="skill-pill">WebSockets</span>
+            <span class="skill-pill">Firebase Auth</span>
+            <span class="skill-pill">Firestore &amp; Storage</span>
+            <span class="skill-pill">FCM Notifications</span>
+          </div>
+        </div>
+
+        <div class="skill-category-box">
+          <div class="skill-cat-title">Databases &amp; DevOps</div>
+          <div class="skill-tags-wrapper">
+            <span class="skill-pill">Hive</span>
+            <span class="skill-pill">SQLite</span>
+            <span class="skill-pill">SharedPreferences</span>
+            <span class="skill-pill">Play Console Releases</span>
+            <span class="skill-pill">JKS Key Recovery</span>
+            <span class="skill-pill">Git / GitHub</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TAB 5: Contact ───────────────────────────────────────────── -->
+    <section id="tab-contact" class="tab-page" role="tabpanel">
+      <h2 class="page-title">Contact</h2>
+
+      <p style="margin-bottom: 24px;">
+        Have a project opportunity, job offer, or technical collaboration? Send me a message directly using the form below.
+      </p>
+
+      <form class="contact-form" onsubmit="submitForm(event)">
+        <div class="form-input-row">
+          <div class="form-field">
+            <label for="c-name">Full Name</label>
+            <input type="text" id="c-name" required placeholder="John Doe" />
+          </div>
+          <div class="form-field">
+            <label for="c-email">Your Email</label>
+            <input type="email" id="c-email" required placeholder="john@example.com" />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="c-subject">Subject</label>
+          <input type="text" id="c-subject" required placeholder="Flutter Developer Role / Project Discussion" />
+        </div>
+
+        <div class="form-field">
+          <label for="c-message">Message</label>
+          <textarea id="c-message" rows="5" required placeholder="Hello Abhishek, I'd like to discuss..."></textarea>
+        </div>
+
+        <button type="submit" id="btn-submit" class="submit-btn">Send Message →</button>
+        <p id="msg-status" style="font-size:0.85rem;color:var(--accent);font-weight:600;display:none;margin-top:10px;"></p>
+      </form>
+    </section>
+
+  </main>
+</div>
+
+<!-- ─── JavaScript (Tab Switcher & Form Handler) ───────────────────── -->
+<script>
+  'use strict';
+
+  function showTab(tabId) {
+    // Update active tab button
+    document.querySelectorAll('.tab-item').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+
+    // Update active page content
+    document.querySelectorAll('.tab-page').forEach(page => {
+      page.classList.remove('active');
+    });
+    document.getElementById('tab-' + tabId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btn-submit');
+    const status = document.getElementById('msg-status');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Send Message →';
+      status.style.display = 'block';
+      status.textContent = '✓ Thank you! Your message has been sent successfully.';
+      e.target.reset();
+      setTimeout(() => { status.style.display = 'none'; }, 5000);
+    }, 1000);
+  }
+</script>
+</body>
 </html>
