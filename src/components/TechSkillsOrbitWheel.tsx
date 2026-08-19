@@ -5,7 +5,7 @@ interface PlanetNode {
   name: string;
   icon: React.ReactNode;
   rx: number; // horizontal orbital radius (px)
-  ry: number; // vertical orbital radius (px) - creates real solar system tilt
+  ry: number; // vertical orbital radius (px)
   angleOffset: number; // starting angle in degrees
   duration: number; // orbital period in seconds
   color: string;
@@ -16,14 +16,14 @@ export const TechSkillsOrbitWheel: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
 
-  // 7 Core Tech Planets
+  // 7 Core Tech Planets with Open Upright Oval Orbits
   const planets: PlanetNode[] = [
-    // Inner Orbit (rx: 140px, ry: 58px, Period 20s) - 2 Planets
+    // Inner Orbit (rx: 135px, ry: 105px, Period 20s) - 2 Planets
     {
       name: 'Flutter',
       icon: <Smartphone size={24} />,
-      rx: 140,
-      ry: 58,
+      rx: 135,
+      ry: 105,
       angleOffset: 0,
       duration: 20,
       color: '#38bdf8',
@@ -32,20 +32,20 @@ export const TechSkillsOrbitWheel: React.FC = () => {
     {
       name: 'Kotlin',
       icon: <Cpu size={24} />,
-      rx: 140,
-      ry: 58,
+      rx: 135,
+      ry: 105,
       angleOffset: 180,
       duration: 20,
       color: '#c084fc',
       glowColor: 'rgba(192, 132, 252, 0.6)',
     },
 
-    // Middle Orbit (rx: 215px, ry: 88px, Period 28s) - 3 Planets
+    // Middle Orbit (rx: 215px, ry: 168px, Period 28s) - 3 Planets
     {
       name: 'Android',
       icon: <Layers size={24} />,
       rx: 215,
-      ry: 88,
+      ry: 168,
       angleOffset: 0,
       duration: 28,
       color: '#10b981',
@@ -55,7 +55,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
       name: 'Play Store',
       icon: <Play size={22} />,
       rx: 215,
-      ry: 88,
+      ry: 168,
       angleOffset: 120,
       duration: 28,
       color: '#34d399',
@@ -65,19 +65,19 @@ export const TechSkillsOrbitWheel: React.FC = () => {
       name: 'Firebase',
       icon: <Cloud size={24} />,
       rx: 215,
-      ry: 88,
+      ry: 168,
       angleOffset: 240,
       duration: 28,
       color: '#f59e0b',
       glowColor: 'rgba(245, 158, 11, 0.6)',
     },
 
-    // Outer Orbit (rx: 285px, ry: 118px, Period 36s) - 2 Planets
+    // Outer Orbit (rx: 285px, ry: 222px, Period 36s) - 2 Planets
     {
       name: 'Database',
       icon: <Database size={22} />,
       rx: 285,
-      ry: 118,
+      ry: 222,
       angleOffset: 60,
       duration: 36,
       color: '#06b6d4',
@@ -87,7 +87,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
       name: 'REST APIs',
       icon: <Globe size={20} />,
       rx: 285,
-      ry: 118,
+      ry: 222,
       angleOffset: 240,
       duration: 36,
       color: '#ec4899',
@@ -95,7 +95,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
     },
   ];
 
-  // RequestAnimationFrame Timer for Real Solar System Smooth Orbital Motion
+  // Animation Loop Timer
   useEffect(() => {
     let animFrame: number;
     let lastTime = performance.now();
@@ -116,14 +116,14 @@ export const TechSkillsOrbitWheel: React.FC = () => {
 
   return (
     <div className="orbit-wheel-responsive">
-      {/* Real Solar System Container */}
+      {/* Upright Open Orbit Solar System Container */}
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
           position: 'relative',
           width: '600px',
-          height: '420px',
+          height: '520px',
           margin: '0 auto',
           display: 'flex',
           alignItems: 'center',
@@ -155,11 +155,11 @@ export const TechSkillsOrbitWheel: React.FC = () => {
           </span>
         </div>
 
-        {/* Clear Glowing Tilted Elliptical Orbit Ring Tracks */}
+        {/* Clear Glowing Open Upright Orbit Ring Tracks */}
         {[
-          { rx: 140, ry: 58, color: 'rgba(56, 189, 248, 0.55)', shadow: '0 0 20px rgba(56, 189, 248, 0.35)', style: 'solid' },
-          { rx: 215, ry: 88, color: 'rgba(139, 92, 246, 0.65)', shadow: '0 0 25px rgba(139, 92, 246, 0.4)', style: 'dashed' },
-          { rx: 285, ry: 118, color: 'rgba(6, 182, 212, 0.55)', shadow: '0 0 30px rgba(6, 182, 212, 0.3)', style: 'solid' },
+          { rx: 135, ry: 105, color: 'rgba(56, 189, 248, 0.55)', shadow: '0 0 20px rgba(56, 189, 248, 0.35)', style: 'solid' },
+          { rx: 215, ry: 168, color: 'rgba(139, 92, 246, 0.65)', shadow: '0 0 25px rgba(139, 92, 246, 0.4)', style: 'dashed' },
+          { rx: 285, ry: 222, color: 'rgba(6, 182, 212, 0.55)', shadow: '0 0 30px rgba(6, 182, 212, 0.3)', style: 'solid' },
         ].map((track, idx) => (
           <div
             key={idx}
@@ -177,18 +177,15 @@ export const TechSkillsOrbitWheel: React.FC = () => {
 
         {/* Revolving Planets - 100% Upright, Straight, Flat 2D Badges & Labels */}
         {planets.map((planet, index) => {
-          // Compute current orbital angle in radians
           const currentAngleRad =
             ((planet.angleOffset + (elapsedTime / planet.duration) * 360) * Math.PI) / 180;
 
-          // Real solar system elliptical coordinates
           const x = planet.rx * Math.cos(currentAngleRad);
           const y = planet.ry * Math.sin(currentAngleRad);
 
-          // Depth sorting: planets in front (bottom arc) render above sun
           const isForeground = Math.sin(currentAngleRad) > 0;
           const zIndex = isForeground ? 20 : 5;
-          const scale = isForeground ? 1.05 : 0.92;
+          const scale = isForeground ? 1.04 : 0.94;
 
           return (
             <div
@@ -205,7 +202,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
                 transition: 'transform 0.05s linear',
               }}
             >
-              {/* Revolving Planet Badge - 100% Upright & Straight */}
+              {/* Revolving Planet Badge */}
               <div
                 className="glass-panel planet-badge-card"
                 style={{
@@ -226,7 +223,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
                 {planet.icon}
               </div>
 
-              {/* Visible Planet Name Label - 100% Upright & Straight */}
+              {/* Visible Planet Name Label */}
               <span
                 style={{
                   fontSize: '0.74rem',
