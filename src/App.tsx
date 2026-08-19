@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { CosmicCanvas } from './components/CosmicCanvas';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -21,8 +20,19 @@ export function App() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#030712', color: '#f3f4f6', position: 'relative' }}>
-      {/* Cosmic Starfield Particle Canvas */}
-      <CosmicCanvas />
+      {/* Ambient Cosmic Background Glows */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          pointerEvents: 'none',
+          zIndex: 0,
+          background: 'radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.15), rgba(3, 7, 18, 0.95) 70%)',
+        }}
+      />
 
       {/* Main Content Overlay */}
       <div style={{ position: 'relative', zIndex: 1 }}>
