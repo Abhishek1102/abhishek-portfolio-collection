@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Award, Key, Globe, MapPin } from 'lucide-react';
+import { User, Award, Key, Globe, MapPin, CheckCircle2 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const About: React.FC = () => {
@@ -53,24 +53,48 @@ export const About: React.FC = () => {
               My technical expertise spans both <span style={{ color: '#38bdf8' }}>Flutter (Dart)</span> and native <span style={{ color: '#c084fc' }}>Android (Kotlin)</span>. I have published <strong style={{ color: '#10b981' }}>6+ Google Play Store applications</strong> spanning accessibility tools, devotional players, e-commerce engines, social discovery apps, and native diagnostic utilities.
             </p>
 
-            {/* Key Value Highlights Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '26px' }}>
-              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '18px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.06)' }}>
-                <div style={{ color: '#38bdf8', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+            {/* Key Value Highlights Grid with Proper Bullet Points */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px', marginTop: '26px' }}>
+              {/* Rapid Career Growth Card */}
+              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '20px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div style={{ color: '#38bdf8', fontWeight: 700, fontSize: '0.98rem', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
                   <Award size={18} /> Rapid Career Growth
                 </div>
-                <div style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.5 }}>
-                  Promoted to Senior App Developer at TechnoComet Solutions for high feature ownership and client satisfaction.
-                </div>
+                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', padding: 0, margin: 0 }}>
+                  <li style={{ color: 'var(--text-muted)', fontSize: '0.86rem', lineHeight: 1.45, display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                    <CheckCircle2 size={14} color="#38bdf8" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>Promoted to Senior App Developer at TechnoComet Solutions</span>
+                  </li>
+                  <li style={{ color: 'var(--text-muted)', fontSize: '0.86rem', lineHeight: 1.45, display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                    <CheckCircle2 size={14} color="#38bdf8" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>High feature ownership &amp; client satisfaction</span>
+                  </li>
+                  <li style={{ color: 'var(--text-muted)', fontSize: '0.86rem', lineHeight: 1.45, display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                    <CheckCircle2 size={14} color="#38bdf8" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>Mentored 3 junior app developers</span>
+                  </li>
+                </ul>
               </div>
 
-              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '18px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.06)' }}>
-                <div style={{ color: '#10b981', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+              {/* Play Store DevOps Expert Card */}
+              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '20px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div style={{ color: '#10b981', fontWeight: 700, fontSize: '0.98rem', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
                   <Key size={18} /> Play Store DevOps Expert
                 </div>
-                <div style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.5 }}>
-                  Resolved lost JKS signing keys, generated replacement keys, managed app transfers, and maintained Play Console updates.
-                </div>
+                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', padding: 0, margin: 0 }}>
+                  <li style={{ color: 'var(--text-muted)', fontSize: '0.86rem', lineHeight: 1.45, display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                    <CheckCircle2 size={14} color="#10b981" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>Resolved lost JKS signing keys &amp; generated replacement keys</span>
+                  </li>
+                  <li style={{ color: 'var(--text-muted)', fontSize: '0.86rem', lineHeight: 1.45, display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                    <CheckCircle2 size={14} color="#10b981" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>Managed Play Store app ownership transfers</span>
+                  </li>
+                  <li style={{ color: 'var(--text-muted)', fontSize: '0.86rem', lineHeight: 1.45, display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                    <CheckCircle2 size={14} color="#10b981" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>Maintained production Play Console updates</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
