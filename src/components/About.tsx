@@ -54,7 +54,7 @@ export const About: React.FC = () => {
             </p>
 
             {/* Key Value Highlights Grid with Proper Bullet Points */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px', marginTop: '26px' }}>
+            <div className="about-highlights-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px', marginTop: '26px' }}>
               {/* Rapid Career Growth Card */}
               <div style={{ background: 'rgba(255,255,255,0.03)', padding: '20px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.06)' }}>
                 <div style={{ color: '#38bdf8', fontWeight: 700, fontSize: '0.98rem', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>

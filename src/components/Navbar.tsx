@@ -44,10 +44,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
         right: 0,
         zIndex: 900,
         transition: 'all 0.35s ease',
-        background: scrolled ? 'rgba(3, 7, 18, 0.88)' : 'transparent',
+        background: scrolled ? 'rgba(3, 7, 18, 0.92)' : 'transparent',
         backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(139, 92, 246, 0.2)' : '1px solid transparent',
-        padding: '16px 0',
+        borderBottom: scrolled ? '1px solid rgba(139, 92, 246, 0.25)' : '1px solid transparent',
+        padding: '14px 0',
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -55,22 +55,23 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
         <a
           href="#hero"
           onClick={(e) => { e.preventDefault(); scrollTo('hero'); }}
-          style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}
+          style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}
         >
           <div
             style={{
-              width: '42px',
-              height: '42px',
-              borderRadius: '14px',
+              width: '40px',
+              height: '40px',
+              borderRadius: '12px',
               background: 'linear-gradient(135deg, #7c3aed 0%, #38bdf8 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)',
               position: 'relative',
+              flexShrink: 0,
             }}
           >
-            <Smartphone size={22} color="#ffffff" />
+            <Smartphone size={20} color="#ffffff" />
             <span
               style={{
                 position: 'absolute',
@@ -85,18 +86,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
             />
           </div>
           <div>
-            <div style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.15rem', letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <div style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.08rem', letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '4px' }}>
               Abhishek<span style={{ color: '#a855f7' }}>.dev</span>
               <Sparkles size={14} color="#38bdf8" />
             </div>
-            <div style={{ color: '#9ca3af', fontSize: '0.73rem', fontWeight: 500 }}>
-              Flutter &amp; Native Android Developer
+            <div style={{ color: '#9ca3af', fontSize: '0.7rem', fontWeight: 500 }}>
+              Senior Flutter &amp; Android Developer
             </div>
           </div>
         </a>
 
         {/* Desktop Nav Links */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }} className="desktop-nav">
+        <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -132,31 +133,33 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
           ))}
         </div>
 
-        {/* Action CTA Button */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        {/* Action CTA Button & Mobile Hamburger Toggle */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <button
             onClick={() => scrollTo('contact')}
-            className="btn-primary"
-            style={{ padding: '9px 20px', fontSize: '0.88rem' }}
+            className="btn-primary desktop-cta"
+            style={{ padding: '9px 18px', fontSize: '0.85rem' }}
           >
-            Transmit Message <ArrowRight size={16} />
+            Transmit Message <ArrowRight size={15} />
           </button>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile Hamburger Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+            className="mobile-toggle"
             style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(139, 92, 246, 0.3)',
+              background: 'rgba(139, 92, 246, 0.15)',
+              border: '1px solid rgba(139, 92, 246, 0.35)',
               color: '#ffffff',
-              padding: '8px',
+              padding: '8px 10px',
               borderRadius: '10px',
               cursor: 'pointer',
-              display: 'none',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
-            className="mobile-toggle"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileMenuOpen ? <X size={22} color="#c084fc" /> : <Menu size={22} color="#ffffff" />}
           </button>
         </div>
       </div>
@@ -166,11 +169,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
         <div
           style={{
             background: 'rgba(11, 15, 25, 0.98)',
-            borderBottom: '1px solid rgba(139, 92, 246, 0.3)',
-            padding: '18px 24px',
+            borderBottom: '1px solid rgba(139, 92, 246, 0.35)',
+            padding: '20px 24px',
             display: 'flex',
             flexDirection: 'column',
             gap: '14px',
+            boxShadow: '0 15px 35px rgba(0, 0, 0, 0.9)',
           }}
         >
           {navItems.map((item) => (
@@ -181,16 +185,24 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
                 background: 'none',
                 border: 'none',
                 color: activeSection === item.id ? '#c084fc' : '#e5e7eb',
-                fontSize: '1.02rem',
+                fontSize: '1.05rem',
                 fontWeight: 600,
                 textAlign: 'left',
                 padding: '8px 0',
                 cursor: 'pointer',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
               }}
             >
               {item.label}
             </button>
           ))}
+          <button
+            onClick={() => scrollTo('contact')}
+            className="btn-primary"
+            style={{ marginTop: '8px', width: '100%', justifyContent: 'center' }}
+          >
+            Transmit Message <ArrowRight size={16} />
+          </button>
         </div>
       )}
     </nav>

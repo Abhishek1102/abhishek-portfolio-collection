@@ -102,6 +102,7 @@ export const Hero: React.FC<HeroProps> = () => {
 
             {/* Stats Counter Bar */}
             <div
+              className="hero-stats-grid"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(4, 1fr)',
