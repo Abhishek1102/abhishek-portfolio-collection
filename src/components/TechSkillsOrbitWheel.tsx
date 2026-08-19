@@ -12,7 +12,7 @@ interface PlanetNode {
 }
 
 export const TechSkillsOrbitWheel: React.FC = () => {
-  // Removed Dart as requested. 7 Orbiting Tech Planets Remaining.
+  // 7 Orbiting Tech Planets
   const planets: PlanetNode[] = [
     // Inner Orbit (Radius 130px, Period 20s) - 2 Planets (180° apart)
     {
@@ -88,6 +88,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
     <div className="orbit-wheel-responsive" style={{ perspective: '1000px' }}>
       {/* 3D Tilted Solar System Disk Container */}
       <div
+        className="orbit-solar-system"
         style={{
           position: 'relative',
           width: '600px',
@@ -152,6 +153,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
           return (
             <div
               key={index}
+              className="planet-orbit-ring"
               style={{
                 position: 'absolute',
                 width: `${planet.orbitRadius * 2}px`,
@@ -177,6 +179,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
               >
                 {/* Counter-Spin & Counter-Tilt Planet Container so Badges Face Viewer Upright */}
                 <div
+                  className="planet-counter-spin"
                   style={{
                     animationName: 'counterSpinPlanetOrbit',
                     animationDuration: `${planet.duration}s`,
@@ -192,7 +195,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
                 >
                   {/* Revolving Planet Badge */}
                   <div
-                    className="glass-panel"
+                    className="glass-panel planet-badge-card"
                     style={{
                       width: '58px',
                       height: '58px',
@@ -205,7 +208,6 @@ export const TechSkillsOrbitWheel: React.FC = () => {
                       justifyContent: 'center',
                       color: planet.color,
                       cursor: 'pointer',
-                      transition: 'all 0.3s ease',
                     }}
                     title={planet.name}
                   >
@@ -234,7 +236,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
           );
         })}
 
-        {/* CSS Orbit Animations */}
+        {/* CSS Orbit Animations & Hover Pause Rules */}
         <style>{`
           @keyframes spinPlanetOrbit {
             from { transform: rotate(0deg); }
@@ -243,6 +245,19 @@ export const TechSkillsOrbitWheel: React.FC = () => {
           @keyframes counterSpinPlanetOrbit {
             from { transform: rotate(0deg); }
             to { transform: rotate(-360deg); }
+          }
+          /* Pause all orbiting animations when mouse hovers over the solar system or any planet */
+          .orbit-solar-system:hover .planet-orbit-ring,
+          .orbit-solar-system:hover .planet-counter-spin {
+            animation-play-state: paused !important;
+          }
+          .planet-badge-card {
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+          }
+          .planet-badge-card:hover {
+            transform: scale(1.22);
+            box-shadow: 0 0 35px currentColor !important;
+            z-index: 100;
           }
         `}</style>
       </div>
