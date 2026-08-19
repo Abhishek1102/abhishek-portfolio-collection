@@ -5,7 +5,6 @@ import {
   Music, Bell, Cpu, Star
 } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
-import { TopBlackHoleArc } from './TopBlackHoleArc';
 import { TechSkillsOrbitWheel } from './TechSkillsOrbitWheel';
 
 interface HeroProps {
@@ -35,15 +34,12 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
     <section
       id="hero"
       style={{
-        paddingTop: '75px',
+        paddingTop: '110px',
         paddingBottom: '80px',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Top Inverted Black Hole Accretion Arc Visual */}
-      <TopBlackHoleArc />
-
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div
           style={{
