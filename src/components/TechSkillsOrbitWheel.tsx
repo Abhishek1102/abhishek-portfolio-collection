@@ -96,7 +96,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          transform: 'rotateX(54deg) rotateY(-8deg)',
+          transform: 'rotateX(20deg) rotateY(-4deg)',
           transformStyle: 'preserve-3d',
         }}
       >
@@ -116,7 +116,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
             zIndex: 10,
             color: '#ffffff',
             textAlign: 'center',
-            transform: 'rotateX(-54deg) rotateY(8deg)',
+            transform: 'rotateX(-20deg) rotateY(4deg)',
           }}
         >
           <Smartphone size={32} color="#38bdf8" />
@@ -183,7 +183,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
                     animationTimingFunction: 'linear',
                     animationIterationCount: 'infinite',
                     animationDelay: `${delayInSeconds}s`,
-                    transform: 'rotateX(-54deg) rotateY(8deg)',
+                    transform: 'rotateX(-20deg) rotateY(4deg)',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
