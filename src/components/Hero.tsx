@@ -5,6 +5,8 @@ import {
   Music, Bell, Cpu, Star
 } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
+import { TopBlackHoleArc } from './TopBlackHoleArc';
+import { TechSkillsOrbitWheel } from './TechSkillsOrbitWheel';
 
 interface HeroProps {
   onSelectProject: (projectId: string) => void;
@@ -33,42 +35,28 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
     <section
       id="hero"
       style={{
-        paddingTop: '140px',
+        paddingTop: '130px',
         paddingBottom: '90px',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Black Hole Singularity Background Visual */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '15%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '700px',
-          height: '700px',
-          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(56, 189, 248, 0.05) 50%, transparent 75%)',
-          borderRadius: '50%',
-          filter: 'blur(50px)',
-          pointerEvents: 'none',
-          zIndex: 0,
-        }}
-      />
+      {/* Top Inverted Black Hole Accretion Arc Visual */}
+      <TopBlackHoleArc />
 
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: '1.05fr 0.95fr',
-            gap: '48px',
+            gap: '40px',
             alignItems: 'center',
           }}
           className="hero-grid"
         >
-          {/* Left Column - Cosmic Intro Text & Singularity Core */}
+          {/* Left Column - Intro & Headline */}
           <div>
-            {/* Availability Badge */}
+            {/* Portfolio Badge */}
             <div
               style={{
                 display: 'inline-flex',
@@ -77,45 +65,45 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                 padding: '6px 16px',
                 borderRadius: '30px',
                 background: 'rgba(139, 92, 246, 0.12)',
-                border: '1px solid rgba(139, 92, 246, 0.3)',
+                border: '1px solid rgba(139, 92, 246, 0.35)',
                 color: '#c084fc',
                 fontSize: '0.85rem',
                 fontWeight: 600,
                 marginBottom: '24px',
-                boxShadow: '0 0 15px rgba(139, 92, 246, 0.2)',
+                boxShadow: '0 0 20px rgba(139, 92, 246, 0.25)',
               }}
             >
               <Sparkles size={16} className="text-purple-400 animate-pulse" />
-              <span>Senior Flutter &amp; Native Android (Kotlin) Developer</span>
+              <span>Senior Android &amp; Flutter Developer Portfolio</span>
             </div>
 
-            {/* Main Title */}
+            {/* Headline */}
             <h1
               style={{
-                fontSize: 'clamp(2.5rem, 5vw, 3.8rem)',
+                fontSize: 'clamp(2.5rem, 5.2vw, 3.9rem)',
                 fontWeight: 800,
                 lineHeight: 1.15,
                 marginBottom: '20px',
                 letterSpacing: '-0.02em',
               }}
             >
-              Crafting <span className="gradient-text">Cosmic-Grade</span> Mobile Experiences
+              Providing <span className="gradient-text">the best</span> mobile app experience.
             </h1>
 
-            {/* Subheading Tagline */}
+            {/* Subheading */}
             <p
               style={{
                 fontSize: '1.15rem',
                 color: 'var(--text-muted)',
-                marginBottom: '28px',
+                marginBottom: '32px',
                 maxWidth: '560px',
                 lineHeight: 1.7,
               }}
             >
-              {PERSONAL_INFO.bio}
+              I'm a Senior Android &amp; Flutter Software Engineer with 2+ years of experience building high-performance mobile apps across Play Store releases, client projects, and accessibility platforms. Check out my apps and skills below.
             </p>
 
-            {/* Primary Action Buttons */}
+            {/* CTA Buttons */}
             <div
               style={{
                 display: 'flex',
@@ -124,19 +112,17 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                 marginBottom: '36px',
               }}
             >
-              <a href="#projects" className="btn-primary">
-                <span>Explore Play Store Apps</span>
+              <a href="#about" className="btn-primary" style={{ padding: '14px 30px' }}>
+                <span>Learn More</span>
                 <ArrowRight size={18} />
               </a>
 
               <a
-                href={PERSONAL_INFO.github}
-                target="_blank"
-                rel="noreferrer"
+                href="#projects"
                 className="btn-secondary"
+                style={{ padding: '14px 26px' }}
               >
-                <ExternalLink size={18} />
-                <span>GitHub Profile</span>
+                <span>View Play Store Apps 🚀</span>
               </a>
             </div>
 
@@ -147,11 +133,11 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                 gridTemplateColumns: 'repeat(4, 1fr)',
                 gap: '12px',
                 padding: '20px',
-                background: 'rgba(11, 15, 25, 0.75)',
+                background: 'rgba(11, 15, 25, 0.8)',
                 backdropFilter: 'blur(16px)',
                 border: '1px solid rgba(139, 92, 246, 0.25)',
-                borderRadius: '16px',
-                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
+                borderRadius: '18px',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.6)',
               }}
             >
               {PERSONAL_INFO.stats.map((stat, idx) => (
@@ -180,29 +166,22 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
             </div>
           </div>
 
-          {/* Right Column - Space Holo-Display Mobile Simulator */}
+          {/* Right Column - Orbiting Android Tech Galaxy & Holo App Simulator */}
           <div style={{ position: 'relative' }}>
-            {/* Accretion Disk Orbit Glow Behind Simulator */}
-            <div
-              style={{
-                position: 'absolute',
-                inset: '-20px',
-                background: 'radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(56, 189, 248, 0.1) 40%, transparent 70%)',
-                borderRadius: '30px',
-                filter: 'blur(20px)',
-                pointerEvents: 'none',
-              }}
-            />
+            <TechSkillsOrbitWheel />
 
-            {/* Holo Screen Card */}
+            {/* Holo Simulator Drawer */}
             <div
-              className="glass-panel phone-glow phone-float"
+              className="glass-panel phone-glow"
               style={{
+                marginTop: '-60px',
                 padding: '20px',
                 position: 'relative',
                 border: '1px solid rgba(139, 92, 246, 0.35)',
                 borderRadius: '24px',
-                background: 'rgba(11, 15, 25, 0.85)',
+                background: 'rgba(11, 15, 25, 0.88)',
+                boxShadow: '0 20px 60px rgba(0, 0, 0, 0.9)',
+                zIndex: 15,
               }}
             >
               {/* App Switcher Tabs Header */}
@@ -261,11 +240,11 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
               <div
                 style={{
                   width: '100%',
-                  maxWidth: '320px',
+                  maxWidth: '340px',
                   margin: '0 auto',
-                  height: '420px',
+                  height: '380px',
                   background: '#070a14',
-                  borderRadius: '28px',
+                  borderRadius: '24px',
                   border: '3px solid rgba(139, 92, 246, 0.4)',
                   boxShadow: '0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(56, 189, 248, 0.1)',
                   position: 'relative',
@@ -313,7 +292,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        marginBottom: '12px',
+                        marginBottom: '10px',
                       }}
                     >
                       <span
@@ -369,11 +348,11 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                   <div
                     style={{
                       flex: 1,
-                      margin: '12px 0',
+                      margin: '10px 0',
                       background: 'rgba(15, 23, 42, 0.6)',
                       borderRadius: '16px',
                       border: '1px solid rgba(255, 255, 255, 0.08)',
-                      padding: '14px',
+                      padding: '12px',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'center',
@@ -385,16 +364,16 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                     {currentApp.mockupType === 'accessibility_tts' && (
                       <div>
                         <Volume2
-                          size={32}
+                          size={30}
                           color={currentApp.color}
-                          style={{ marginBottom: '8px' }}
+                          style={{ marginBottom: '6px' }}
                         />
                         <div
                           style={{
-                            fontSize: '0.8rem',
+                            fontSize: '0.78rem',
                             color: 'var(--text-main)',
                             fontWeight: 600,
-                            marginBottom: '8px',
+                            marginBottom: '6px',
                           }}
                         >
                           {isPlayingAudio ? '🔊 Spoken Audio Feedback Active' : '🔇 Tap to Test Voice Navigation'}
@@ -402,7 +381,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                         <button
                           onClick={() => setIsPlayingAudio(!isPlayingAudio)}
                           style={{
-                            padding: '8px 16px',
+                            padding: '6px 14px',
                             borderRadius: '20px',
                             background: isPlayingAudio ? '#a855f7' : 'rgba(255, 255, 255, 0.1)',
                             border: 'none',
@@ -425,16 +404,16 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                     {currentApp.mockupType === 'dating_swipe' && (
                       <div>
                         <Heart
-                          size={32}
+                          size={30}
                           color={currentApp.color}
-                          style={{ marginBottom: '8px' }}
+                          style={{ marginBottom: '6px' }}
                         />
                         <div
                           style={{
-                            fontSize: '0.8rem',
+                            fontSize: '0.78rem',
                             color: 'var(--text-main)',
                             fontWeight: 600,
-                            marginBottom: '8px',
+                            marginBottom: '6px',
                           }}
                         >
                           Profile Card #{swipeCount} Matched!
@@ -442,7 +421,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                         <button
                           onClick={() => setSwipeCount(swipeCount + 1)}
                           style={{
-                            padding: '8px 16px',
+                            padding: '6px 14px',
                             borderRadius: '20px',
                             background: '#ec4899',
                             border: 'none',
@@ -461,13 +440,13 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                     {currentApp.mockupType === 'mantra_player' && (
                       <div>
                         <Music
-                          size={30}
+                          size={28}
                           color="#f59e0b"
-                          style={{ marginBottom: '6px' }}
+                          style={{ marginBottom: '4px' }}
                         />
                         <div
                           style={{
-                            fontSize: '0.8rem',
+                            fontSize: '0.78rem',
                             color: '#fff',
                             fontWeight: 600,
                             marginBottom: '4px',
@@ -475,30 +454,21 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                         >
                           🕉️ {selectedMantra}
                         </div>
-                        <div
-                          style={{
-                            fontSize: '0.7rem',
-                            color: 'var(--text-dim)',
-                            marginBottom: '8px',
-                          }}
-                        >
-                          Auto-Loop Repeat Mode Active
-                        </div>
-                        <div style={{ display: 'flex', gap: '6px', justifyContent: 'center' }}>
+                        <div style={{ display: 'flex', gap: '4px', justifyContent: 'center' }}>
                           {['Ganesh', 'Gayatri', 'Om'].map((m) => (
                             <button
                               key={m}
                               onClick={() => setSelectedMantra(`${m} Mantra`)}
                               style={{
                                 padding: '4px 8px',
-                                borderRadius: '8px',
+                                borderRadius: '6px',
                                 background:
                                   selectedMantra.includes(m)
                                     ? '#f59e0b'
                                     : 'rgba(255, 255, 255, 0.1)',
                                 border: 'none',
                                 color: '#fff',
-                                fontSize: '0.68rem',
+                                fontSize: '0.65rem',
                                 cursor: 'pointer',
                               }}
                             >
@@ -513,16 +483,16 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                     {currentApp.mockupType === 'ecommerce_shop' && (
                       <div>
                         <ShoppingBag
-                          size={32}
+                          size={30}
                           color={currentApp.color}
-                          style={{ marginBottom: '8px' }}
+                          style={{ marginBottom: '6px' }}
                         />
                         <div
                           style={{
-                            fontSize: '0.8rem',
+                            fontSize: '0.78rem',
                             color: 'var(--text-main)',
                             fontWeight: 600,
-                            marginBottom: '8px',
+                            marginBottom: '6px',
                           }}
                         >
                           Cart Items: {cartCount}
@@ -530,7 +500,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                         <button
                           onClick={() => setCartCount(cartCount + 1)}
                           style={{
-                            padding: '8px 16px',
+                            padding: '6px 14px',
                             borderRadius: '20px',
                             background: '#3b82f6',
                             border: 'none',
@@ -540,7 +510,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                             cursor: 'pointer',
                           }}
                         >
-                          + Add Item to Cart 🛒
+                          + Add Item 🛒
                         </button>
                       </div>
                     )}
@@ -549,23 +519,23 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                     {currentApp.mockupType === 'pooja_bell' && (
                       <div>
                         <Bell
-                          size={32}
+                          size={30}
                           color="#eab308"
                           style={{
-                            marginBottom: '8px',
+                            marginBottom: '6px',
                             transform: bellRinging ? 'rotate(20deg)' : 'rotate(0deg)',
                             transition: 'transform 0.15s ease-in-out',
                           }}
                         />
                         <div
                           style={{
-                            fontSize: '0.8rem',
+                            fontSize: '0.78rem',
                             color: '#fff',
                             fontWeight: 600,
-                            marginBottom: '8px',
+                            marginBottom: '6px',
                           }}
                         >
-                          {bellRinging ? '🔔 Ringing Aarti Bell...' : 'Tap Bell to Ring'}
+                          {bellRinging ? '🔔 Ringing Bell...' : 'Tap Bell to Ring'}
                         </div>
                         <button
                           onClick={() => {
@@ -573,7 +543,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                             setTimeout(() => setBellRinging(false), 1200);
                           }}
                           style={{
-                            padding: '8px 16px',
+                            padding: '6px 14px',
                             borderRadius: '20px',
                             background: '#eab308',
                             border: 'none',
@@ -583,7 +553,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                             cursor: 'pointer',
                           }}
                         >
-                          Ring Virtual Bell 🔔
+                          Ring Bell 🔔
                         </button>
                       </div>
                     )}
@@ -592,13 +562,13 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                     {currentApp.mockupType === 'mobile_codes' && (
                       <div>
                         <Cpu
-                          size={28}
+                          size={26}
                           color="#06b6d4"
-                          style={{ marginBottom: '6px' }}
+                          style={{ marginBottom: '4px' }}
                         />
                         <div
                           style={{
-                            fontSize: '0.78rem',
+                            fontSize: '0.75rem',
                             color: '#fff',
                             fontWeight: 600,
                             marginBottom: '4px',
@@ -612,7 +582,6 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                             gap: '4px',
                             justifyContent: 'center',
                             flexWrap: 'wrap',
-                            marginTop: '6px',
                           }}
                         >
                           {Object.keys(brandsUSSD).map((b) => (
@@ -620,7 +589,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                               key={b}
                               onClick={() => setSelectedBrand(b)}
                               style={{
-                                padding: '4px 8px',
+                                padding: '3px 6px',
                                 borderRadius: '6px',
                                 background:
                                   selectedBrand === b
@@ -628,7 +597,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                                     : 'rgba(255, 255, 255, 0.1)',
                                 border: 'none',
                                 color: '#fff',
-                                fontSize: '0.65rem',
+                                fontSize: '0.62rem',
                                 cursor: 'pointer',
                               }}
                             >
@@ -643,16 +612,16 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                     {currentApp.mockupType === 'medical_booking' && (
                       <div>
                         <Calendar
-                          size={32}
+                          size={30}
                           color={currentApp.color}
-                          style={{ marginBottom: '8px' }}
+                          style={{ marginBottom: '6px' }}
                         />
                         <div
                           style={{
-                            fontSize: '0.8rem',
+                            fontSize: '0.78rem',
                             color: 'var(--text-main)',
                             fontWeight: 600,
-                            marginBottom: '8px',
+                            marginBottom: '6px',
                           }}
                         >
                           {bookingDone ? '✅ Visit Scheduled!' : 'Select Doctor Slot'}
@@ -660,7 +629,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                         <button
                           onClick={() => setBookingDone(!bookingDone)}
                           style={{
-                            padding: '8px 16px',
+                            padding: '6px 14px',
                             borderRadius: '20px',
                             background: '#10b981',
                             border: 'none',
@@ -670,7 +639,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                             cursor: 'pointer',
                           }}
                         >
-                          {bookingDone ? 'Reset Schedule' : 'Confirm Visit Slot 📅'}
+                          {bookingDone ? 'Reset' : 'Confirm Slot 📅'}
                         </button>
                       </div>
                     )}
@@ -688,7 +657,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                           width: '100%',
                           justifyContent: 'center',
                           fontSize: '0.78rem',
-                          padding: '8px 12px',
+                          padding: '7px 12px',
                         }}
                       >
                         <ExternalLink size={14} />
@@ -702,7 +671,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectProject }) => {
                           width: '100%',
                           justifyContent: 'center',
                           fontSize: '0.78rem',
-                          padding: '8px 12px',
+                          padding: '7px 12px',
                         }}
                       >
                         <span>View Case Study</span>
