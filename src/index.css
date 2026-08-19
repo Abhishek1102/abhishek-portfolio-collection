@@ -102,99 +102,41 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Black Hole Singularity Visual Keyframes */
+/* Space Keyframe Animations */
 @keyframes blackholeRotate {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.05);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes accretionPulse {
-  0%, 100% {
-    opacity: 0.85;
-    filter: drop-shadow(0 0 35px rgba(139, 92, 246, 0.7)) drop-shadow(0 0 60px rgba(56, 189, 248, 0.5));
-  }
-  50% {
-    opacity: 1;
-    filter: drop-shadow(0 0 55px rgba(236, 72, 153, 0.85)) drop-shadow(0 0 85px rgba(245, 158, 11, 0.6));
-  }
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
 }
 
 @keyframes eventHorizonPulse {
-  0%, 100% {
-    box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.95), 0 0 80px 20px rgba(139, 92, 246, 0.6), inset 0 0 40px rgba(56, 189, 248, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 70px 20px rgba(0, 0, 0, 0.98), 0 0 110px 35px rgba(236, 72, 153, 0.7), inset 0 0 60px rgba(245, 158, 11, 0.5);
-  }
-}
-
-@keyframes orbitNode {
-  0% {
-    transform: rotate(0deg) translate(140px) rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg) translate(140px) rotate(-360deg);
-  }
-}
-
-.blackhole-core {
-  position: relative;
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #000000 55%, #030712 85%, transparent 100%);
-  animation: eventHorizonPulse 5s infinite ease-in-out;
-}
-
-.accretion-disk {
-  position: absolute;
-  inset: -35px;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    rgba(139, 92, 246, 0.8),
-    rgba(56, 189, 248, 0.8),
-    rgba(236, 72, 153, 0.8),
-    rgba(245, 158, 11, 0.8),
-    rgba(139, 92, 246, 0.8)
-  );
-  filter: blur(14px);
-  animation: blackholeRotate 12s linear infinite, accretionPulse 6s ease-in-out infinite;
-  z-index: -1;
-}
-
-/* Phone Simulator Holo Floating & Glow */
-@keyframes floatPhone {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-12px) rotate(0.8deg);
-  }
-}
-
-.phone-float {
-  animation: floatPhone 6s ease-in-out infinite;
+  0%, 100% { box-shadow: 0 0 50px rgba(139, 92, 246, 0.8), inset 0 0 30px rgba(56, 189, 248, 0.6); }
+  50% { box-shadow: 0 0 80px rgba(236, 72, 153, 0.9), inset 0 0 50px rgba(139, 92, 246, 0.8); }
 }
 
 @keyframes cosmicHoloGlow {
-  0%, 100% {
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3), inset 0 0 15px rgba(56, 189, 248, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 50px rgba(236, 72, 153, 0.5), inset 0 0 25px rgba(245, 158, 11, 0.3);
-  }
+  0%, 100% { filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.4)); }
+  50% { filter: drop-shadow(0 0 30px rgba(56, 189, 248, 0.7)); }
 }
 
-.phone-glow {
-  animation: cosmicHoloGlow 4s infinite ease-in-out;
+.blackhole-disk {
+  animation: blackholeRotate 25s linear infinite;
+}
+
+.accretion-pulse {
+  animation: accretionPulse 4s ease-in-out infinite;
+}
+
+.event-horizon-glow {
+  animation: eventHorizonPulse 3s ease-in-out infinite;
+}
+
+.holo-glow {
+  animation: cosmicHoloGlow 4s ease-in-out infinite;
 }
 
 /* Badge tags */
@@ -298,4 +240,72 @@ body {
   align-items: center;
   justify-content: center;
   padding: 24px;
+}
+
+/* --- COMPREHENSIVE RESPONSIVE STYLES (MOBILE, TABLET, DESKTOP) --- */
+
+.orbit-wheel-responsive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transform-origin: center center;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+  .orbit-wheel-responsive {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    gap: 50px !important;
+  }
+  .hero-grid > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-grid p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-grid div[style*="display: flex"] {
+    justify-content: center;
+  }
+  .orbit-wheel-responsive {
+    transform: scale(0.78);
+    margin-top: -20px;
+  }
+  .about-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  .orbit-wheel-responsive {
+    transform: scale(0.62);
+    height: 400px;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .orbit-wheel-responsive {
+    transform: scale(0.50);
+    height: 330px;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
 }
