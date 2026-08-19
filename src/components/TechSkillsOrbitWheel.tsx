@@ -16,14 +16,14 @@ export const TechSkillsOrbitWheel: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
 
-  // 7 Core Tech Planets with Open Upright Oval Orbits
+  // 7 Core Tech Planets with Compact Radii to Prevent Side Edge Clipping
   const planets: PlanetNode[] = [
-    // Inner Orbit (rx: 135px, ry: 105px, Period 20s) - 2 Planets
+    // Inner Orbit (rx: 115px, ry: 85px, Period 20s) - 2 Planets
     {
       name: 'Flutter',
-      icon: <Smartphone size={24} />,
-      rx: 135,
-      ry: 105,
+      icon: <Smartphone size={22} />,
+      rx: 115,
+      ry: 85,
       angleOffset: 0,
       duration: 20,
       color: '#38bdf8',
@@ -31,21 +31,21 @@ export const TechSkillsOrbitWheel: React.FC = () => {
     },
     {
       name: 'Kotlin',
-      icon: <Cpu size={24} />,
-      rx: 135,
-      ry: 105,
+      icon: <Cpu size={22} />,
+      rx: 115,
+      ry: 85,
       angleOffset: 180,
       duration: 20,
       color: '#c084fc',
       glowColor: 'rgba(192, 132, 252, 0.6)',
     },
 
-    // Middle Orbit (rx: 215px, ry: 168px, Period 28s) - 3 Planets
+    // Middle Orbit (rx: 180px, ry: 130px, Period 28s) - 3 Planets
     {
       name: 'Android',
-      icon: <Layers size={24} />,
-      rx: 215,
-      ry: 168,
+      icon: <Layers size={22} />,
+      rx: 180,
+      ry: 130,
       angleOffset: 0,
       duration: 28,
       color: '#10b981',
@@ -53,9 +53,9 @@ export const TechSkillsOrbitWheel: React.FC = () => {
     },
     {
       name: 'Play Store',
-      icon: <Play size={22} />,
-      rx: 215,
-      ry: 168,
+      icon: <Play size={20} />,
+      rx: 180,
+      ry: 130,
       angleOffset: 120,
       duration: 28,
       color: '#34d399',
@@ -63,21 +63,21 @@ export const TechSkillsOrbitWheel: React.FC = () => {
     },
     {
       name: 'Firebase',
-      icon: <Cloud size={24} />,
-      rx: 215,
-      ry: 168,
+      icon: <Cloud size={22} />,
+      rx: 180,
+      ry: 130,
       angleOffset: 240,
       duration: 28,
       color: '#f59e0b',
       glowColor: 'rgba(245, 158, 11, 0.6)',
     },
 
-    // Outer Orbit (rx: 285px, ry: 222px, Period 36s) - 2 Planets
+    // Outer Orbit (rx: 245px, ry: 180px, Period 36s) - 2 Planets
     {
       name: 'Database',
-      icon: <Database size={22} />,
-      rx: 285,
-      ry: 222,
+      icon: <Database size={20} />,
+      rx: 245,
+      ry: 180,
       angleOffset: 60,
       duration: 36,
       color: '#06b6d4',
@@ -85,9 +85,9 @@ export const TechSkillsOrbitWheel: React.FC = () => {
     },
     {
       name: 'REST APIs',
-      icon: <Globe size={20} />,
-      rx: 285,
-      ry: 222,
+      icon: <Globe size={18} />,
+      rx: 245,
+      ry: 180,
       angleOffset: 240,
       duration: 36,
       color: '#ec4899',
@@ -116,29 +116,31 @@ export const TechSkillsOrbitWheel: React.FC = () => {
 
   return (
     <div className="orbit-wheel-responsive">
-      {/* Upright Open Orbit Solar System Container */}
+      {/* Container with ample padding to prevent edge clipping */}
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
           position: 'relative',
-          width: '600px',
-          height: '520px',
+          width: '640px',
+          maxWidth: '100%',
+          height: '460px',
           margin: '0 auto',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          padding: '0 30px',
         }}
       >
         {/* Central Star Core Hub */}
         <div
           style={{
-            width: '110px',
-            height: '110px',
+            width: '100px',
+            height: '100px',
             borderRadius: '50%',
             background: 'radial-gradient(circle, #8b5cf6 0%, #3b0764 60%, #030712 100%)',
             border: '2.5px solid rgba(192, 132, 252, 0.9)',
-            boxShadow: '0 0 60px rgba(139, 92, 246, 0.95), inset 0 0 25px rgba(56, 189, 248, 0.6)',
+            boxShadow: '0 0 50px rgba(139, 92, 246, 0.95), inset 0 0 20px rgba(56, 189, 248, 0.6)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -149,17 +151,17 @@ export const TechSkillsOrbitWheel: React.FC = () => {
             position: 'absolute',
           }}
         >
-          <Smartphone size={32} color="#38bdf8" />
-          <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#c084fc', marginTop: '3px', letterSpacing: '0.05em' }}>
+          <Smartphone size={28} color="#38bdf8" />
+          <span style={{ fontSize: '0.68rem', fontWeight: 800, color: '#c084fc', marginTop: '2px', letterSpacing: '0.05em' }}>
             MOBILE CORE
           </span>
         </div>
 
         {/* Clear Glowing Open Upright Orbit Ring Tracks */}
         {[
-          { rx: 135, ry: 105, color: 'rgba(56, 189, 248, 0.55)', shadow: '0 0 20px rgba(56, 189, 248, 0.35)', style: 'solid' },
-          { rx: 215, ry: 168, color: 'rgba(139, 92, 246, 0.65)', shadow: '0 0 25px rgba(139, 92, 246, 0.4)', style: 'dashed' },
-          { rx: 285, ry: 222, color: 'rgba(6, 182, 212, 0.55)', shadow: '0 0 30px rgba(6, 182, 212, 0.3)', style: 'solid' },
+          { rx: 115, ry: 85, color: 'rgba(56, 189, 248, 0.55)', shadow: '0 0 20px rgba(56, 189, 248, 0.35)', style: 'solid' },
+          { rx: 180, ry: 130, color: 'rgba(139, 92, 246, 0.65)', shadow: '0 0 25px rgba(139, 92, 246, 0.4)', style: 'dashed' },
+          { rx: 245, ry: 180, color: 'rgba(6, 182, 212, 0.55)', shadow: '0 0 30px rgba(6, 182, 212, 0.3)', style: 'solid' },
         ].map((track, idx) => (
           <div
             key={idx}
@@ -197,7 +199,7 @@ export const TechSkillsOrbitWheel: React.FC = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '6px',
+                gap: '5px',
                 pointerEvents: 'auto',
                 transition: 'transform 0.05s linear',
               }}
@@ -206,12 +208,12 @@ export const TechSkillsOrbitWheel: React.FC = () => {
               <div
                 className="glass-panel planet-badge-card"
                 style={{
-                  width: '56px',
-                  height: '56px',
+                  width: '52px',
+                  height: '52px',
                   borderRadius: '50%',
                   background: 'rgba(11, 15, 25, 0.95)',
                   border: `2px solid ${planet.color}`,
-                  boxShadow: `0 0 25px ${planet.glowColor}`,
+                  boxShadow: `0 0 22px ${planet.glowColor}`,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -226,14 +228,14 @@ export const TechSkillsOrbitWheel: React.FC = () => {
               {/* Visible Planet Name Label */}
               <span
                 style={{
-                  fontSize: '0.74rem',
+                  fontSize: '0.72rem',
                   fontWeight: 700,
                   color: '#ffffff',
                   background: 'rgba(11, 15, 25, 0.9)',
-                  padding: '3px 10px',
-                  borderRadius: '12px',
+                  padding: '3px 9px',
+                  borderRadius: '10px',
                   border: `1.5px solid ${planet.color}88`,
-                  boxShadow: `0 0 14px ${planet.glowColor}`,
+                  boxShadow: `0 0 12px ${planet.glowColor}`,
                   whiteSpace: 'nowrap',
                 }}
               >
@@ -249,8 +251,8 @@ export const TechSkillsOrbitWheel: React.FC = () => {
             transition: transform 0.25s ease, box-shadow 0.25s ease;
           }
           .planet-badge-card:hover {
-            transform: scale(1.22);
-            box-shadow: 0 0 35px currentColor !important;
+            transform: scale(1.2);
+            box-shadow: 0 0 32px currentColor !important;
           }
         `}</style>
       </div>
