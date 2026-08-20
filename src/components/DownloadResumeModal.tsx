@@ -120,8 +120,9 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            {/* PDF Option */}
             <a
-              href="Abhishek_Panchmiya_Resume.pdf"
+              href="Resume.pdf"
               download="Abhishek_Panchmiya_Resume.pdf"
               onClick={() => handleDownload('PDF')}
               style={{
@@ -153,7 +154,7 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
               </div>
               <div style={{ flexGrow: 1 }}>
                 <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PDF Document</div>
-                <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>Best for job applications and printing</div>
+                <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>Original PDF from resume &amp; cv folder</div>
               </div>
               <span
                 style={{
@@ -170,10 +171,11 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
               </span>
             </a>
 
+            {/* PNG Option */}
             <a
-              href="Abhishek_Panchmiya_Resume.jpg"
-              download="Abhishek_Panchmiya_Resume.jpg"
-              onClick={() => handleDownload('JPG')}
+              href="Resume.png"
+              download="Abhishek_Panchmiya_Resume.png"
+              onClick={() => handleDownload('PNG')}
               style={{
                 background: 'rgba(255, 255, 255, 0.04)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -202,8 +204,8 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
                 <ImageIcon size={22} />
               </div>
               <div style={{ flexGrow: 1 }}>
-                <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>JPG Image</div>
-                <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>High-resolution image format</div>
+                <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PNG Image</div>
+                <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>Original PNG image from resume &amp; cv folder</div>
               </div>
               <span
                 style={{
@@ -216,7 +218,7 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
                   border: '1px solid rgba(56, 189, 248, 0.3)',
                 }}
               >
-                Image
+                PNG Image
               </span>
             </a>
           </div>
