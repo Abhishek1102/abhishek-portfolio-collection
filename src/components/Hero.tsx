@@ -6,6 +6,7 @@ import {
 import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
 import { AnimatedCounter } from './AnimatedCounter';
 import { AndroidLogo } from './AndroidLogo';
+import { DownloadResumeModal } from './DownloadResumeModal';
 
 interface HeroProps {
   onSelectProject: (projectId: string) => void;
@@ -17,6 +18,7 @@ export const Hero: React.FC<HeroProps> = () => {
   const [swipeCount, setSwipeCount] = useState(1);
   const [cartCount, setCartCount] = useState(0);
   const [bookingDone, setBookingDone] = useState(false);
+  const [isDownloadOpen, setIsDownloadOpen] = useState(false);
 
   const currentApp = PROJECTS[activeAppIndex];
 
@@ -123,10 +125,16 @@ export const Hero: React.FC<HeroProps> = () => {
               <a href="#projects" className="btn-primary">
                 Explore My Apps <ArrowRight size={18} />
               </a>
-              <a href="#contact" className="btn-secondary">
-                Get In Touch
-              </a>
+              <button
+                onClick={() => setIsDownloadOpen(true)}
+                className="btn-secondary"
+                style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+              >
+                📥 Download Resume
+              </button>
             </div>
+
+            <DownloadResumeModal isOpen={isDownloadOpen} onClose={() => setIsDownloadOpen(false)} />
 
             {/* Stats Row with Animated Counter */}
             <div
