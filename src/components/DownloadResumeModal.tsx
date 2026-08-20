@@ -122,7 +122,7 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {/* PDF Option */}
             <a
-              href="Abhishek_Panchmiya_Resume_CV.pdf"
+              href="Resume.pdf?v=100"
               download="Abhishek_Panchmiya_Resume.pdf"
               onClick={() => handleDownload('PDF')}
               style={{
@@ -173,7 +173,7 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
 
             {/* PNG Option */}
             <a
-              href="Abhishek_Panchmiya_Resume_CV.png"
+              href="Resume.png?v=100"
               download="Abhishek_Panchmiya_Resume.png"
               onClick={() => handleDownload('PNG')}
               style={{
