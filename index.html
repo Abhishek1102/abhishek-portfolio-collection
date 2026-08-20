@@ -1618,8 +1618,34 @@
     document.body.style.overflow = '';
   }
 
+  function openDownloadModal(evt) {
+    if (evt && evt.stopPropagation) evt.stopPropagation();
+    const modal = document.getElementById('downloadModal');
+    if (modal) modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  window.openDownloadModal = openDownloadModal;
+
+  function closeDownloadModal(evt) {
+    if (evt && evt.stopPropagation) evt.stopPropagation();
+    const modal = document.getElementById('downloadModal');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  window.closeDownloadModal = closeDownloadModal;
+
+  function triggerDownloadFeedback(fmt) {
+    setTimeout(() => {
+      closeDownloadModal();
+    }, 500);
+  }
+  window.triggerDownloadFeedback = triggerDownloadFeedback;
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Escape') {
+      closeLightbox();
+      closeDownloadModal();
+    }
   });
 
   function submitForm(e) {
