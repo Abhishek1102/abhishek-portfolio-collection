@@ -4,6 +4,8 @@ import {
   Play, Pause, ArrowRight, Sparkles, Volume2
 } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
+import { AnimatedCounter } from './AnimatedCounter';
+import { AndroidLogo } from './AndroidLogo';
 
 interface HeroProps {
   onSelectProject: (projectId: string) => void;
@@ -28,29 +30,26 @@ export const Hero: React.FC<HeroProps> = () => {
         overflow: 'hidden',
       }}
     >
-      {/* Glow background gradients */}
+      {/* Drifting Ambient Glow Orbs */}
       <div
+        className="ambient-glow-orb"
         style={{
-          position: 'absolute',
-          top: '10%',
-          left: '-10%',
-          width: '500px',
-          height: '500px',
-          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0, 0, 0, 0) 70%)',
-          borderRadius: '50%',
-          pointerEvents: 'none',
+          top: '5%',
+          left: '-5%',
+          width: '550px',
+          height: '550px',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(0, 0, 0, 0) 70%)',
         }}
       />
       <div
+        className="ambient-glow-orb"
         style={{
-          position: 'absolute',
-          top: '30%',
-          right: '-10%',
-          width: '600px',
-          height: '600px',
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(0, 0, 0, 0) 70%)',
-          borderRadius: '50%',
-          pointerEvents: 'none',
+          top: '35%',
+          right: '-5%',
+          width: '650px',
+          height: '650px',
+          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, rgba(0, 0, 0, 0) 70%)',
+          animationDelay: '-5s',
         }}
       />
 
@@ -66,32 +65,25 @@ export const Hero: React.FC<HeroProps> = () => {
         >
           {/* Left Column - Intro Text */}
           <div>
-            {/* Availability Badge */}
+            {/* Availability Badge with Pulse Beacon */}
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '8px',
-                padding: '6px 14px',
+                gap: '10px',
+                padding: '6px 16px',
                 borderRadius: '30px',
                 background: 'rgba(16, 185, 129, 0.1)',
-                border: '1px solid rgba(16, 185, 129, 0.25)',
+                border: '1px solid rgba(16, 185, 129, 0.3)',
                 color: '#10b981',
                 fontSize: '0.85rem',
                 fontWeight: 600,
                 marginBottom: '20px',
+                boxShadow: '0 0 20px rgba(16, 185, 129, 0.15)',
               }}
             >
-              <span
-                style={{
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  background: '#10b981',
-                  boxShadow: '0 0 10px #10b981',
-                }}
-              />
-              Senior Flutter &amp; Android App Developer
+              <span className="pulse-beacon" />
+              Senior Flutter &amp; Native Android Developer
             </div>
 
             {/* Headline */}
@@ -120,15 +112,17 @@ export const Hero: React.FC<HeroProps> = () => {
               }}
             >
               Hi, I'm <strong style={{ color: '#ffffff' }}>{PERSONAL_INFO.name}</strong> based in Rajkot, India.
-              With 2+ years of production experience, I build robust, accessible, and high-performance cross-platform apps using <span style={{ color: '#38bdf8', fontWeight: 600 }}>Flutter &amp; Dart</span> alongside native <span style={{ color: '#c084fc', fontWeight: 600 }}>Android (Kotlin)</span> modules.
+              With 2+ years of production experience, I build robust, accessible, and high-performance mobile apps using <span style={{ color: '#38bdf8', fontWeight: 600 }}>Flutter &amp; Dart</span> alongside native <span style={{ color: '#3DDC84', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}><AndroidLogo size={16} /> Native Android (Kotlin)</span> modules.
             </p>
 
             {/* Key Skill Badges */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '36px' }}>
               <span className="tech-badge">⚡ Flutter &amp; Dart</span>
-              <span className="tech-badge">🤖 Android (Kotlin)</span>
+              <span className="tech-badge" style={{ color: '#3DDC84', borderColor: 'rgba(61, 220, 132, 0.3)', background: 'rgba(61, 220, 132, 0.08)' }}>
+                <AndroidLogo size={16} /> Native Android (Kotlin)
+              </span>
               <span className="tech-badge">🏗️ Clean Architecture</span>
-              <span className="tech-badge">📦 Provider State</span>
+              <span className="tech-badge">🔑 JKS Keystore Recovery</span>
               <span className="tech-badge">🚀 Play Store Console</span>
             </div>
 
@@ -142,22 +136,22 @@ export const Hero: React.FC<HeroProps> = () => {
               </a>
             </div>
 
-            {/* Stats Row */}
+            {/* Stats Row with Animated Counter */}
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '16px',
+                gridTemplateColumns: 'repeat(4, 1fr)',
+                gap: '12px',
                 paddingTop: '24px',
                 borderTop: '1px solid var(--border-color)',
               }}
             >
-              {PERSONAL_INFO.stats.slice(0, 3).map((stat, idx) => (
-                <div key={idx}>
-                  <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#38bdf8', letterSpacing: '-0.02em' }}>
-                    {stat.value}
+              {PERSONAL_INFO.stats.map((stat, idx) => (
+                <div key={idx} className="stat-box-glow">
+                  <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#38bdf8', letterSpacing: '-0.02em' }}>
+                    <AnimatedCounter value={stat.value} duration={2200} />
                   </div>
-                  <div style={{ fontSize: '0.82rem', color: '#9ca3af', fontWeight: 500 }}>
+                  <div style={{ fontSize: '0.78rem', color: '#9ca3af', fontWeight: 500, lineHeight: 1.3, marginTop: '2px' }}>
                     {stat.label}
                   </div>
                 </div>
@@ -306,7 +300,47 @@ export const Hero: React.FC<HeroProps> = () => {
                 {/* Simulated App Body Content based on App Type */}
                 <div style={{ flex: 1, padding: '14px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   
-                  {/* APP TYPE 1: LISTENING EYES */}
+                  {/* APP TYPE: SMARTBILL AI RECEIPT SCANNER */}
+                  {currentApp.id === 'smartbill-ai' && (
+                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                      <div style={{ background: '#0c2136', padding: '12px', borderRadius: '12px', border: '1px solid rgba(56, 189, 248, 0.4)' }}>
+                        <div style={{ color: '#38bdf8', fontSize: '0.75rem', fontWeight: 700, marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                          <Sparkles size={14} /> Gemini 3 Flash AI Vision
+                        </div>
+                        <div style={{ color: '#e2e8f0', fontSize: '0.72rem', lineHeight: 1.4 }}>
+                          Merchant: <strong>Starbucks Coffee</strong><br />
+                          Total: <strong style={{ color: '#38bdf8' }}>$14.50</strong> | Cat: Meals &amp; Dining
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => setCartCount(prev => prev + 1)}
+                        style={{
+                          background: 'linear-gradient(135deg, #0284c7 0%, #38bdf8 100%)',
+                          border: 'none',
+                          color: '#000',
+                          padding: '10px',
+                          borderRadius: '12px',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px',
+                          fontSize: '0.8rem',
+                          fontWeight: 700,
+                          transition: 'all 0.2s ease',
+                        }}
+                      >
+                        <Sparkles size={16} /> Tap to Scan Receipt Photo
+                      </button>
+
+                      <div style={{ marginTop: 'auto', background: 'rgba(255,255,255,0.03)', padding: '8px', borderRadius: '8px', fontSize: '0.68rem', color: '#94a3b8' }}>
+                        ⚡ <strong>Instant AI Extraction:</strong> merchant, date, tax &amp; totals.
+                      </div>
+                    </div>
+                  )}
+
+                  {/* APP TYPE: LISTENING EYES */}
                   {currentApp.id === 'listening-eyes' && (
                     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
                       <div style={{ background: '#131b2e', padding: '12px', borderRadius: '12px', border: '1px solid rgba(139, 92, 246, 0.3)' }}>
@@ -508,7 +542,7 @@ export const Hero: React.FC<HeroProps> = () => {
                     background: '#0d1322',
                     borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    gridTemplateColumns: `repeat(${PROJECTS.length}, 1fr)`,
                     gap: '4px',
                   }}
                 >
@@ -532,6 +566,7 @@ export const Hero: React.FC<HeroProps> = () => {
                         transition: 'all 0.2s ease',
                       }}
                     >
+                      {app.id === 'smartbill-ai' && <Sparkles size={12} />}
                       {app.id === 'listening-eyes' && <Eye size={12} />}
                       {app.id === 'hukup-dating' && <Heart size={12} />}
                       {app.id === 'miodeal-buyer' && <ShoppingBag size={12} />}

@@ -88,7 +88,7 @@ export const Projects: React.FC = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="glass-panel glass-panel-hover"
+              className="glass-panel project-card-glow"
               onClick={() => setSelectedProject(project)}
               style={{
                 padding: '28px',
@@ -98,6 +98,8 @@ export const Projects: React.FC = () => {
                 cursor: 'pointer',
                 position: 'relative',
                 overflow: 'hidden',
+                ['--card-accent-color' as any]: project.color,
+                ['--card-glow-color' as any]: `${project.color}55`,
               }}
             >
               {/* Header Badge */}

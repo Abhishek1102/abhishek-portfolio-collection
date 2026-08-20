@@ -197,3 +197,111 @@ body {
   justify-content: center;
   padding: 24px;
 }
+
+/* Ambient Glow Animations */
+@keyframes floatOrbSlow {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate(30px, -20px) scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+.ambient-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  animation: floatOrbSlow 10s ease-in-out infinite;
+}
+
+/* Live Beacon / Pulse Ring */
+@keyframes pulseRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.pulse-beacon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  animation: pulseRing 2s infinite;
+}
+
+/* Tech badge shimmer effect */
+.tech-badge {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.tech-badge:hover {
+  background: rgba(56, 189, 248, 0.18);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+}
+
+.tech-badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 70%
+  );
+  transform: rotate(30deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.tech-badge:hover::after {
+  left: 100%;
+  opacity: 1;
+}
+
+/* Project Card Color Ambient Glow on Hover */
+.project-card-glow {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.project-card-glow:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-accent-color, var(--primary));
+  box-shadow: 0 16px 40px -10px var(--card-glow-color, var(--primary-glow));
+}
+
+/* Stat Box Shimmer & Glow */
+.stat-box-glow {
+  position: relative;
+  background: rgba(15, 21, 35, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.stat-box-glow:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(15, 21, 35, 0.9);
+  box-shadow: 0 8px 24px -6px rgba(56, 189, 248, 0.25);
+  transform: translateY(-2px);
+}
+

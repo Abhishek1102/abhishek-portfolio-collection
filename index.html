@@ -398,7 +398,11 @@
         </div>
 
         <div class="spec-card">
-          <div class="spec-icon">🤖</div>
+          <div class="spec-icon" style="color: #3DDC84; display: flex; align-items: center;">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="#3DDC84" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zM15.53 2.16l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.66 1.23 12.37 1 11 1s-2.66.23-3.64.63L5.88.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.3 1.3C4.54 3.4 3 5.54 3 8h16c0-2.46-1.54-4.6-3.47-5.84zM7 5.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm8 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
+            </svg>
+          </div>
           <div>
             <h4 class="spec-title">Native Android Engineering</h4>
             <p class="spec-desc">Developing native Android/Kotlin modules for background services, audio engines, and hardware APIs.</p>
@@ -417,29 +421,54 @@
           <div class="spec-icon">🚀</div>
           <div>
             <h4 class="spec-title">Play Console &amp; Release DevOps</h4>
-            <p class="spec-desc">Handling Play Store app releases, signing-key (JKS) recoveries, updates, and app transfers.</p>
+            <p class="spec-desc">Handling Play Store app releases, signing-key (JKS) recoveries (PEPK export), updates, and app transfers.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ─── TAB 2: Resume / Experience ──────────────────────────────── -->
+    <!-- ─── TAB 2: Resume / Experience & Education ─────────────────── -->
     <section id="tab-resume" class="tab-page" role="tabpanel">
       <h2 class="page-title">Resume</h2>
 
+      <!-- Experience Section -->
       <h3 class="section-subtitle" style="margin-top:20px;">Experience</h3>
       <div class="timeline-list">
+        
+        <!-- Role 1: Senior App Developer -->
         <div class="timeline-item">
           <h4 class="timeline-item-title">Technocomet Solutions — Senior App Developer</h4>
           <div class="timeline-period">Jan 2024 — Present | Rajkot, Gujarat, India</div>
           <ul class="timeline-desc">
-            <li>Promoted to Senior App Developer for feature ownership and rapid delivery of production applications.</li>
+            <li>Promoted to Senior App Developer for feature ownership, clean code standards, and rapid delivery of production applications.</li>
             <li>Engineered and maintained applications using Flutter/Dart &amp; Native Android/Kotlin.</li>
             <li>Architected foundations with Clean Architecture, MVVM, and Repository Pattern with Provider state management.</li>
-            <li>Implemented Firebase suite (Auth, Firestore, Storage, Crashlytics, FCM Notifications).</li>
-            <li>Integrated REST APIs (Dio/HTTP), WebSockets, Payment Gateways, Google Maps, Camera/Scanner, and Background Services.</li>
-            <li>Managed Google Play Console releases, updates, ownership transfers, and JKS signing-key recovery.</li>
-            <li>Mentored 2–3 developers and collaborated directly with international and local clients.</li>
+            <li>Mastered Google Play Console operations: production releases, app ownership transfers, and emergency lost JKS signing-key recovery (PEPK tool).</li>
+            <li>Integrated REST APIs (Dio/HTTP), WebSockets, Payment Gateways, Google Maps, and Native Android background services.</li>
+            <li>Mentored 2–3 developers and communicated directly with international and local clients.</li>
+          </ul>
+        </div>
+
+        <!-- Role 2: 6-Month Trainee -->
+        <div class="timeline-item">
+          <h4 class="timeline-item-title">Technocomet Solutions — Mobile Application Developer Trainee</h4>
+          <div class="timeline-period">Jul 2023 — Dec 2023 (6 Months) | Rajkot, Gujarat, India</div>
+          <ul class="timeline-desc">
+            <li>Completed 6 months cross-platform mobile application development training (Flutter &amp; Native Android).</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Education Section -->
+      <h3 class="section-subtitle" style="margin-top:40px;">Education</h3>
+      <div class="timeline-list">
+        <div class="timeline-item">
+          <h4 class="timeline-item-title">Atmiya Institute of Technology</h4>
+          <div class="timeline-period">2018 — 2022 | Rajkot, Gujarat, India</div>
+          <ul class="timeline-desc">
+            <li><strong>Bachelor of Computer Science</strong> — <span style="color:var(--accent);font-weight:700;">89 %</span></li>
+            <li><strong>Master of Science in I.T.</strong> — <span style="color:var(--accent);font-weight:700;">85 %</span></li>
           </ul>
         </div>
       </div>
@@ -451,23 +480,23 @@
 
       <div class="portfolio-grid">
 
-        <!-- Project 1: Listening Eyes -->
+        <!-- Project 1: SmartBill AI -->
         <article class="project-card">
           <div>
             <div class="project-meta-row">
               <span class="proj-badge">Solo Developer</span>
-              <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">500+ Users</span>
+              <span style="font-size:0.75rem;color:var(--accent);font-weight:700;">Gemini AI Powered</span>
             </div>
-            <h3 class="project-title">Listening Eyes</h3>
-            <p class="project-summary">Accessibility educational app built solo to convert specialized study files into Text-to-Speech audio navigation for visually impaired students.</p>
+            <h3 class="project-title">SmartBill AI Receipt Scanner</h3>
+            <p class="project-summary">AI-powered receipt &amp; expense manager leveraging Gemini AI vision to turn your phone’s camera into an automated accountant, instantly extracting merchant, date, amount, and category.</p>
             <div class="tech-tags">
               <span class="tech-tag">Flutter</span>
-              <span class="tech-tag">TTS Engine</span>
-              <span class="tech-tag">Accessibility</span>
-              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Gemini AI</span>
+              <span class="tech-tag">Camera OCR</span>
+              <span class="tech-tag">Expense Tracker</span>
             </div>
           </div>
-          <a href="https://play.google.com/store/apps/details?id=com.listeningeyes.app&hl=en_IN" target="_blank" rel="noopener noreferrer" class="playstore-btn">
+          <a href="https://play.google.com/store/apps/details?id=com.aethertech.smartbillai" target="_blank" rel="noopener noreferrer" class="playstore-btn">
             Play Store ↗
           </a>
         </article>
@@ -534,28 +563,28 @@
           </a>
         </article>
 
-        <!-- Project 5: Mobile Codes and Tricks -->
+        <!-- Project 5: Listening Eyes (Second Last) -->
         <article class="project-card">
           <div>
             <div class="project-meta-row">
               <span class="proj-badge">Solo Developer</span>
-              <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">Android Utility</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">500+ Users</span>
             </div>
-            <h3 class="project-title">Mobile Codes and Tricks</h3>
-            <p class="project-summary">Android utility guide providing hidden USSD secret dialer codes for smartphone brands, hardware diagnostics inspection, and country codes.</p>
+            <h3 class="project-title">Listening Eyes</h3>
+            <p class="project-summary">Accessibility educational app built solo to convert specialized study files into Text-to-Speech audio navigation for visually impaired students.</p>
             <div class="tech-tags">
               <span class="tech-tag">Flutter</span>
-              <span class="tech-tag">Kotlin</span>
-              <span class="tech-tag">USSD Engine</span>
-              <span class="tech-tag">Hardware APIs</span>
+              <span class="tech-tag">TTS Engine</span>
+              <span class="tech-tag">Accessibility</span>
+              <span class="tech-tag">Firebase</span>
             </div>
           </div>
-          <a href="https://play.google.com/store/apps/details?id=com.app.mobilecodesandtricks&hl=en_IN" target="_blank" rel="noopener noreferrer" class="playstore-btn">
+          <a href="https://play.google.com/store/apps/details?id=com.listeningeyes.app&hl=en_IN" target="_blank" rel="noopener noreferrer" class="playstore-btn">
             Play Store ↗
           </a>
         </article>
 
-        <!-- Project 6: Maia Care -->
+        <!-- Project 6: Maia Care (Last) -->
         <article class="project-card">
           <div>
             <div class="project-meta-row">
@@ -599,7 +628,6 @@
             <span class="skill-pill">MVVM</span>
             <span class="skill-pill">Repository Pattern</span>
             <span class="skill-pill">Provider</span>
-            <span class="skill-pill">ChangeNotifier</span>
           </div>
         </div>
 

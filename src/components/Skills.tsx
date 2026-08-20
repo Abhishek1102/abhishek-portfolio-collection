@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Layers, Smartphone, Cloud, Cpu, Code2, Zap } from 'lucide-react';
 import { SKILL_CATEGORIES } from '../data/portfolioData';
+import { AnimatedCounter } from './AnimatedCounter';
+import { AndroidLogo } from './AndroidLogo';
 
 export const Skills: React.FC = () => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
@@ -9,7 +11,20 @@ export const Skills: React.FC = () => {
 
   return (
     <section id="skills" style={{ padding: '80px 0', position: 'relative' }}>
-      <div className="container">
+      {/* Ambient background glow orb */}
+      <div
+        className="ambient-glow-orb"
+        style={{
+          top: '30%',
+          right: '10%',
+          width: '550px',
+          height: '550px',
+          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0, 0, 0, 0) 70%)',
+          animationDelay: '-6s',
+        }}
+      />
+
+      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         {/* Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <div
@@ -54,6 +69,7 @@ export const Skills: React.FC = () => {
                 cursor: 'pointer',
                 border: activeCategoryIndex === idx ? '1px solid #38bdf8' : '1px solid rgba(255,255,255,0.08)',
                 background: activeCategoryIndex === idx ? 'rgba(56, 189, 248, 0.1)' : 'rgba(15, 21, 35, 0.6)',
+                boxShadow: activeCategoryIndex === idx ? '0 8px 24px -6px rgba(56, 189, 248, 0.3)' : 'none',
                 transition: 'all 0.3s ease',
               }}
             >
@@ -71,7 +87,7 @@ export const Skills: React.FC = () => {
                     fontWeight: 700,
                   }}
                 >
-                  {idx === 0 && <Smartphone size={20} />}
+                  {idx === 0 && <AndroidLogo size={22} color={activeCategoryIndex === 0 ? '#000' : '#3DDC84'} />}
                   {idx === 1 && <Layers size={20} />}
                   {idx === 2 && <Cloud size={20} />}
                   {idx === 3 && <Cpu size={20} />}
@@ -88,7 +104,7 @@ export const Skills: React.FC = () => {
         </div>
 
         {/* Selected Category Skill Progress Bars */}
-        <div className="glass-panel" style={{ padding: '36px' }}>
+        <div className="glass-panel glass-panel-hover" style={{ padding: '36px' }}>
           <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#ffffff', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Code2 size={20} color="#38bdf8" /> {currentCategory.title} Matrix
           </h3>
@@ -97,23 +113,29 @@ export const Skills: React.FC = () => {
             {currentCategory.skills.map((skill, idx) => (
               <div key={idx} style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <span style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem' }}>
+                  <span style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    {(skill.name.includes('Android') || skill.name.includes('Kotlin')) && <AndroidLogo size={18} />}
                     {skill.name}
                   </span>
-                  {skill.tag && (
-                    <span
-                      style={{
-                        fontSize: '0.72rem',
-                        background: 'rgba(56, 189, 248, 0.15)',
-                        color: '#38bdf8',
-                        padding: '2px 8px',
-                        borderRadius: '10px',
-                        fontWeight: 600,
-                      }}
-                    >
-                      {skill.tag}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    {skill.tag && (
+                      <span
+                        style={{
+                          fontSize: '0.72rem',
+                          background: 'rgba(56, 189, 248, 0.15)',
+                          color: '#38bdf8',
+                          padding: '2px 8px',
+                          borderRadius: '10px',
+                          fontWeight: 600,
+                        }}
+                      >
+                        {skill.tag}
+                      </span>
+                    )}
+                    <span style={{ color: '#38bdf8', fontWeight: 700, fontSize: '0.85rem' }}>
+                      <AnimatedCounter value={`${skill.level}%`} duration={1800} />
                     </span>
-                  )}
+                  </div>
                 </div>
 
                 {/* Progress Bar Container */}
@@ -125,7 +147,7 @@ export const Skills: React.FC = () => {
                       background: 'linear-gradient(90deg, #38bdf8, #6366f1)',
                       borderRadius: '4px',
                       transition: 'width 1s ease-in-out',
-                      boxShadow: '0 0 10px rgba(56, 189, 248, 0.5)',
+                      boxShadow: '0 0 12px rgba(56, 189, 248, 0.6)',
                     }}
                   />
                 </div>

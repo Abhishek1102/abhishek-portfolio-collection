@@ -1,6 +1,7 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin, CheckCircle2, Award } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, CheckCircle2, Award, GraduationCap } from 'lucide-react';
 import { WORK_EXPERIENCE } from '../data/portfolioData';
+import { AndroidLogo } from './AndroidLogo';
 
 export const Experience: React.FC = () => {
   return (
@@ -28,34 +29,55 @@ export const Experience: React.FC = () => {
           </h2>
         </div>
 
-        <div style={{ maxWidth: '840px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '840px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '32px' }}>
           {WORK_EXPERIENCE.map((exp) => (
-            <div key={exp.id} className="glass-panel" style={{ padding: '36px', position: 'relative' }}>
-              {/* Promotion Header Banner */}
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  background: 'linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%)',
-                  border: '1px solid rgba(56, 189, 248, 0.3)',
-                  color: '#38bdf8',
-                  fontSize: '0.8rem',
-                  fontWeight: 700,
-                  padding: '4px 12px',
-                  borderRadius: '20px',
-                  marginBottom: '16px',
-                }}
-              >
-                <Award size={14} /> Promoted to Senior Developer Role
-              </div>
+            <div key={exp.id} className="glass-panel glass-panel-hover" style={{ padding: '36px', position: 'relative' }}>
+              {/* Badge Banner based on role */}
+              {exp.id === 'technocomet-senior' && (
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    background: 'linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%)',
+                    border: '1px solid rgba(56, 189, 248, 0.3)',
+                    color: '#38bdf8',
+                    fontSize: '0.8rem',
+                    fontWeight: 700,
+                    padding: '4px 12px',
+                    borderRadius: '20px',
+                    marginBottom: '16px',
+                  }}
+                >
+                  <Award size={14} /> Promoted to Senior Developer Role
+                </div>
+              )}
+              {exp.id === 'technocomet-trainee' && (
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    background: 'rgba(245, 158, 11, 0.12)',
+                    border: '1px solid rgba(245, 158, 11, 0.3)',
+                    color: '#f59e0b',
+                    fontSize: '0.8rem',
+                    fontWeight: 700,
+                    padding: '4px 12px',
+                    borderRadius: '20px',
+                    marginBottom: '16px',
+                  }}
+                >
+                  <GraduationCap size={14} /> 6-Month Cross-Platform Training
+                </div>
+              )}
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' }}>
                 <div>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#ffffff' }}>
+                  <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#ffffff' }}>
                     {exp.role}
                   </h3>
-                  <div style={{ color: '#38bdf8', fontSize: '1.1rem', fontWeight: 700, marginTop: '2px' }}>
+                  <div style={{ color: '#38bdf8', fontSize: '1.05rem', fontWeight: 700, marginTop: '2px' }}>
                     {exp.company}
                   </div>
                 </div>
@@ -70,32 +92,38 @@ export const Experience: React.FC = () => {
                 </div>
               </div>
 
-              <p style={{ color: '#9ca3af', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '24px', fontStyle: 'italic' }}>
+              <p style={{ color: '#9ca3af', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '20px', fontStyle: 'italic' }}>
                 "{exp.companyDescription}"
               </p>
 
               {/* Responsibilities list */}
-              <h4 style={{ color: '#ffffff', fontSize: '1rem', fontWeight: 700, marginBottom: '14px' }}>
-                Key Responsibilities &amp; Achievements
+              <h4 style={{ color: '#ffffff', fontSize: '0.95rem', fontWeight: 700, marginBottom: '12px' }}>
+                Key Highlights &amp; Deliverables
               </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '28px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
                 {exp.responsibilities.map((resp, idx) => (
-                  <div key={idx} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <CheckCircle2 size={18} color="#38bdf8" style={{ marginTop: '2px', flexShrink: 0 }} />
-                    <span style={{ color: '#d1d5db', fontSize: '0.92rem', lineHeight: 1.6 }}>{resp}</span>
+                  <div key={idx} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                    <CheckCircle2 size={16} color="#38bdf8" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span style={{ color: '#d1d5db', fontSize: '0.9rem', lineHeight: 1.5 }}>{resp}</span>
                   </div>
                 ))}
               </div>
 
               {/* Technologies Used */}
-              <div style={{ paddingTop: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                <div style={{ fontSize: '0.82rem', color: '#9ca3af', fontWeight: 600, marginBottom: '10px' }}>
-                  CORE TECHNOLOGIES USED:
+              <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <div style={{ fontSize: '0.78rem', color: '#9ca3af', fontWeight: 600, marginBottom: '8px' }}>
+                  TECHNOLOGIES &amp; TOOLS:
                 </div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                   {exp.technologies.map((tech, idx) => (
-                    <span key={idx} className="tech-badge">
-                      {tech}
+                    <span key={idx} className="tech-badge" style={{ fontSize: '0.78rem' }}>
+                      {tech.includes('Android') ? (
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', color: '#3DDC84' }}>
+                          <AndroidLogo size={14} /> {tech}
+                        </span>
+                      ) : (
+                        tech
+                      )}
                     </span>
                   ))}
                 </div>

@@ -28,6 +28,12 @@ export interface Experience {
   achievements: string[];
 }
 
+export interface Education {
+  institution: string;
+  period: string;
+  degrees: { title: string; score: string }[];
+}
+
 export interface SkillCategory {
   title: string;
   icon: string;
@@ -38,12 +44,12 @@ export interface SkillCategory {
 export const PERSONAL_INFO = {
   name: "Abhishek Panchmiya",
   title: "Senior Flutter & Mobile Application Developer",
-  tagline: "Crafting High-Performance, Scalable & Accessible Mobile Applications with Flutter & Android (Kotlin)",
+  tagline: "Crafting High-Performance, Scalable & Accessible Mobile Applications with Flutter & Native Android (Kotlin)",
   location: "Rajkot, Gujarat, India",
   experienceYears: "2+",
   github: "https://github.com/Abhishek1102",
   linkedin: "https://linkedin.com/in/abhishekpanchmiya",
-  bio: "Senior Mobile Application Developer with 2+ years of experience delivering production Flutter & Native Android apps. Proven expertise in building accessibility tools, e-commerce engines, social discovery apps, and enterprise schedulers from concept to Play Store release.",
+  bio: "Senior Mobile Developer specializing in production Flutter & Native Android (Kotlin) apps. Expert in Play Store deployment, app ownership transfers, and emergency JKS keystore recovery.",
   spokenLanguages: ["English (Fluent)", "Hindi (Fluent)", "Gujarati (Fluent)"],
   stats: [
     { label: "Years Experience", value: "2+", icon: "Briefcase" },
@@ -53,27 +59,36 @@ export const PERSONAL_INFO = {
   ]
 };
 
+export const EDUCATION: Education = {
+  institution: "Atmiya Institute of Technology",
+  period: "2018 – 2022",
+  degrees: [
+    { title: "Bachelor of Computer Science", score: "89 %" },
+    { title: "Master of Science in I.T.", score: "85 %" }
+  ]
+};
+
 export const PROJECTS: Project[] = [
   {
-    id: "listening-eyes",
-    title: "Listening Eyes",
-    subtitle: "Accessibility Educational App for Visually Impaired Students",
+    id: "smartbill-ai",
+    title: "SmartBill AI Receipt Scanner",
+    subtitle: "AI Receipt Scanner & Expense Manager with Gemini Vision",
     role: "Senior Flutter Developer (Sole Developer)",
-    category: "Accessibility",
-    description: "Built single-handedly from scratch. Converts specialized study materials into spoken text with customized audio feedback navigation for visually impaired learners.",
-    longDescription: "Listening Eyes is a specialized accessibility mobile platform designed to bridge educational gaps for visually impaired students. Developed single-handedly from concept to Play Store release, it features custom Text-to-Speech (TTS) file parsers, screen-reader-friendly layout hierarchies, and continuous spoken UI feedback. Includes a dedicated web/app admin portal for managing specialized educational materials.",
-    technologies: ["Flutter", "Dart", "Text-to-Speech Engine", "Custom File Parser", "Local Audio Engine", "Play Store Console"],
+    category: "AI & Productivity" as any,
+    description: "AI expense & receipt manager leveraging Gemini 3 Flash Preview AI to turn phone cameras into automated accountants, extracting merchant, date, amount, and category instantly.",
+    longDescription: "SmartBill AI is an intelligent receipt scanner and expense tracker built in Flutter. Powered by Gemini 3 Flash Preview AI, it automatically extracts merchant information, transaction dates, totals, and tax categories from receipt photos with high accuracy. Features budget management and tax expense organization.",
+    technologies: ["Flutter", "Dart", "Google Gemini AI", "Camera Vision / OCR", "Expense Tracker", "Play Store Console"],
     highlights: [
-      "Sole developer — built 100% of mobile app & admin backend tool from scratch",
-      "Integrated spoken audio feedback for seamless blind navigation without visual aid",
-      "Engineered text-to-speech file parsing for complex educational books",
-      "Published and maintained on Google Play Store with 500+ active student users"
+      "Sole developer — built 100% of the mobile app in Flutter from concept to Play Store release",
+      "Integrated Gemini 3 Flash AI vision for automated receipt parsing & data extraction",
+      "Eliminated manual receipt entry for freelancers, students, and small business owners",
+      "Published and maintained on Google Play Store"
     ],
-    downloads: "500+ Users",
+    downloads: "New Release",
     status: "Published on Play Store",
     singleHanded: true,
-    color: "#8b5cf6",
-    iconName: "Eye",
+    color: "#38bdf8",
+    iconName: "Sparkles",
     mockupType: "accessibility_tts"
   },
   {
@@ -82,11 +97,11 @@ export const PROJECTS: Project[] = [
     subtitle: "Social Discovery & Interactive Profile Cards App",
     role: "Flutter & Native Android Developer",
     category: "Social & Dating",
-    description: "Production dating application featuring smooth card-swipe discovery UI, real-time user interactions, and robust location-based profile matching.",
-    longDescription: "Hukup is a full-featured dating and social discovery platform built for seamless user connection. Contributed to core home screen card-swipe navigation, Flutter UI components, REST API integration, and app release maintenance on the Google Play Store.",
+    description: "Production dating application featuring smooth card-swipe discovery UI, real-time messaging, and location-based profile matching.",
+    longDescription: "Hukup is a full-featured dating and social discovery platform built for seamless user connection. Contributed to core card-swipe navigation, Flutter UI components, REST API integration, and app release maintenance on Google Play Store.",
     technologies: ["Flutter", "Dart", "Android (Kotlin)", "REST APIs", "Firebase", "WebSockets", "Push Notifications"],
     highlights: [
-      "Engineered profile-card based user discovery UI with smooth 60fps swipe gestures",
+      "Engineered profile-card discovery UI with smooth 60fps swipe gestures",
       "Collaborated in a 6-7 member team to integrate real-time messaging & notifications",
       "Managed production bug resolution and Google Play Store deployment updates",
       "Scaled application to achieve over 5,000+ active Play Store downloads"
@@ -104,13 +119,13 @@ export const PROJECTS: Project[] = [
     subtitle: "Multi-Category E-Commerce Marketplace Platform",
     role: "Flutter Developer",
     category: "E-Commerce",
-    description: "Buyer-facing mobile application for shopping across food, electronics, fashion, and everyday essentials with seamless cart & checkout flows.",
-    longDescription: "Miodeal Buyer is a multi-vendor e-commerce mobile application delivering an intuitive product search, category browsing, interactive product detail screens, payment gateway integrations, and order tracking.",
+    description: "Buyer-facing mobile application for shopping across food, electronics, and fashion with seamless cart & checkout flows.",
+    longDescription: "Miodeal Buyer is a multi-vendor e-commerce application delivering product search, category browsing, product detail screens, payment gateway integrations, and order tracking.",
     technologies: ["Flutter", "Dart", "Dio / HTTP", "Hive Storage", "Payment Gateways", "REST APIs"],
     highlights: [
       "Built interactive product detail UI with image carousels & variant selectors",
       "Integrated secure payment gateways & cart state persistence with Hive",
-      "Optimized API calls using Dio caching for fast product browsing experience",
+      "Optimized API calls using Dio caching for fast product browsing",
       "Published on Google Play Store with 100+ active retail buyers"
     ],
     downloads: "100+ Downloads",
@@ -121,13 +136,35 @@ export const PROJECTS: Project[] = [
     mockupType: "ecommerce_shop"
   },
   {
+    id: "listening-eyes",
+    title: "Listening Eyes",
+    subtitle: "Accessibility Educational App for Visually Impaired Students",
+    role: "Senior Flutter Developer (Sole Developer)",
+    category: "Accessibility",
+    description: "Built 100% single-handedly. Converts study materials into spoken text with customized audio feedback navigation for visually impaired learners.",
+    longDescription: "Listening Eyes is a specialized accessibility mobile platform for visually impaired students. Features custom Text-to-Speech (TTS) file parsers, screen-reader-friendly layout hierarchies, and continuous spoken UI feedback. Includes a dedicated admin portal for managing educational materials.",
+    technologies: ["Flutter", "Dart", "Text-to-Speech Engine", "Custom File Parser", "Local Audio Engine", "Play Store Console"],
+    highlights: [
+      "Sole developer — built 100% of mobile app & admin backend tool from scratch",
+      "Integrated spoken audio feedback for seamless blind navigation without visual aid",
+      "Engineered text-to-speech file parsing for complex educational books",
+      "Published and maintained on Google Play Store with 500+ active student users"
+    ],
+    downloads: "500+ Users",
+    status: "Published on Play Store",
+    singleHanded: true,
+    color: "#8b5cf6",
+    iconName: "Eye",
+    mockupType: "accessibility_tts"
+  },
+  {
     id: "maia-care",
     title: "Maia Care",
     subtitle: "Doctor & Medical Representative Appointment Platform",
     role: "Sole Mobile Developer",
     category: "Healthcare & Business",
-    description: "Business appointment scheduling app facilitating conflict-free scheduling and visit logs between medical representatives and healthcare doctors.",
-    longDescription: "Maia Care simplifies healthcare business interactions by enabling medical representatives to schedule, reschedule, and log visits with doctors. Developed 100% single-handedly from scratch using Clean Architecture and Provider state management.",
+    description: "Business appointment scheduling app facilitating conflict-free scheduling and visit logs between medical representatives and doctors.",
+    longDescription: "Maia Care simplifies healthcare business interactions by enabling medical representatives to schedule, reschedule, and log visits with doctors. Developed 100% single-handedly using Clean Architecture and Provider state management.",
     technologies: ["Flutter", "Dart", "Provider", "Clean Architecture", "REST APIs", "Custom Calendar"],
     highlights: [
       "Designed and built entire mobile app single-handedly from scratch",
@@ -145,27 +182,41 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: Experience[] = [
   {
-    id: "technocomet",
+    id: "technocomet-senior",
     role: "Senior App Developer",
     company: "TechnoComet Solutions",
-    period: "Jan 2024 – Aug 2026",
+    period: "Jan 2024 – Present",
     location: "Rajkot, Gujarat, India",
-    companyDescription: "Leading service-based software engineering firm delivering mobile applications across accessibility, e-commerce, social, and healthcare business domains.",
+    companyDescription: "Leading software engineering firm delivering production mobile apps across accessibility, e-commerce, social discovery, and healthcare.",
     responsibilities: [
-      "Promoted to Senior App Developer for exceptional feature ownership, clean code standards, and client satisfaction.",
+      "Promoted to Senior App Developer for high feature ownership, clean code standards, and rapid client deliveries.",
+      "Spearheaded Play Store Console operations: application releases, app ownership transfers, and lost JKS signing key recovery (PEPK key export & Google Play App Signing).",
       "Architected mobile applications using Clean Architecture, MVVM, Repository Pattern, and Provider state management.",
-      "Developed production apps from scratch independently and collaboratively inside 6–7 member cross-functional engineering teams.",
-      "Mastered Google Play Store console operations, application updates, ownership transfers, and emergency JKS signing-key recoveries.",
-      "Integrated complex native Android/Kotlin modules alongside Flutter apps for camera/scanners, background services, and WebSockets.",
-      "Communicated directly with international and local clients to gather technical requirements, scope sprints, and deliver features.",
-      "Mentored 2–3 junior developers, conducting code reviews and assisting with complex API and architectural roadblocks."
+      "Integrated native Android (Kotlin) modules alongside Flutter apps for camera, background services, and WebSockets.",
+      "Mentored 3 junior app developers, conducting code reviews and assisting with complex API and architectural roadblocks."
     ],
-    technologies: ["Flutter", "Dart", "Kotlin", "Android SDK", "Firebase", "Provider", "Clean Architecture", "Dio", "Hive/SQLite", "Google Maps", "Play Console"],
+    technologies: ["Flutter", "Dart", "Android (Kotlin)", "Clean Architecture", "Provider", "Play Console DevOps", "JKS Keystore Recovery", "App Ownership Transfer"],
     achievements: [
       "Promoted to Senior Developer position",
       "Successfully recovered lost JKS signing key for Play Store app release",
-      "Delivered 4+ full-scale production mobile applications",
+      "Managed Play Console app ownership transfers & production releases",
       "Mentored 3 junior app developers"
+    ]
+  },
+  {
+    id: "technocomet-trainee",
+    role: "Mobile Application Developer Trainee",
+    company: "TechnoComet Solutions",
+    period: "Jul 2023 – Dec 2023 (6 Months)",
+    location: "Rajkot, Gujarat, India",
+    companyDescription: "6-month cross-platform mobile development training program focusing on Flutter, Dart, and Native Android.",
+    responsibilities: [
+      "Completed 6 months cross-platform mobile application development training (Flutter & Native Android)."
+    ],
+    technologies: ["Flutter", "Dart", "Android (Kotlin)", "REST APIs", "Hive/SQLite", "Git"],
+    achievements: [
+      "Completed 6-Month Cross-Platform Training",
+      "Built foundation for production Flutter & Native Android app delivery"
     ]
   }
 ];
@@ -178,8 +229,8 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       { name: "Flutter", level: 95, tag: "Primary" },
       { name: "Dart", level: 95, tag: "Primary" },
-      { name: "Android SDK", level: 85, tag: "Native" },
-      { name: "Kotlin", level: 82, tag: "Native" }
+      { name: "Native Android SDK", level: 88, tag: "Native" },
+      { name: "Kotlin", level: 85, tag: "Native" }
     ]
   },
   {
@@ -205,13 +256,13 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     ]
   },
   {
-    title: "Storage, Hardware & Deployment",
+    title: "Play Store DevOps & Keystore Recovery",
     icon: "Cpu",
-    description: "Local databases, device hardware APIs & Play Store release",
+    description: "Play Store deployment, app transfers & emergency JKS recovery",
     skills: [
-      { name: "Google Play Console & JKS Keys", level: 95, tag: "DevOps" },
+      { name: "Play Console Release & Ownership Transfer", level: 95, tag: "DevOps" },
+      { name: "Lost JKS Keystore Recovery (PEPK)", level: 95, tag: "DevOps" },
       { name: "Hive / SQLite / SharedPreferences", level: 90, tag: "Database" },
-      { name: "Google Maps & Location", level: 88, tag: "Hardware" },
       { name: "Text-To-Speech & Background Services", level: 90, tag: "Hardware" }
     ]
   }
