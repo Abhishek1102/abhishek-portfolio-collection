@@ -63,7 +63,7 @@ export const EDUCATION: Education = {
   institution: "Atmiya Institute of Technology",
   period: "2018 – 2022",
   degrees: [
-    { title: "Bachelor of Computer Science", score: "89 %" },
+    { title: "Bachelor of Computer Application", score: "89 %" },
     { title: "Master of Science in I.T.", score: "85 %" }
   ]
 };
