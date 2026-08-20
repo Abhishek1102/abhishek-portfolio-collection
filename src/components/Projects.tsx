@@ -47,30 +47,13 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* Filter Categories */}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            gap: '10px',
-            marginBottom: '40px',
-          }}
-        >
+        {/* Filter Categories */}
+        <div className="filter-categories-container">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilterCategory(cat)}
-              style={{
-                background: filterCategory === cat ? 'linear-gradient(135deg, #0284c7 0%, #6366f1 100%)' : 'rgba(255, 255, 255, 0.05)',
-                color: filterCategory === cat ? '#ffffff' : '#9ca3af',
-                border: filterCategory === cat ? 'none' : '1px solid var(--border-color)',
-                padding: '8px 18px',
-                borderRadius: '20px',
-                fontSize: '0.88rem',
-                fontWeight: 600,
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-              }}
+              className={`category-btn ${filterCategory === cat ? 'active' : ''}`}
             >
               {cat === 'Single-Handed' ? '★ Sole Developer' : cat}
             </button>
@@ -78,13 +61,7 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '28px',
-          }}
-        >
+        <div className="projects-grid">
           {filteredProjects.map((project) => (
             <div
               key={project.id}

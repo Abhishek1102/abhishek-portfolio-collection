@@ -75,17 +75,9 @@ export const ContactForm: React.FC = () => {
           </p>
         </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '0.9fr 1.1fr',
-            gap: '40px',
-            alignItems: 'start',
-          }}
-          className="contact-grid"
-        >
+        <div className="contact-grid">
           {/* Left Info Box */}
-          <div className="glass-panel" style={{ padding: '32px' }}>
+          <div className="glass-panel" style={{ padding: 'clamp(20px, 4vw, 32px)' }}>
             <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>
               Connect &amp; Collaborate
             </h3>

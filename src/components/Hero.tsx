@@ -54,15 +54,7 @@ export const Hero: React.FC<HeroProps> = () => {
       />
 
       <div className="container">
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1.1fr 0.9fr',
-            gap: '48px',
-            alignItems: 'center',
-          }}
-          className="hero-grid"
-        >
+        <div className="hero-grid">
           {/* Left Column - Intro Text */}
           <div>
             {/* Availability Badge with Pulse Beacon */}

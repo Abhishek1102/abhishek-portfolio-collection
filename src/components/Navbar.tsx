@@ -82,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
         </a>
 
         {/* Desktop Nav Items */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }} className="desktop-nav">
+        <div className="desktop-nav">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -117,11 +117,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
           ))}
         </div>
 
-        {/* Action Button & Privacy Badge */}
+        {/* Action Button & Mobile Toggle */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <button
             onClick={() => scrollTo('contact')}
-            className="btn-primary"
+            className="btn-primary desktop-contact-btn"
             style={{ padding: '8px 18px', fontSize: '0.88rem' }}
           >
             Contact Me <ArrowRight size={16} />
@@ -130,18 +130,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid var(--border-color)',
-              color: '#ffffff',
-              padding: '8px',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              display: 'none',
-            }}
             className="mobile-toggle"
+            aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>

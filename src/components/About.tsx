@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Award, Key, Globe, MapPin, GraduationCap, ShieldCheck } from 'lucide-react';
+import { User, Award, GraduationCap, ShieldCheck, MapPin, Globe } from 'lucide-react';
 import { PERSONAL_INFO, EDUCATION } from '../data/portfolioData';
 import { AnimatedCounter } from './AnimatedCounter';
 import { AndroidLogo } from './AndroidLogo';
@@ -43,18 +43,10 @@ export const About: React.FC = () => {
           </h2>
         </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1.2fr 0.8fr',
-            gap: '32px',
-            alignItems: 'stretch',
-          }}
-          className="about-grid"
-        >
+        <div className="about-grid">
           {/* Left Main About Card */}
-          <div className="glass-panel glass-panel-hover" style={{ padding: '36px' }}>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>
+          <div className="glass-panel glass-panel-hover" style={{ padding: 'clamp(20px, 4vw, 36px)' }}>
+            <h3 style={{ fontSize: 'clamp(1.15rem, 3vw, 1.4rem)', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>
               Full-Lifecycle Mobile Application Developer
             </h3>
             <p style={{ color: '#9ca3af', lineHeight: 1.7, marginBottom: '20px' }}>
@@ -65,7 +57,7 @@ export const About: React.FC = () => {
             </p>
 
             {/* Key Value Highlights Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '24px' }}>
+            <div className="about-highlights-grid">
               <div style={{ background: 'rgba(255,255,255,0.03)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
                 <div style={{ color: '#38bdf8', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
                   <Award size={18} /> Rapid Career Growth

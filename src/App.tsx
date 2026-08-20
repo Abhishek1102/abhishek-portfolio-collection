@@ -7,6 +7,7 @@ import { Experience } from './components/Experience';
 import { Skills } from './components/Skills';
 import { ContactForm } from './components/ContactForm';
 import { Footer } from './components/Footer';
+import './App.css';
 
 export function App() {
   const [activeSection, setActiveSection] = useState('hero');

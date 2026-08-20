@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layers, Smartphone, Cloud, Cpu, Code2, Zap } from 'lucide-react';
+import { Layers, Cloud, Cpu, Zap, Code2 } from 'lucide-react';
 import { SKILL_CATEGORIES } from '../data/portfolioData';
 import { AnimatedCounter } from './AnimatedCounter';
 import { AndroidLogo } from './AndroidLogo';
