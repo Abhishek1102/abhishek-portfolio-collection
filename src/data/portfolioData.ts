@@ -193,14 +193,14 @@ export const WORK_EXPERIENCE: Experience[] = [
       "Spearheaded Play Store Console operations: application releases, app ownership transfers, and lost JKS signing key recovery (PEPK key export & Google Play App Signing).",
       "Architected mobile applications using Clean Architecture, MVVM, Repository Pattern, and Provider state management.",
       "Integrated native Android (Kotlin) modules alongside Flutter apps for camera, background services, and WebSockets.",
-      "Mentored 3 junior app developers, conducting code reviews and assisting with complex API and architectural roadblocks."
+      "Mentored developers, conducting code reviews and assisting with complex API and architectural roadblocks."
     ],
     technologies: ["Flutter", "Dart", "Android (Kotlin)", "Clean Architecture", "Provider", "Play Console DevOps", "JKS Keystore Recovery", "App Ownership Transfer"],
     achievements: [
       "Promoted to Senior Developer position",
       "Successfully recovered lost JKS signing key for Play Store app release",
       "Managed Play Console app ownership transfers & production releases",
-      "Mentored 3 junior app developers"
+      "Mentored developers"
     ]
   },
   {
