@@ -67,7 +67,7 @@
     /* ─── Mobile-First Container Layout ──────────────────────────────── */
     .main-container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
       padding: 0 var(--container-padding);
       display: flex;
@@ -177,7 +177,7 @@
       font-size: clamp(0.8rem, 2.2vw, 0.88rem);
       color: var(--text-main);
       font-weight: 500;
-      word-break: break-word;
+      word-break: normal;
     }
     .info-value a {
       color: var(--text-main);
@@ -186,6 +186,7 @@
       display: inline-block;
       min-height: 24px;
       line-height: 24px;
+      white-space: nowrap;
     }
     .info-value a:hover { color: var(--accent); }
 
@@ -938,14 +939,14 @@
     /* ─── Desktop Media Queries (min-width: 1024px) ──────────────────── */
     @media (min-width: 1024px) {
       :root {
-        --container-padding: 4%;
+        --container-padding: 3%;
       }
       body {
-        padding: 60px 0;
+        padding: 50px 0;
       }
       .main-container {
         display: grid;
-        grid-template-columns: 280px 1fr;
+        grid-template-columns: 330px 1fr;
         gap: 30px;
         align-items: start;
       }
@@ -954,6 +955,7 @@
         padding: 36px 24px;
         position: sticky;
         top: 30px;
+        width: 100%;
       }
       .content-box {
         border-radius: var(--radius-xl);
