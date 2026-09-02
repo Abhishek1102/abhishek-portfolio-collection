@@ -3,6 +3,7 @@ import { User, Award, GraduationCap, ShieldCheck, MapPin, Globe } from 'lucide-r
 import { PERSONAL_INFO, EDUCATION } from '../data/portfolioData';
 import { AnimatedCounter } from './AnimatedCounter';
 import { AndroidLogo } from './AndroidLogo';
+import { FlutterLogo } from './FlutterLogo';
 
 export const About: React.FC = () => {
   return (
@@ -53,7 +54,7 @@ export const About: React.FC = () => {
               I am a <strong style={{ color: '#ffffff' }}>Senior Flutter Developer</strong> with over <span style={{ color: '#38bdf8', fontWeight: 700 }}><AnimatedCounter value="2+" /> years</span> of hands-on industry experience building, scaling, and maintaining mobile applications for clients across India and internationally.
             </p>
             <p style={{ color: '#9ca3af', lineHeight: 1.7, marginBottom: '24px' }}>
-              My technical expertise spans both <span style={{ color: '#38bdf8', fontWeight: 600 }}>Flutter (Dart)</span> and native <span style={{ color: '#3DDC84', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}><AndroidLogo size={16} /> Native Android (Kotlin)</span>. Whether developing complex single-handed projects from concept to Play Store release (such as <em>Listening Eyes</em> &amp; <em>Maia Care</em>) or collaborating within 6–7 member engineering teams, I prioritize clean architecture, robust state management, and reliable API integration.
+              My technical expertise spans both <span style={{ color: '#38bdf8', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}><FlutterLogo size={16} /> Flutter (Dart)</span> and native <span style={{ color: '#3DDC84', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}><AndroidLogo size={16} /> Native Android (Kotlin)</span>. Whether developing complex single-handed projects from concept to Play Store release (such as <em>Listening Eyes</em> &amp; <em>Maia Care</em>) or collaborating within 6–7 member engineering teams, I prioritize clean architecture, robust state management, and reliable API integration.
             </p>
 
             {/* Key Value Highlights Grid */}
@@ -123,13 +124,9 @@ export const About: React.FC = () => {
                   <span style={{ color: '#9ca3af' }}>Experience:</span>
                   <span style={{ color: '#38bdf8', fontWeight: 700 }}><AnimatedCounter value="2+" /> Years (Jan 2024 – Present)</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '4px' }}>
                   <span style={{ color: '#9ca3af' }}>Current Role:</span>
                   <span style={{ color: '#ffffff', fontWeight: 600 }}>Senior App Developer</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '4px' }}>
-                  <span style={{ color: '#9ca3af' }}>Mentored Devs:</span>
-                  <span style={{ color: '#10b981', fontWeight: 700 }}><AnimatedCounter value="3+" /> Junior Developers</span>
                 </div>
               </div>
             </div>

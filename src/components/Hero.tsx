@@ -6,6 +6,7 @@ import {
 import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
 import { AnimatedCounter } from './AnimatedCounter';
 import { AndroidLogo } from './AndroidLogo';
+import { FlutterLogo } from './FlutterLogo';
 import { DownloadResumeModal } from './DownloadResumeModal';
 
 interface HeroProps {
@@ -106,12 +107,14 @@ export const Hero: React.FC<HeroProps> = () => {
               }}
             >
               Hi, I'm <strong style={{ color: '#ffffff' }}>{PERSONAL_INFO.name}</strong> based in Rajkot, India.
-              With 2+ years of production experience, I build robust, accessible, and high-performance mobile apps using <span style={{ color: '#38bdf8', fontWeight: 600 }}>Flutter &amp; Dart</span> alongside native <span style={{ color: '#3DDC84', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}><AndroidLogo size={16} /> Native Android (Kotlin)</span> modules.
+              With 2+ years of production experience, I build robust, accessible, and high-performance mobile apps using <span style={{ color: '#38bdf8', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}><FlutterLogo size={16} /> Flutter &amp; Dart</span> alongside native <span style={{ color: '#3DDC84', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}><AndroidLogo size={16} /> Native Android (Kotlin)</span> modules.
             </p>
 
             {/* Key Skill Badges */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '36px' }}>
-              <span className="tech-badge">⚡ Flutter &amp; Dart</span>
+              <span className="tech-badge" style={{ color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.3)', background: 'rgba(56, 189, 248, 0.08)' }}>
+                <FlutterLogo size={16} /> Flutter &amp; Dart
+              </span>
               <span className="tech-badge" style={{ color: '#3DDC84', borderColor: 'rgba(61, 220, 132, 0.3)', background: 'rgba(61, 220, 132, 0.08)' }}>
                 <AndroidLogo size={16} /> Native Android (Kotlin)
               </span>
@@ -140,7 +143,7 @@ export const Hero: React.FC<HeroProps> = () => {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(4, 1fr)',
+                gridTemplateColumns: 'repeat(3, 1fr)',
                 gap: '12px',
                 paddingTop: '24px',
                 borderTop: '1px solid var(--border-color)',

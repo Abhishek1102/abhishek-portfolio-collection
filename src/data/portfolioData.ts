@@ -54,8 +54,7 @@ export const PERSONAL_INFO = {
   stats: [
     { label: "Years Experience", value: "2+", icon: "Briefcase" },
     { label: "Play Store Downloads", value: "5,500+", icon: "Download" },
-    { label: "Production Apps Delivered", value: "4+", icon: "Smartphone" },
-    { label: "Junior Devs Mentored", value: "3+", icon: "Users" }
+    { label: "Production Apps Delivered", value: "4+", icon: "Smartphone" }
   ]
 };
 
