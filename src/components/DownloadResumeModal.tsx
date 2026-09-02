@@ -175,7 +175,6 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
               </div>
               <div style={{ flexGrow: 1 }}>
                 <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PDF Document</div>
-                <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>Full 2-Page CV (Page 1 &amp; Page 2 combined)</div>
               </div>
               <span
                 style={{
@@ -226,7 +225,6 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
               </div>
               <div style={{ flexGrow: 1 }}>
                 <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PNG Images</div>
-                <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>Abhishek_Resume folder with Page 1 &amp; Page 2</div>
               </div>
             </a>
           </div>
