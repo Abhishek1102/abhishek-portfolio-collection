@@ -912,7 +912,7 @@
         gap: 18px;
       }
       .stats-row {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 16px;
       }
       .portfolio-grid {
@@ -1061,16 +1061,19 @@
           <div class="stat-num">5.5k+</div>
           <div class="stat-lbl">Downloads</div>
         </div>
-        <div class="stat-box">
-          <div class="stat-num">3+</div>
-          <div class="stat-lbl">Devs Mentored</div>
-        </div>
       </div>
 
       <h3 class="section-subtitle">What I'm Doing</h3>
       <div class="spec-grid">
         <div class="spec-card">
-          <div class="spec-icon">⚡</div>
+          <div class="spec-icon" style="display: flex; align-items: center; justify-content: center;">
+            <svg width="34" height="34" viewBox="0 0 166 202" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M102.4 0L0 102.4L31.6 134L165.7 0H102.4Z" fill="#54C5F8"/>
+              <path d="M102.4 83.2L30.9 154.7L62.5 186.3L165.7 83.2H102.4Z" fill="#54C5F8"/>
+              <path d="M102.4 186.3H165.7L119.5 140.1L87.9 171.8L102.4 186.3Z" fill="#02569B"/>
+              <path d="M87.9 171.8L119.5 140.1L87.9 108.5L56.3 140.1L87.9 171.8Z" fill="#0175C2"/>
+            </svg>
+          </div>
           <div>
             <h4 class="spec-title">Cross-Platform Flutter Apps</h4>
             <p class="spec-desc">Building responsive, 60fps mobile interfaces with Provider, Dio, and WebSockets.</p>
