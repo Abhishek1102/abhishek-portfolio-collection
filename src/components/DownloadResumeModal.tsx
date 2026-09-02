@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, X, CheckCircle2 } from 'lucide-react';
+import { Download, FileText, Image as ImageIcon, X, CheckCircle2 } from 'lucide-react';
 
 interface DownloadResumeModalProps {
   isOpen: boolean;
@@ -163,14 +163,15 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
                   width: '44px',
                   height: '44px',
                   borderRadius: '12px',
-                  background: 'rgba(239, 68, 68, 0.12)',
+                  background: 'rgba(239, 68, 68, 0.15)',
+                  color: '#ef4444',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
                 }}
               >
-                <img src="pdf-icon.svg" alt="PDF Icon" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                <FileText size={22} />
               </div>
               <div style={{ flexGrow: 1 }}>
                 <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PDF Document</div>
@@ -212,14 +213,15 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
                   width: '44px',
                   height: '44px',
                   borderRadius: '12px',
-                  background: 'rgba(56, 189, 248, 0.12)',
+                  background: 'rgba(56, 189, 248, 0.15)',
+                  color: '#38bdf8',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
                 }}
               >
-                <img src="image-icon.png" alt="Image Icon" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                <ImageIcon size={22} />
               </div>
               <div style={{ flexGrow: 1 }}>
                 <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PNG Image</div>
