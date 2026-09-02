@@ -225,22 +225,9 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
                 <ImageIcon size={22} />
               </div>
               <div style={{ flexGrow: 1 }}>
-                <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PNG Images (Folder)</div>
-                <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>Abhishek_Resume folder with Page 1 &amp; Page 2 (.zip)</div>
+                <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PNG Images</div>
+                <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>Abhishek_Resume folder with Page 1 &amp; Page 2</div>
               </div>
-              <span
-                style={{
-                  fontSize: '0.72rem',
-                  fontWeight: 700,
-                  padding: '4px 10px',
-                  borderRadius: '6px',
-                  background: 'rgba(56, 189, 248, 0.15)',
-                  color: '#38bdf8',
-                  border: '1px solid rgba(56, 189, 248, 0.3)',
-                }}
-              >
-                2 Pages (.zip)
-              </span>
             </a>
           </div>
         )}
