@@ -168,10 +168,9 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
-                  overflow: 'hidden',
                 }}
               >
-                <img src="pdf-icon.svg" alt="PDF Icon" style={{ width: '34px', height: '34px', objectFit: 'contain' }} />
+                <img src="pdf-icon.svg" alt="PDF Icon" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
               </div>
               <div style={{ flexGrow: 1 }}>
                 <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PDF Document</div>
@@ -218,10 +217,9 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
-                  overflow: 'hidden',
                 }}
               >
-                <img src="image-icon.png" alt="Image Icon" style={{ width: '34px', height: '34px', objectFit: 'contain' }} />
+                <img src="image-icon.png" alt="Image Icon" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
               </div>
               <div style={{ flexGrow: 1 }}>
                 <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PNG Image</div>
