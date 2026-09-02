@@ -1532,21 +1532,21 @@
       <p>Choose your preferred format to download Abhishek's resume:</p>
     </div>
     <div class="download-options-grid">
-      <a href="Resume.pdf?v=100" download="Abhishek_Panchmiya_Resume.pdf" class="download-option-card" onclick="triggerDownloadFeedback('PDF')">
+      <a href="Resume.pdf?v=102" download="Abhishek_Panchmiya_Resume.pdf" class="download-option-card" onclick="triggerDownloadFeedback('PDF')">
         <div class="option-icon">📄</div>
         <div class="option-details">
           <span class="option-title">PDF Document</span>
-          <span class="option-sub">Original PDF format from resume &amp; cv folder</span>
+          <span class="option-sub">Full 2-Page CV (Page 1 &amp; Page 2 combined)</span>
         </div>
         <span class="option-badge">Recommended</span>
       </a>
-      <a href="Resume.png?v=100" download="Abhishek_Panchmiya_Resume.png" class="download-option-card" onclick="triggerDownloadFeedback('PNG')">
+      <a href="Abhishek_Resume.zip?v=102" download="Abhishek_Resume.zip" class="download-option-card" onclick="downloadResumeImages(event)">
         <div class="option-icon">🖼️</div>
         <div class="option-details">
-          <span class="option-title">PNG Image</span>
-          <span class="option-sub">Original PNG image from resume &amp; cv folder</span>
+          <span class="option-title">PNG Images (Folder)</span>
+          <span class="option-sub">Abhishek_Resume folder with Page 1 &amp; Page 2 (.zip)</span>
         </div>
-        <span class="option-badge secondary">PNG Image</span>
+        <span class="option-badge secondary">2 Pages (.zip)</span>
       </a>
     </div>
   </div>
@@ -1645,6 +1645,28 @@
     }, 500);
   }
   window.triggerDownloadFeedback = triggerDownloadFeedback;
+
+  function downloadResumeImages(evt) {
+    triggerDownloadFeedback('PNG');
+    setTimeout(() => {
+      const link1 = document.createElement('a');
+      link1.href = 'Abhishek_Resume_Page_1.png?v=102';
+      link1.download = 'Abhishek_Resume_Page_1.png';
+      document.body.appendChild(link1);
+      link1.click();
+      document.body.removeChild(link1);
+    }, 200);
+
+    setTimeout(() => {
+      const link2 = document.createElement('a');
+      link2.href = 'Abhishek_Resume_Page_2.png?v=102';
+      link2.download = 'Abhishek_Resume_Page_2.png';
+      document.body.appendChild(link2);
+      link2.click();
+      document.body.removeChild(link2);
+    }, 400);
+  }
+  window.downloadResumeImages = downloadResumeImages;
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {

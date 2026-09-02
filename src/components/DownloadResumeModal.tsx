@@ -21,6 +21,27 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
     }, 1200);
   };
 
+  const handleDownloadPng = () => {
+    handleDownload('PNG Images (Abhishek_Resume)');
+    setTimeout(() => {
+      const link1 = document.createElement('a');
+      link1.href = 'Abhishek_Resume_Page_1.png?v=102';
+      link1.download = 'Abhishek_Resume/Abhishek_Resume_Page_1.png';
+      document.body.appendChild(link1);
+      link1.click();
+      document.body.removeChild(link1);
+    }, 200);
+
+    setTimeout(() => {
+      const link2 = document.createElement('a');
+      link2.href = 'Abhishek_Resume_Page_2.png?v=102';
+      link2.download = 'Abhishek_Resume/Abhishek_Resume_Page_2.png';
+      document.body.appendChild(link2);
+      link2.click();
+      document.body.removeChild(link2);
+    }, 400);
+  };
+
   return (
     <div
       style={{
@@ -122,7 +143,7 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {/* PDF Option */}
             <a
-              href="Resume.pdf?v=100"
+              href="Resume.pdf?v=102"
               download="Abhishek_Panchmiya_Resume.pdf"
               onClick={() => handleDownload('PDF')}
               style={{
@@ -154,7 +175,7 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
               </div>
               <div style={{ flexGrow: 1 }}>
                 <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PDF Document</div>
-                <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>Original PDF from resume &amp; cv folder</div>
+                <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>Full 2-Page CV (Page 1 &amp; Page 2 combined)</div>
               </div>
               <span
                 style={{
@@ -171,11 +192,11 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
               </span>
             </a>
 
-            {/* PNG Option */}
+            {/* PNG Option (Folder / Zip & Direct) */}
             <a
-              href="Resume.png?v=100"
-              download="Abhishek_Panchmiya_Resume.png"
-              onClick={() => handleDownload('PNG')}
+              href="Abhishek_Resume.zip?v=102"
+              download="Abhishek_Resume.zip"
+              onClick={handleDownloadPng}
               style={{
                 background: 'rgba(255, 255, 255, 0.04)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -204,8 +225,8 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
                 <ImageIcon size={22} />
               </div>
               <div style={{ flexGrow: 1 }}>
-                <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PNG Image</div>
-                <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>Original PNG image from resume &amp; cv folder</div>
+                <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>PNG Images (Folder)</div>
+                <div style={{ fontSize: '0.78rem', color: '#9ca3af' }}>Abhishek_Resume folder with Page 1 &amp; Page 2 (.zip)</div>
               </div>
               <span
                 style={{
@@ -218,7 +239,7 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
                   border: '1px solid rgba(56, 189, 248, 0.3)',
                 }}
               >
-                PNG Image
+                2 Pages (.zip)
               </span>
             </a>
           </div>
