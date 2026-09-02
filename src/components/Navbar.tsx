@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Smartphone, Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
+import abhishekPhoto from '../assets/abhishek_panchmiya.jpg';
 
 interface NavbarProps {
   activeSection: string;
@@ -55,21 +56,27 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
         <a
           href="#hero"
           onClick={(e) => { e.preventDefault(); scrollTo('hero'); }}
-          style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}
+          style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}
         >
           <div
             style={{
-              width: '40px',
-              height: '40px',
+              width: '42px',
+              height: '42px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #0284c7 0%, #6366f1 100%)',
+              overflow: 'hidden',
+              border: '2px solid rgba(56, 189, 248, 0.5)',
+              boxShadow: '0 0 15px rgba(56, 189, 248, 0.35)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 0 15px rgba(56, 189, 248, 0.4)',
+              background: '#1e293b',
             }}
           >
-            <Smartphone size={20} color="#ffffff" />
+            <img
+              src={abhishekPhoto}
+              alt="Abhishek Panchmiya"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%', display: 'block' }}
+            />
           </div>
           <div>
             <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '1.1rem', letterSpacing: '-0.02em' }}>

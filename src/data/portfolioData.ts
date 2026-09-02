@@ -51,6 +51,7 @@ export const PERSONAL_INFO = {
   github: "https://github.com/Abhishek1102",
   linkedin: "https://linkedin.com/in/abhishekpanchmiya",
   bio: "Senior Mobile Developer specializing in production Flutter & Native Android (Kotlin) apps. Expert in Play Store deployment, app ownership transfers, and emergency JKS keystore recovery.",
+  avatar: "abhishek_panchmiya.jpg",
   spokenLanguages: ["English (Fluent)", "Hindi (Fluent)", "Gujarati (Fluent)"],
   stats: [
     { label: "Years Experience", value: "2+", icon: "Briefcase" },

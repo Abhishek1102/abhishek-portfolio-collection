@@ -4,6 +4,7 @@ import { PERSONAL_INFO, EDUCATION } from '../data/portfolioData';
 import { AnimatedCounter } from './AnimatedCounter';
 import { AndroidLogo } from './AndroidLogo';
 import { FlutterLogo } from './FlutterLogo';
+import abhishekPhoto from '../assets/abhishek_panchmiya.jpg';
 
 export const About: React.FC = () => {
   return (
@@ -47,9 +48,35 @@ export const About: React.FC = () => {
         <div className="about-grid">
           {/* Left Main About Card */}
           <div className="glass-panel glass-panel-hover" style={{ padding: 'clamp(20px, 4vw, 36px)' }}>
-            <h3 style={{ fontSize: 'clamp(1.15rem, 3vw, 1.4rem)', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>
-              Full-Lifecycle Mobile Application Developer
-            </h3>
+            {/* Profile Header with Photo */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '24px' }}>
+              <div
+                style={{
+                  width: '84px',
+                  height: '84px',
+                  minWidth: '84px',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  border: '2px solid rgba(56, 189, 248, 0.4)',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(56, 189, 248, 0.2)',
+                  background: '#1a1d26',
+                }}
+              >
+                <img
+                  src={abhishekPhoto}
+                  alt="Abhishek Panchmiya"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%', display: 'block' }}
+                />
+              </div>
+              <div>
+                <h3 style={{ fontSize: 'clamp(1.15rem, 3vw, 1.4rem)', fontWeight: 700, color: '#ffffff', marginBottom: '4px' }}>
+                  Full-Lifecycle Mobile Application Developer
+                </h3>
+                <div style={{ color: '#38bdf8', fontSize: '0.9rem', fontWeight: 600 }}>
+                  Abhishek Panchmiya • Rajkot, Gujarat
+                </div>
+              </div>
+            </div>
             <p style={{ color: '#9ca3af', lineHeight: 1.7, marginBottom: '20px' }}>
               I am a <strong style={{ color: '#ffffff' }}>Senior Flutter Developer</strong> with over <span style={{ color: '#38bdf8', fontWeight: 700 }}><AnimatedCounter value="2+" /> years</span> of hands-on industry experience building, scaling, and maintaining mobile applications for clients across India and internationally.
             </p>
