@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, CheckCircle2 } from 'lucide-react';
+import { X, CheckCircle2, ExternalLink } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
 
 interface ProjectModalProps {
@@ -152,7 +152,30 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+          {project.playStoreUrl ? (
+            <a
+              href={project.playStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 16px',
+                background: 'rgba(56, 189, 248, 0.12)',
+                color: '#38bdf8',
+                border: '1px solid rgba(56, 189, 248, 0.3)',
+                borderRadius: '8px',
+                fontWeight: 600,
+                fontSize: '0.88rem',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              Play Store <ExternalLink size={14} />
+            </a>
+          ) : <div />}
           <button onClick={onClose} className="btn-secondary" style={{ padding: '8px 20px' }}>
             Close Details
           </button>

@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   subtitle: string;
   role: string;
-  category: 'Accessibility' | 'Social & Dating' | 'E-Commerce' | 'Healthcare & Business';
+  category: 'Accessibility' | 'Social & Dating' | 'E-Commerce' | 'Healthcare & Business' | 'AI & Productivity' | 'Devotional & Utilities' | string;
   description: string;
   longDescription: string;
   technologies: string[];
@@ -13,7 +13,8 @@ export interface Project {
   singleHanded: boolean;
   color: string;
   iconName: string;
-  mockupType: 'accessibility_tts' | 'dating_swipe' | 'ecommerce_shop' | 'medical_booking';
+  mockupType?: 'accessibility_tts' | 'dating_swipe' | 'ecommerce_shop' | 'medical_booking' | string;
+  playStoreUrl?: string;
 }
 
 export interface Experience {
@@ -73,7 +74,7 @@ export const PROJECTS: Project[] = [
     title: "SmartBill AI Receipt Scanner",
     subtitle: "AI Receipt Scanner & Expense Manager with Gemini Vision",
     role: "Senior Flutter Developer (Sole Developer)",
-    category: "AI & Productivity" as any,
+    category: "AI & Productivity",
     description: "AI expense & receipt manager leveraging Gemini 3 Flash Preview AI to turn phone cameras into automated accountants, extracting merchant, date, amount, and category instantly.",
     longDescription: "SmartBill AI is an intelligent receipt scanner and expense tracker built in Flutter. Powered by Gemini 3 Flash Preview AI, it automatically extracts merchant information, transaction dates, totals, and tax categories from receipt photos with high accuracy. Features budget management and tax expense organization.",
     technologies: ["Flutter", "Dart", "Google Gemini AI", "Camera Vision / OCR", "Expense Tracker", "Play Store Console"],
@@ -88,7 +89,8 @@ export const PROJECTS: Project[] = [
     singleHanded: true,
     color: "#38bdf8",
     iconName: "Sparkles",
-    mockupType: "accessibility_tts"
+    mockupType: "accessibility_tts",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.aethertech.smartbillai"
   },
   {
     id: "hukup-dating",
@@ -110,7 +112,8 @@ export const PROJECTS: Project[] = [
     singleHanded: false,
     color: "#ec4899",
     iconName: "Heart",
-    mockupType: "dating_swipe"
+    mockupType: "dating_swipe",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.technocomet.hukup&hl=en_IN"
   },
   {
     id: "miodeal-buyer",
@@ -132,7 +135,30 @@ export const PROJECTS: Project[] = [
     singleHanded: false,
     color: "#f59e0b",
     iconName: "ShoppingBag",
-    mockupType: "ecommerce_shop"
+    mockupType: "ecommerce_shop",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.miodeal.buyer&hl=en_IN"
+  },
+  {
+    id: "daily-mantra",
+    title: "Daily Mantra Jaap Player",
+    subtitle: "Devotional Audio & Chanting Player with Custom Repeat Counters",
+    role: "Senior Flutter Developer (Sole Developer)",
+    category: "Devotional & Utilities",
+    description: "Devotional chanting and meditation audio player with customizable repeat counters, background audio synthesis, and peaceful UI.",
+    longDescription: "Daily Mantra Jaap Player is a devotional audio and chanting counter platform built in Flutter. Features continuous background audio synthesis, customizable jaap target counters, peaceful animations, and local data persistence with Hive.",
+    technologies: ["Flutter", "Dart", "Audio Engine", "Hive Storage", "UI Animation", "Play Store Console"],
+    highlights: [
+      "Sole developer — built 100% of devotional chanting player mobile app from scratch",
+      "Implemented background audio synthesis and loop engine for continuous jaap chanting",
+      "Designed seamless counter tracking and serene UI animations",
+      "Published and maintained on Google Play Store"
+    ],
+    status: "Published on Play Store",
+    singleHanded: true,
+    color: "#eab308",
+    iconName: "Music",
+    mockupType: "accessibility_tts",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.abhishek.daily_mantra_jaap_player&hl=en_IN"
   },
   {
     id: "listening-eyes",
@@ -154,7 +180,8 @@ export const PROJECTS: Project[] = [
     singleHanded: true,
     color: "#8b5cf6",
     iconName: "Eye",
-    mockupType: "accessibility_tts"
+    mockupType: "accessibility_tts",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.listeningeyes.app&hl=en_IN"
   },
   {
     id: "maia-care",
