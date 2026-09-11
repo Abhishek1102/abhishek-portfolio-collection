@@ -311,8 +311,8 @@ export const Hero: React.FC<HeroProps> = () => {
                           <span style={{ color: '#FF6B4A', fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                             Walk to Earn
                           </span>
-                          <span style={{ color: '#10b981', fontSize: '0.68rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
-                            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981' }} /> Active
+                          <span style={{ color: '#fbbf24', fontSize: '0.68rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#fbbf24' }} /> Final Stage
                           </span>
                         </div>
                         <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.1 }}>
@@ -353,8 +353,8 @@ export const Hero: React.FC<HeroProps> = () => {
                         <Footprints size={16} /> Simulate +100 Steps
                       </button>
 
-                      <div style={{ marginTop: 'auto', background: 'rgba(255,255,255,0.03)', padding: '8px', borderRadius: '8px', fontSize: '0.68rem', color: '#94a3b8' }}>
-                        🛡️ <strong>Dual-Layer Interception:</strong> Health Connect + AccessibilityService.
+                      <div style={{ marginTop: 'auto', background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)', padding: '8px', borderRadius: '8px', fontSize: '0.68rem', color: '#fbbf24' }}>
+                        ⏳ <strong>Final Stage (Pre-Release):</strong> Coming soon to platform · Dual-Layer Interception.
                       </div>
                     </div>
                   )}

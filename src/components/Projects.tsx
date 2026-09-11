@@ -116,11 +116,15 @@ export const Projects: React.FC = () => {
                     >
                       {project.category}
                     </span>
-                    {project.singleHanded && (
+                    {project.id === 'wander-app' ? (
+                      <span style={{ fontSize: '0.68rem', color: '#fbbf24', fontWeight: 600 }}>
+                        ⏳ Final Stage (Not Yet Live)
+                      </span>
+                    ) : project.singleHanded ? (
                       <span style={{ fontSize: '0.68rem', color: '#10b981', fontWeight: 600 }}>
                         ★ Sole Developer
                       </span>
-                    )}
+                    ) : null}
                   </div>
                 </div>
 
@@ -159,7 +163,7 @@ export const Projects: React.FC = () => {
                     borderTop: '1px solid rgba(255, 255, 255, 0.06)',
                   }}
                 >
-                  <span style={{ color: '#10b981', fontSize: '0.82rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <span style={{ color: project.id === 'wander-app' ? '#fbbf24' : '#10b981', fontSize: '0.82rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
                     <CheckCircle2 size={14} /> {project.downloads || project.status}
                   </span>
 

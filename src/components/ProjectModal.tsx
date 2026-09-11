@@ -79,6 +79,21 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               ★ Sole Developer (From Scratch)
             </span>
           )}
+          {project.id === 'wander-app' && (
+            <span
+              style={{
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                background: 'rgba(245, 158, 11, 0.15)',
+                color: '#fbbf24',
+                padding: '4px 10px',
+                borderRadius: '20px',
+                border: '1px solid rgba(245, 158, 11, 0.35)',
+              }}
+            >
+              ⏳ In Final Stage (Not Live Yet)
+            </span>
+          )}
         </div>
 
         <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#ffffff', marginBottom: '4px' }}>
@@ -107,7 +122,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
           <div>
             <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>Status &amp; Reach:</div>
-            <div style={{ fontSize: '0.9rem', color: '#10b981', fontWeight: 700 }}>
+            <div style={{ fontSize: '0.9rem', color: project.id === 'wander-app' ? '#fbbf24' : '#10b981', fontWeight: 700 }}>
               {project.status} {project.downloads && `(${project.downloads})`}
             </div>
           </div>
@@ -177,28 +192,24 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 Play Store <ExternalLink size={14} />
               </a>
             )}
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+            {project.id === 'wander-app' && (
+              <div
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '6px',
+                  gap: '8px',
                   padding: '8px 16px',
-                  background: 'rgba(255, 107, 74, 0.12)',
-                  color: '#FF6B4A',
-                  border: '1px solid rgba(255, 107, 74, 0.35)',
+                  background: 'rgba(245, 158, 11, 0.12)',
+                  color: '#fbbf24',
+                  border: '1px solid rgba(245, 158, 11, 0.35)',
                   borderRadius: '8px',
                   fontWeight: 600,
-                  fontSize: '0.88rem',
-                  textDecoration: 'none',
-                  transition: 'all 0.2s ease',
+                  fontSize: '0.85rem',
                 }}
               >
-                GitHub Repository <ExternalLink size={14} />
-              </a>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#f59e0b', display: 'inline-block' }} />
+                Final Stage Development · Coming Soon to Platform
+              </div>
             )}
           </div>
           <button onClick={onClose} className="btn-secondary" style={{ padding: '8px 20px' }}>

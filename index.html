@@ -632,6 +632,50 @@
       transform: translateY(-1px);
     }
 
+    .pre-release-btn {
+      background: rgba(245, 158, 11, 0.08);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.28);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      min-height: var(--min-touch-target);
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      letter-spacing: 0.02em;
+      user-select: none;
+    }
+
+    .amber-pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #f59e0b;
+      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+      animation: amberPulse 2s infinite;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    @keyframes amberPulse {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+      }
+    }
+
     /* ─── Download Resume Button & Selection Modal ──────────────────── */
     .download-resume-btn {
       background: linear-gradient(135deg, var(--accent) 0%, #f59e0b 100%);
@@ -973,7 +1017,8 @@
         gap: 16px;
       }
       .playstore-btn,
-      .github-btn {
+      .github-btn,
+      .pre-release-btn {
         width: fit-content;
       }
       .submit-btn {
@@ -1236,7 +1281,9 @@
           <div>
             <div class="project-meta-row">
               <span class="proj-badge">Solo Developer</span>
-              <span style="font-size:0.75rem;color:#FF6B4A;font-weight:700;">Kotlin &amp; Jetpack Compose</span>
+              <span style="font-size:0.75rem;color:#fbbf24;font-weight:700;display:inline-flex;align-items:center;gap:6px;">
+                <span class="amber-pulse-dot"></span> In Final Stage (Not Live Yet)
+              </span>
             </div>
             <h3 class="project-title">Wander: Earn Your Scroll Time</h3>
             <p class="project-summary">Modern Android digital wellbeing application built with Kotlin &amp; Jetpack Compose (Material 3). Converts physical steps into earned screen time on distracting apps and mobile websites via Google Health Connect and real-time AccessibilityService interception across 15+ mobile browsers.</p>
@@ -1250,9 +1297,10 @@
               <span class="tech-tag">i18n (4 Languages)</span>
             </div>
           </div>
-          <a href="https://github.com/Abhishek1102/Wander" target="_blank" rel="noopener noreferrer" class="github-btn">
-            GitHub Repository ↗
-          </a>
+          <div class="pre-release-btn">
+            <span class="amber-pulse-dot"></span>
+            <span>Final Stage Development · Coming Soon to Platform</span>
+          </div>
         </article>
 
         <!-- Project 2: SmartBill AI Receipt Scanner -->

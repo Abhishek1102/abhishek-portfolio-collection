@@ -88,11 +88,11 @@ export const PROJECTS: Project[] = [
       "Designed customizable step-to-scroll ratios (50–500 steps/min), time-bank rollover, and 5-minute timed emergency bypass",
       "Architected 100% on-device privacy guarantee and dynamic runtime localization (English, German, French, Hindi)"
     ],
-    status: "Completed (Open Source)",
+    status: "Final Stage (Not Live Yet)",
+    downloads: "Coming Soon",
     singleHanded: true,
     color: "#FF6B4A",
     iconName: "Footprints",
-    githubUrl: "https://github.com/Abhishek1102/Wander"
   },
   {
     id: "smartbill-ai",
