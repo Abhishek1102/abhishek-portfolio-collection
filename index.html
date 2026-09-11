@@ -7,9 +7,9 @@
   <meta name="description" content="Personal vCard Portfolio of Abhishek Panchmiya - Senior Flutter & Native Android (Kotlin) Mobile Application Developer." />
   <meta property="og:title" content="Abhishek Panchmiya — Senior Flutter & Android Developer" />
   <meta property="og:description" content="Senior Flutter & Native Android Developer with 2+ years production experience." />
-  <meta property="og:image" content="./assets/abhishek_panchmiya-Cl_WqTdj.jpg" />
+  <meta property="og:image" content="abhishek_panchmiya.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="./assets/abhishek_panchmiya-Cl_WqTdj.jpg" />
+  <meta name="twitter:image" content="abhishek_panchmiya.jpg" />
 
   <!-- Google Fonts: Poppins & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -607,6 +607,75 @@
       transform: translateY(-1px);
     }
 
+    .github-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 10px 18px;
+      min-height: var(--min-touch-target);
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all var(--transition);
+      width: 100%;
+      touch-action: manipulation;
+    }
+    .github-btn:hover {
+      background: rgba(255, 107, 74, 0.15);
+      border-color: rgba(255, 107, 74, 0.45);
+      color: #FF6B4A;
+      transform: translateY(-1px);
+    }
+
+    .pre-release-btn {
+      background: rgba(245, 158, 11, 0.08);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.28);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      min-height: var(--min-touch-target);
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      letter-spacing: 0.02em;
+      user-select: none;
+    }
+
+    .amber-pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #f59e0b;
+      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+      animation: amberPulse 2s infinite;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    @keyframes amberPulse {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+      }
+    }
+
     /* ─── Download Resume Button & Selection Modal ──────────────────── */
     .download-resume-btn {
       background: linear-gradient(135deg, var(--accent) 0%, #f59e0b 100%);
@@ -947,7 +1016,9 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
       }
-      .playstore-btn {
+      .playstore-btn,
+      .github-btn,
+      .pre-release-btn {
         width: fit-content;
       }
       .submit-btn {
@@ -1005,7 +1076,7 @@
   <!-- ─── Left Sidebar (vCard Dashboard Card) ────────────────────────── -->
   <aside class="sidebar-card">
     <div class="avatar-box">
-      <img src="./assets/abhishek_panchmiya-Cl_WqTdj.jpg" alt="Abhishek Panchmiya" width="130" height="130" loading="eager" />
+      <img src="abhishek_panchmiya.jpg" alt="Abhishek Panchmiya" width="130" height="130" loading="eager" />
     </div>
 
     <h1 class="profile-name">Abhishek Panchmiya</h1>
@@ -1180,6 +1251,14 @@
             <li><strong>Master of Science in I.T.</strong> — <span style="color:var(--accent);font-weight:700;">85 %</span></li>
           </ul>
         </div>
+        <div class="timeline-item">
+          <h4 class="timeline-item-title">Saint Mary’s School</h4>
+          <div class="timeline-period">2015 — 2017 | Rajkot, Gujarat, India</div>
+          <ul class="timeline-desc">
+            <li><strong>HSC (Higher Secondary Certificate)</strong> — <span style="color:var(--accent);font-weight:700;">65 %</span></li>
+            <li><strong>SSC (Secondary School Certificate)</strong> — <span style="color:var(--accent);font-weight:700;">59 %</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -1189,7 +1268,50 @@
 
       <div class="portfolio-grid">
 
-        <!-- Project 1: SmartBill AI Receipt Scanner -->
+        <!-- Project 1: Wander: Earn Your Scroll Time -->
+        <article class="project-card">
+          <div class="project-banner">
+            <div class="main-preview-frame" onclick="openLightbox('Wander: Earn Your Scroll Time', document.getElementById('prev-wander').src)">
+              <img id="prev-wander" src="screenshots/wander_1.png" alt="Wander App Screen" class="project-preview-img" loading="lazy" />
+              <div class="preview-overlay-zoom">🔍 Fullscreen</div>
+            </div>
+            <div class="screenshot-strip">
+              <img src="screenshots/wander_1.png" alt="Screen 1" class="thumb active" onclick="changePreview('prev-wander', 'screenshots/wander_1.png', this, event)" />
+              <img src="screenshots/wander_2.png" alt="Screen 2" class="thumb" onclick="changePreview('prev-wander', 'screenshots/wander_2.png', this, event)" />
+              <img src="screenshots/wander_3.png" alt="Screen 3" class="thumb" onclick="changePreview('prev-wander', 'screenshots/wander_3.png', this, event)" />
+              <img src="screenshots/wander_4.png" alt="Screen 4" class="thumb" onclick="changePreview('prev-wander', 'screenshots/wander_4.png', this, event)" />
+              <img src="screenshots/wander_5.png" alt="Screen 5" class="thumb" onclick="changePreview('prev-wander', 'screenshots/wander_5.png', this, event)" />
+              <img src="screenshots/wander_6.png" alt="Screen 6" class="thumb" onclick="changePreview('prev-wander', 'screenshots/wander_6.png', this, event)" />
+              <img src="screenshots/wander_7.png" alt="Screen 7" class="thumb" onclick="changePreview('prev-wander', 'screenshots/wander_7.png', this, event)" />
+              <img src="screenshots/wander_8.png" alt="Screen 8" class="thumb" onclick="changePreview('prev-wander', 'screenshots/wander_8.png', this, event)" />
+            </div>
+          </div>
+          <div>
+            <div class="project-meta-row">
+              <span class="proj-badge">Solo Developer</span>
+              <span style="font-size:0.75rem;color:#fbbf24;font-weight:700;display:inline-flex;align-items:center;gap:6px;">
+                <span class="amber-pulse-dot"></span> In Final Stage (Not Live Yet)
+              </span>
+            </div>
+            <h3 class="project-title">Wander: Earn Your Scroll Time</h3>
+            <p class="project-summary">Modern Android digital wellbeing application built with Kotlin &amp; Jetpack Compose (Material 3). Converts physical steps into earned screen time on distracting apps and mobile websites via Google Health Connect and real-time AccessibilityService interception across 15+ mobile browsers.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Kotlin</span>
+              <span class="tech-tag">Jetpack Compose</span>
+              <span class="tech-tag">Material 3</span>
+              <span class="tech-tag">Health Connect</span>
+              <span class="tech-tag">AccessibilityService</span>
+              <span class="tech-tag">UsageEvents Engine</span>
+              <span class="tech-tag">i18n (4 Languages)</span>
+            </div>
+          </div>
+          <div class="pre-release-btn">
+            <span class="amber-pulse-dot"></span>
+            <span>Final Stage Development · Coming Soon to Platform</span>
+          </div>
+        </article>
+
+        <!-- Project 2: SmartBill AI Receipt Scanner -->
         <article class="project-card">
           <div class="project-banner">
             <div class="main-preview-frame" onclick="openLightbox('SmartBill AI Receipt Scanner', document.getElementById('prev-smartbill').src)">
@@ -1553,14 +1675,14 @@
       <p>Choose your preferred format to download Abhishek's resume:</p>
     </div>
     <div class="download-options-grid">
-      <a href="Resume.pdf?v=103" download="Abhishek_Panchmiya_Resume.pdf" class="download-option-card" onclick="triggerDownloadFeedback('PDF')">
+      <a href="Resume.pdf?v=105" download="Abhishek_Panchmiya_Resume.pdf" class="download-option-card" onclick="triggerDownloadFeedback('PDF')">
         <div class="option-icon">📄</div>
         <div class="option-details">
           <span class="option-title">PDF Document</span>
         </div>
         <span class="option-badge">Recommended</span>
       </a>
-      <a href="Abhishek_Resume.zip?v=103" download="Abhishek_Resume.zip" class="download-option-card" onclick="downloadResumeImages(event)">
+      <a href="Abhishek_Resume.zip?v=105" download="Abhishek_Resume.zip" class="download-option-card" onclick="downloadResumeImages(event)">
         <div class="option-icon">🖼️</div>
         <div class="option-details">
           <span class="option-title">PNG Image</span>
@@ -1668,7 +1790,7 @@
     triggerDownloadFeedback('PNG');
     setTimeout(() => {
       const link1 = document.createElement('a');
-      link1.href = 'Abhishek_Resume_Page_1.png?v=102';
+      link1.href = 'Abhishek_Resume_Page_1.png?v=105';
       link1.download = 'Abhishek_Resume_Page_1.png';
       document.body.appendChild(link1);
       link1.click();
@@ -1677,7 +1799,7 @@
 
     setTimeout(() => {
       const link2 = document.createElement('a');
-      link2.href = 'Abhishek_Resume_Page_2.png?v=102';
+      link2.href = 'Abhishek_Resume_Page_2.png?v=105';
       link2.download = 'Abhishek_Resume_Page_2.png';
       document.body.appendChild(link2);
       link2.click();
