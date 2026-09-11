@@ -25,7 +25,7 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
     handleDownload('PNG Images (Abhishek_Resume)');
     setTimeout(() => {
       const link1 = document.createElement('a');
-      link1.href = 'Abhishek_Resume_Page_1.png?v=102';
+      link1.href = 'Abhishek_Resume_Page_1.png?v=104';
       link1.download = 'Abhishek_Resume/Abhishek_Resume_Page_1.png';
       document.body.appendChild(link1);
       link1.click();
@@ -34,7 +34,7 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
 
     setTimeout(() => {
       const link2 = document.createElement('a');
-      link2.href = 'Abhishek_Resume_Page_2.png?v=102';
+      link2.href = 'Abhishek_Resume_Page_2.png?v=104';
       link2.download = 'Abhishek_Resume/Abhishek_Resume_Page_2.png';
       document.body.appendChild(link2);
       link2.click();
@@ -143,7 +143,7 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {/* PDF Option */}
             <a
-              href="Resume.pdf?v=103"
+              href="Resume.pdf?v=104"
               download="Abhishek_Panchmiya_Resume.pdf"
               onClick={() => handleDownload('PDF')}
               style={{
@@ -193,7 +193,7 @@ export const DownloadResumeModal: React.FC<DownloadResumeModalProps> = ({ isOpen
 
             {/* PNG Option (Folder / Zip & Direct) */}
             <a
-              href="Abhishek_Resume.zip?v=103"
+              href="Abhishek_Resume.zip?v=104"
               download="Abhishek_Resume.zip"
               onClick={handleDownloadPng}
               style={{

@@ -60,6 +60,7 @@ abhishek-portfolio/
 
 | App | Platform | Description |
 |---|---|---|
+| **Wander** | Android (Kotlin + Jetpack Compose) | Digital wellbeing app converting physical steps into screen time with Health Connect & AccessibilityService web gating |
 | **SmartBill AI** | Flutter (Android) | AI-powered receipt scanner using Gemini Flash — extracts merchant, date, amount & category instantly |
 | **Listening Eyes** | Flutter (Android) | Accessibility app that reads text aloud from camera using OCR + TTS |
 | **Tally Helper** | Flutter (Android) | Smart Tally ERP companion for faster invoicing and stock management |

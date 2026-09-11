@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   subtitle: string;
   role: string;
-  category: 'Accessibility' | 'Social & Dating' | 'E-Commerce' | 'Healthcare & Business' | 'AI & Productivity' | 'Devotional & Utilities' | string;
+  category: 'Accessibility' | 'Social & Dating' | 'E-Commerce' | 'Healthcare & Business' | 'AI & Productivity' | 'Devotional & Utilities' | 'Digital Wellbeing' | string;
   description: string;
   longDescription: string;
   technologies: string[];
@@ -15,6 +15,7 @@ export interface Project {
   iconName: string;
   mockupType?: 'accessibility_tts' | 'dating_swipe' | 'ecommerce_shop' | 'medical_booking' | string;
   playStoreUrl?: string;
+  githubUrl?: string;
 }
 
 export interface Experience {
@@ -56,7 +57,7 @@ export const PERSONAL_INFO = {
   stats: [
     { label: "Years Experience", value: "2+", icon: "Briefcase" },
     { label: "Play Store Downloads", value: "5,500+", icon: "Download" },
-    { label: "Production Apps Delivered", value: "4+", icon: "Smartphone" }
+    { label: "Production Apps Delivered", value: "5+", icon: "Smartphone" }
   ]
 };
 
@@ -70,6 +71,29 @@ export const EDUCATION: Education = {
 };
 
 export const PROJECTS: Project[] = [
+  {
+    id: "wander-app",
+    title: "Wander: Earn Your Scroll Time",
+    subtitle: "Android Digital Wellbeing App with Kotlin, Jetpack Compose & Health Connect",
+    role: "Senior Mobile Developer (Sole Developer)",
+    category: "Digital Wellbeing",
+    description: "Modern Android digital wellbeing application that converts physical steps into earned screen time on distracting apps and mobile websites via Google Health Connect and AccessibilityService gating across 15+ mobile browsers.",
+    longDescription: "Wander is a high-performance Android digital wellbeing application built natively with Kotlin and Jetpack Compose (Material 3). Wander transforms daily physical steps into earned screen allowance on distracting apps and websites, cultivating mindful digital habits through movement. It integrates Google Health Connect for zero-battery-drain step syncing, real-time dual-layer interception via AccessibilityService monitoring foreground apps and address bars across 15+ browsers (Chrome, Firefox, Brave, Edge, Opera, Samsung Internet, DuckDuckGo, etc.), a down-to-the-second UsageEvents state engine, 5-minute emergency timed bypass, and full on-device privacy.",
+    technologies: ["Android (Kotlin)", "Jetpack Compose", "Material 3", "Google Health Connect", "AccessibilityService", "UsageStatsManager", "State Machine", "i18n (EN, DE, FR, HI)", "Obsidian Dark Theme"],
+    highlights: [
+      "Sole developer — engineered 100% of the native Android application in Kotlin 2.0 with Jetpack Compose Material 3",
+      "Integrated Google Health Connect to read verified daily steps with zero battery-draining background loops",
+      "Engineered dual-layer AccessibilityService interception monitoring both native apps and address bars across 15+ mobile browsers",
+      "Built a state-machine parser over raw Android UsageEvents (ACTIVITY_RESUMED, ACTIVITY_PAUSED) with midnight boundary clamping",
+      "Designed customizable step-to-scroll ratios (50–500 steps/min), time-bank rollover, and 5-minute timed emergency bypass",
+      "Architected 100% on-device privacy guarantee and dynamic runtime localization (English, German, French, Hindi)"
+    ],
+    status: "Completed (Open Source)",
+    singleHanded: true,
+    color: "#FF6B4A",
+    iconName: "Footprints",
+    githubUrl: "https://github.com/Abhishek1102/Wander"
+  },
   {
     id: "smartbill-ai",
     title: "SmartBill AI Receipt Scanner",

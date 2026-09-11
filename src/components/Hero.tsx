@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Smartphone, Eye, Heart, ShoppingBag, Calendar, 
-  Play, Pause, ArrowRight, Sparkles, Volume2
+  Play, Pause, ArrowRight, Sparkles, Volume2, Footprints
 } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
 import { AnimatedCounter } from './AnimatedCounter';
@@ -291,17 +291,73 @@ export const Hero: React.FC<HeroProps> = () => {
                     style={{
                       fontSize: '0.65rem',
                       background: 'rgba(255,255,255,0.1)',
-                      color: '#38bdf8',
+                      color: currentApp.id === 'wander-app' ? '#FF6B4A' : '#38bdf8',
                       padding: '2px 6px',
                       borderRadius: '4px',
                     }}
                   >
-                    Flutter
+                    {currentApp.id === 'wander-app' ? 'Kotlin / Compose' : 'Flutter'}
                   </span>
                 </div>
 
                 {/* Simulated App Body Content based on App Type */}
                 <div style={{ flex: 1, padding: '14px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  
+                  {/* APP TYPE: WANDER DIGITAL WELLBEING */}
+                  {currentApp.id === 'wander-app' && (
+                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                      <div style={{ background: '#14161C', padding: '12px', borderRadius: '12px', border: '1px solid rgba(255, 107, 74, 0.4)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                          <span style={{ color: '#FF6B4A', fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                            Walk to Earn
+                          </span>
+                          <span style={{ color: '#10b981', fontSize: '0.68rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981' }} /> Active
+                          </span>
+                        </div>
+                        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.1 }}>
+                          1,304 <span style={{ fontSize: '0.8rem', color: '#9ca3af', fontWeight: 500 }}>/ 10,000</span>
+                        </div>
+                        <div style={{ color: '#9ca3af', fontSize: '0.68rem', marginTop: '3px' }}>
+                          8,696 steps until more time
+                        </div>
+                      </div>
+
+                      <div style={{ background: '#14161C', padding: '10px 12px', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                        <div style={{ fontSize: '0.68rem', color: '#9ca3af', textTransform: 'uppercase', fontWeight: 600 }}>
+                          Earned Scroll Time Left
+                        </div>
+                        <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#FF6B4A', marginTop: '2px' }}>
+                          13min 0s
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => setCartCount(prev => prev + 100)}
+                        style={{
+                          background: 'linear-gradient(135deg, #FF6B4A 0%, #ff8a65 100%)',
+                          border: 'none',
+                          color: '#090A0C',
+                          padding: '10px',
+                          borderRadius: '12px',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px',
+                          fontSize: '0.8rem',
+                          fontWeight: 700,
+                          transition: 'all 0.2s ease',
+                        }}
+                      >
+                        <Footprints size={16} /> Simulate +100 Steps
+                      </button>
+
+                      <div style={{ marginTop: 'auto', background: 'rgba(255,255,255,0.03)', padding: '8px', borderRadius: '8px', fontSize: '0.68rem', color: '#94a3b8' }}>
+                        🛡️ <strong>Dual-Layer Interception:</strong> Health Connect + AccessibilityService.
+                      </div>
+                    </div>
+                  )}
                   
                   {/* APP TYPE: SMARTBILL AI RECEIPT SCANNER */}
                   {currentApp.id === 'smartbill-ai' && (
@@ -569,6 +625,7 @@ export const Hero: React.FC<HeroProps> = () => {
                         transition: 'all 0.2s ease',
                       }}
                     >
+                      {app.id === 'wander-app' && <Footprints size={12} />}
                       {app.id === 'smartbill-ai' && <Sparkles size={12} />}
                       {app.id === 'listening-eyes' && <Eye size={12} />}
                       {app.id === 'hukup-dating' && <Heart size={12} />}

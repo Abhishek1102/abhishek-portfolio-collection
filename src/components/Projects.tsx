@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  FolderGit2, Eye, Heart, ShoppingBag, Calendar, ArrowUpRight, CheckCircle2 
+  FolderGit2, Eye, Heart, ShoppingBag, Calendar, ArrowUpRight, CheckCircle2, Footprints, Sparkles 
 } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import type { Project } from '../data/portfolioData';
@@ -10,7 +10,7 @@ export const Projects: React.FC = () => {
   const [filterCategory, setFilterCategory] = useState<string>('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const categories = ['All', 'Accessibility', 'Social & Dating', 'E-Commerce', 'Healthcare & Business', 'Single-Handed'];
+  const categories = ['All', 'Digital Wellbeing', 'AI & Productivity', 'Accessibility', 'Social & Dating', 'E-Commerce', 'Healthcare & Business', 'Single-Handed'];
 
   const filteredProjects = PROJECTS.filter((p) => {
     if (filterCategory === 'All') return true;
@@ -94,6 +94,8 @@ export const Projects: React.FC = () => {
                       boxShadow: `0 0 20px ${project.color}66`,
                     }}
                   >
+                    {project.id === 'wander-app' && <Footprints size={24} color="#fff" />}
+                    {project.id === 'smartbill-ai' && <Sparkles size={24} color="#fff" />}
                     {project.id === 'listening-eyes' && <Eye size={24} color="#fff" />}
                     {project.id === 'hukup-dating' && <Heart size={24} color="#fff" />}
                     {project.id === 'miodeal-buyer' && <ShoppingBag size={24} color="#fff" />}
