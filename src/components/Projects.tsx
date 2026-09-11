@@ -75,6 +75,9 @@ export const Projects: React.FC = () => {
                 cursor: 'pointer',
                 position: 'relative',
                 overflow: 'hidden',
+                minWidth: 0,
+                width: '100%',
+                boxSizing: 'border-box',
                 ['--card-accent-color' as any]: project.color,
                 ['--card-glow-color' as any]: `${project.color}55`,
               }}
